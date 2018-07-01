@@ -2,18 +2,21 @@
 
 ---
 
-## Ruby is...
+### Ruby is...
 A dynamic, open source programming language with a focus on simplicity and
 productivity. It has an elegant syntax that is natural to read and easy to
 write.
 
++++
+
+### Ruby это...
 Динамический язык программирования с открытым исходным кодом с упором на
 простоту и продуктивность. Он обладает элегантным синтаксисом, который приятно
 читать и легко писать.
 
 ---
 
-## ... and everything is an object
+### ... and everything is an object
 
 ```ruby
 'I am calm'.upcase
@@ -33,7 +36,7 @@ nil.class
 
 ---
 
-## Installing Ruby
+### Installing Ruby
 
 Rule #1 - **DO NOT** use `apt` or any other built-in package manager to install
 Ruby.
@@ -45,7 +48,7 @@ https://ryanbigg.com/2014/10/ubuntu-ruby-ruby-install-chruby-and-yo
 
 ---
 
-## Numbers (Integer & Float)
+### Numbers (Integer & Float)
 
 ```ruby
 1 + 2
@@ -75,7 +78,7 @@ Math.sqrt(9)
 
 +++
 
-## Extreme numbers
+### Extreme numbers
 
 ```ruby
 100_000_000**10
@@ -119,7 +122,7 @@ String.new
 
 +++
 
-## String concatenation
+### String concatenation
 
 ```ruby
 'Con' 'cat' 'ena' 'te'
@@ -145,7 +148,7 @@ str.concat(', LOL')
 
 +++
 
-## String accessing
+### String accessing
 
 ```ruby
 str = 'Luke, I am your father'
@@ -170,8 +173,9 @@ str[0...4]
 
 +++
 
-## String has a lot of useful methods
-Check this out: https://ruby-doc.org/core-2.5.1/String.html <br>
+### String has a lot of useful methods
+Check this out: <br>
+https://ruby-doc.org/core-2.5.1/String.html <br>
 (Or just google *"ruby string"* **or any other class**)
 
 ```ruby
@@ -190,9 +194,9 @@ Check this out: https://ruby-doc.org/core-2.5.1/String.html <br>
 
 ---
 
-## Arrays
-
-Check this out: https://ruby-doc.org/core-2.5.1/Array.html
+### Arrays
+Check this out: <br>
+https://ruby-doc.org/core-2.5.1/Array.html
 
 ```ruby
 Array.new
