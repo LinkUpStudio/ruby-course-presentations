@@ -2,14 +2,14 @@
 
 ---
 
-### @fa[gem ruby-red] @css[ruby-red](Ruby is...)
+### @fa[diamond ruby-red] @css[ruby-red](Ruby is...)
 A dynamic, open source programming language with a focus on simplicity and
 productivity. It has an elegant syntax that is natural to read and easy to
 write.
 
 +++
 
-### @fa[gem ruby-red] @css[ruby-red](Ruby это...)
+### @fa[diamond ruby-red] @css[ruby-red](Ruby это...)
 Динамический язык программирования с открытым исходным кодом с упором на
 простоту и продуктивность. Он обладает элегантным синтаксисом, который приятно
 читать и легко писать.
