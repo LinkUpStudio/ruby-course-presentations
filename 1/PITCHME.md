@@ -41,7 +41,8 @@ nil.class
 Rule #1 - **DO NOT** use `apt` or any other built-in package manager to install
 Ruby.
 
-Use `rvm`, or `rbenv`, or just like me - `ruby-install`+`chruby`, as it is the simplest toolset of them all.
+Use `rvm`, or `rbenv`, or just like me - <br>
+`ruby-install`+`chruby`, as it is the simplest toolset of them all.
 
 We will use the following guide: <br>
 https://ryanbigg.com/2014/10/ubuntu-ruby-ruby-install-chruby-and-yo
