@@ -244,6 +244,12 @@ Array.new(4) { |i| i.to_s }
 
 ['pow', Array.new(2), [1, 2], 3.14]
 #=> ["pow", [nil, nil], [1, 2], 3.14]
+
+%w(monkey fish lion dog cat #{Time.now})
+#=> ["monkey", "fish", "lion", "dog", "cat", "\#{Time.now}"]
+
+%W(monkey fish lion dog cat #{Time.now})
+#=> ["monkey", "fish", "lion", "dog", "cat", "2013-05-03 12:24:42 +0300"]
 ```
 
 @[1,2]()
@@ -251,3 +257,41 @@ Array.new(4) { |i| i.to_s }
 @[7,8]()
 @[10,11]()
 @[13,14]()
+@[16,17]()
+
++++
+
+#### Elements accessing
+
+```ruby
+languages = 'Ruby', 'JavaScript', 'Python', 'Scala'
+#=> ["Ruby", "JavaScript", "Python", "Scala"]
+
+languages[0]
+#=> "Ruby"
+languages.at(0)
+#=> "Ruby"
+languages[1]
+#=> "JavaScript"
+
+languages[4]
+#=> nil
+
+languages[2..3]
+#=> ["Python", "Scala"]
+
+languages.take(3)
+#=> ["Ruby", "JavaScript", "Python"]
+
+languages[1] = "CoffeeScript"
+#=> "CoffeeScript"
+languages
+#=> ["Ruby", "CoffeeScript", "Python", "Scala"]
+```
+
+@[1,2]()
+@[4-9]()
+@[11,12]()
+@[14,15]()
+@[17,18]()
+@[19,22]()
