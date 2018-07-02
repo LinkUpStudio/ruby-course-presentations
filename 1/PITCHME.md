@@ -443,3 +443,41 @@ days1 << 'Thu' << 'Fri' << 'Sat' << 'Sun'
 @[6-9](Count)
 @[11-14](Empty)
 @[16-19](Include)
+
++++
+
+#### Operations with arrays
+
+```ruby
+some_countries = ['Norway', 'Canada', 'Ukraine', 'Japan']
+#=> ["Norway", "Canada", "Ukraine", "Japan"]
+some_europe_countries = ['Norway', 'Spain', 'Ukraine']
+#=> ["Norway", "Spain", "Ukraine"]
+
+some_countries | some_europe_countries
+#=> ["Norway", "Canada", "Ukraine", "Japan", "Spain"]
+
+some_countries & some_europe_countries
+#=> ["Norway", "Ukraine"]
+
+some_countries - some_europe_countries
+#=> ["Canada", "Japan"]
+
+some_europe_countries - some_countries
+#=> ["Spain"]
+
+some_europe_countries + ['Italy']
+#=> ["Norway", "Spain", "Ukraine", "Italy"]
+
+some_europe_countries * 2
+#=> ["Norway", "Spain", "Ukraine", "Norway", "Spain", "Ukraine"]
+
+some_europe_countries * '/'
+#=> "Norway/Spain/Ukraine"
+```
+@[1-4]()
+@[6-7](Union)
+@[9-10](Intersection)
+@[12-16](Difference)
+@[18-19](Addition)
+@[21-25](Multiplication)
