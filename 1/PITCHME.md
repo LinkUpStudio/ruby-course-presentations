@@ -343,9 +343,10 @@ languages.insert(4, 'Haml', 'Sass')
 
 #### Removing elements from array
 
-_["C++", "Ruby", "JS", "Elm", "Haml", "Sass", "Python", "Scala"]_
-
 ```ruby
+languages = ['C++', 'Ruby', 'JS', 'Elm', 'Haml', 'Sass', 'Python', 'Scala']
+#=> ["C++", "Ruby", "JS", "Eml", "Haml", "Sass", "Python", "Scala"]
+
 languages.pop
 #=> "Scala"
 languages
@@ -376,9 +377,10 @@ languages = 'Ruby', 'JS', 'Elm', 'Python', 'Elm'
 languages.uniq
 #=> ["Ruby", "JS", "Elm", "Python"]
 ```
-@[1-4](Pop)
-@[6-9](Shift)
-@[11-14](Delete at)
-@[16-19](Delete)
-@[21-24](Compact)
-@[26-29](Uniq)
+@[1-2](Pop)
+@[4-7](Pop)
+@[9-12](Shift)
+@[14-17](Delete at)
+@[19-22](Delete)
+@[24-27](Compact)
+@[29-32](Uniq)
