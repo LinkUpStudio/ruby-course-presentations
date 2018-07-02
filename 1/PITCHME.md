@@ -162,10 +162,10 @@ str.concat(', LOL')
 
 @[1-5](Simplest ways of concatenation)
 @[7-15](Multi-line concatenation)
-@[17,18](Create variable)
+@[16-17](Initialize variable)
 @[19-23](What if concatenate it with "+")
 @[25-29](What if concatenate it with "<<" operator)
-@[31,21](".concat" method)
+@[31-32](".concat" method)
 
 +++
 
@@ -250,3 +250,4 @@ Array.new(4) { |i| i.to_s }
 @[4,5]()
 @[7,8]()
 @[10,11]()
+@[13,14]()
