@@ -244,12 +244,6 @@ Array.new(4) { |i| i.to_s }
 
 ['pow', Array.new(2), [1, 2], 3.14]
 #=> ["pow", [nil, nil], [1, 2], 3.14]
-
-%w(monkey fish lion dog cat #{Time.now})
-#=> ["dog", "cat", "\#{Time.now}"]
-
-%W(monkey fish lion dog cat #{Time.now})
-#=> ["dog", "cat", "2018-06-24 11:24:17 +0300"]
 ```
 
 @[1,2]()
@@ -257,7 +251,26 @@ Array.new(4) { |i| i.to_s }
 @[7,8]()
 @[10,11]()
 @[13,14]()
-@[16-20]()
+
++++
+
+#### Percent syntax for arrays
+
+```ruby
+%w[word Dart\ Vader #{6 * 6}]
+#=> ["word", "Dart Vader", "\#{6", "*", "6}"]
+
+%W[word Dart\ Vader #{6 * 6}]
+#=> ["word", "Dart Vader", "36"]
+
+%i[word Dart\ Vader #{6 * 6}]
+#=> [:word, :"Dart Vader", :"\#{6", :*, :"6}"]
+
+%I[word Dart\ Vader #{6 * 6}]
+#=> [:word, :"Dart Vader", :"36"]
+```
+@[1-5]()
+@[7-11]()
 
 +++
 
@@ -287,7 +300,7 @@ languages[2..3]
 languages.take(3)
 #=> ["Ruby", "JS", "Python"]
 
-languages[1] = "CoffeeScript"
+languages[1] = 'CoffeeScript'
 #=> "CoffeeScript"
 languages
 #=> ["Ruby", "CoffeeScript", "Python", "Scala"]
@@ -306,23 +319,66 @@ languages
 _["Ruby", "JS", "Python", "Scala"]_
 
 ```ruby
-languages.push("Haskell")
+languages.push('Haskell')
 #=> ["Ruby", "JS", "Python", "Scala", "Haskell"]
 
-languages << "C#"
+languages << 'C#'
 #=> ["Ruby", "JS", "Python", "Scala", "Haskell", "C#"]
 
-> languages.unshift("C++")
+> languages.unshift('C++')
 #=> ["C++", "Ruby", "JS", "Python", "Scala", "Haskell", "C#"]
 
-languages.insert(3, "Elm")
+languages.insert(3, 'Elm')
 #=> ["C++", "Ruby", "JS", "Elm", "Python", "Scala", "Haskell", "C#"]
 
-languages.insert(4, "Haml", "Sass")
+languages.insert(4, 'Haml', 'Sass')
 #=> ["C++", "Ruby", "JS", "Elm", "Haml", "Sass", "Python", "Scala", "Haskell", "C#"]
-
 ```
 @[1-2](Push)
 @[4-5](Push operator)
 @[7-8](Unshift)
 @[10-14](Insert)
+
++++
+
+#### Removing elements from array
+
+_["C++", "Ruby", "JS", "Elm", "Haml", "Sass", "Python", "Scala"]_
+
+```ruby
+languages.pop
+#=> "Scala"
+languages
+#=> ["C++", "Ruby", "JS", "Elm", "Haml", "Sass", "Python"]
+
+languages.shift
+#=> "C++"
+languages
+#=> ["Ruby", "JS", "Elm", "Haml", "Sass", "Python"]
+
+languages.delete_at(2)
+#=> "Elm"
+languages
+#=> ["Ruby", "JS", "Haml", "Sass", "Python"]
+
+languages.delete('Sass')
+#=> "Sass"
+languages
+#=> ["Ruby", "JS", "Haml", "Python"]
+
+languages = 'Ruby', 'JS', nil, 0, 'Python', nil
+#=> ["Ruby", "JS", nil, 0, "Python", nil]
+languages.compact
+#=> ["Ruby", "JS", 0, "Python"]
+
+languages = 'Ruby', 'JS', 'Elm', 'Python', 'Elm'
+#=> ["Ruby", "JS", "Elm", "Python", "Elm"]
+languages.uniq
+#=> ["Ruby", "JS", "Elm", "Python"]
+```
+@[1-4](Pop)
+@[6-9](Shift)
+@[11-14](Delete at)
+@[16-19](Delete)
+@[21-24](Compact)
+@[26-29](Uniq)
