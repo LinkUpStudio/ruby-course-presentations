@@ -394,7 +394,9 @@ languages = 'Ruby', 'JavaScript', 'Scala', 'Python', 'Scala'
 #=> ["Ruby", "JavaScript", "Scala", "Python", "Scala"]
 
 languages.length
+#=> 5
 languages.count
+#=> 5
 languages.size
 #=> 5
 
@@ -408,6 +410,36 @@ languages.include?('PHP')
 #=> false
 ```
 @[1-2]()
-@[4-7](Count)
-@[9-10](Empty)
-@[12-16](Include)
+@[4-9](Count)
+@[11-12](Empty)
+@[14-18](Include)
+
++++
+
+#### Concatenation arrays
+
+```ruby
+days1 = ['Mon', 'Tue', 'Wed']
+#=> ["Mon", "Tue", "Wed"]
+days2 = ['Thu', 'Fri', 'Sat', 'Sun']
+#=> ["Thu", "Fri", "Sat", "Sun"]
+
+days1 + days2
+#=> ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+days1
+#=> ["Mon", "Tue", "Wed"]
+
+days1.concat(days2)
+#=> ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+days1
+#=> ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+
+days1 = ['Mon', 'Tue', 'Wed']
+#=> ["Mon", "Tue", "Wed"]
+days1 << 'Thu' << 'Fri' << 'Sat' << 'Sun'
+#=> ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+```
+@[1-4]()
+@[6-9](Count)
+@[11-14](Empty)
+@[16-19](Include)
