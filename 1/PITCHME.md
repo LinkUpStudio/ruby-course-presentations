@@ -449,9 +449,9 @@ days1 << 'Thu' << 'Fri' << 'Sat' << 'Sun'
 #### Operations with arrays
 
 ```ruby
-some_countries = ['Norway', 'Canada', 'Ukraine', 'Japan']
+some_countries = %w[Norway Canada Ukraine Japan]
 #=> ["Norway", "Canada", "Ukraine", "Japan"]
-some_europe_countries = ['Norway', 'Spain', 'Ukraine']
+some_europe_countries = %w[Norway Spain Ukraine]
 #=> ["Norway", "Spain", "Ukraine"]
 
 some_countries | some_europe_countries
