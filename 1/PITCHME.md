@@ -508,4 +508,5 @@ a.map { |x| print x, " -- " }
 @[1-2]()
 @[4-5](Each)
 @[7-8](Each index)
-@[10-11](Each with index)
+@[10-14](Each with index)
+@[16-17](Map)
