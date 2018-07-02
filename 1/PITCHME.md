@@ -161,11 +161,11 @@ str.concat(', LOL')
 ```
 
 @[1-5](Simplest ways of concatenation)
-@[7-15](Multi-line concatenation)
-@[16-17](Initialize variable)
-@[19-23](What if concatenate it with "+")
-@[25-29](What if concatenate it with "<<" operator)
-@[31-32](".concat" method)
+@[7-15]("Multi-line" concatenation)
+@[16-17](Variable initialization)
+@[19-23](Non object changing concatenation)
+@[25-29](Object changing concatenation)
+@[31-32](".concat" method is same as "<<" operator)
 
 +++
 
@@ -192,11 +192,11 @@ str[0...4]
 #=> "Luke"
 ```
 
-@[1,2](Initialize variable)
-@[4-7](Get single character)
-@[9,10](Using regex)
-@[12,13]()
-@[15-18](Using ranges)
+@[1,2](Variable initialization)
+@[4-7](Getting a single character)
+@[9,10](Getting sub-string by regex)
+@[12,13](Getting sub-string by start position and number of characters)
+@[15-18](Getting sub-string using range)
 
 +++
 
@@ -233,6 +233,9 @@ https://ruby-doc.org/core-2.5.1/Array.html
 Array.new
 #=> []
 
+[]
+#=> []
+
 Array.new(3)
 #=> [nil, nil, nil]
 
@@ -246,11 +249,11 @@ Array.new(4) { |i| i.to_s }
 #=> ["pow", [nil, nil], [1, 2], 3.14]
 ```
 
-@[1,2]()
-@[4,5]()
-@[7,8]()
-@[10,11]()
-@[13,14]()
+@[1-5](Blank Array creation)
+@[7,8](Creation of Array with initial size)
+@[10,11](Creation of Array with initial size and default object)
+@[13,14](Using a block for Array initialization)
+@[16,17](Array can contain anything, it shouldn't be objects of same class)
 
 +++
 
@@ -269,8 +272,8 @@ Array.new(4) { |i| i.to_s }
 %I[word Dart\ Vader #{6 * 6}]
 #=> [:word, :"Dart Vader", :"36"]
 ```
-@[1-5]()
-@[7-11]()
+@[1-5](Array of strings)
+@[7-11](Array of symbols)
 
 +++
 
@@ -304,6 +307,11 @@ languages[1] = 'CoffeeScript'
 #=> "CoffeeScript"
 languages
 #=> ["Ruby", "CoffeeScript", "Python", "Scala"]
+
+languages[100]
+#=> nil
+languages[-100]
+#=> nil
 ```
 @[1-2]()
 @[4-11]()
@@ -311,6 +319,7 @@ languages
 @[16-17]()
 @[19-20]()
 @[22-25]()
+@[27-30](No "index-out-of-range" errors!)
 
 +++
 
