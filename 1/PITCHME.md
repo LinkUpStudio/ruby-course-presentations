@@ -135,7 +135,7 @@ String.new
 'This string is so long, it does not fit nicely into your code, so you can use this "multiline" concatenation technique, and deserve a cookie for being nice.'
 #=> "This string is so long, it does not fit nicely into your code, so you can use this \"multiline\" concatenation technique, and deserve a cookie for being nice."
 
-'This string is so long, it does not fit nicely' \
+'This string is so long, it does not fit nicely ' \
 'into your code, so you can use this "multiline" ' \
 'concatenation technique, and deserve ' \
 'a cookie for being nice.'
@@ -298,3 +298,31 @@ languages
 @[16-17]()
 @[19-20]()
 @[22-25]()
+
++++
+
+#### Adding elements to array
+
+_["Ruby", "JavaScript", "Python", "Scala"]_
+
+```ruby
+languages.push("Haskell")
+#=> ["Ruby", "JavaScript", "Python", "Scala", "Haskell"]
+
+languages << "Assembler"
+#=> ["Ruby", "JavaScript", "Python", "Scala", "Haskell", "Assembler"]
+
+> languages.unshift("C++")
+#=> ["C++", "Ruby", "JavaScript", "Python", "Scala", "Haskell", "Assembler"]
+
+languages.insert(3, "CoffeeScript")
+#=> ["C++", "Ruby", "JavaScript", "CoffeeScript", "Python", "Scala", "Haskell", "Assembler"]
+
+languages.insert(4, "Haml", "Sass")
+#=> ["C++", "Ruby", "JavaScript", "CoffeeScript", "Haml", "Sass", "Python", "Scala", "Haskell", "Assembler"]
+
+```
+@[1-2](Push)
+@[4-5](Push operator)
+@[7-8](Unshift)
+@[10-14](Insert)
