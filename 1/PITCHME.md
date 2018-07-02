@@ -100,11 +100,11 @@ String.new
 'Na ' * 5
 #=> "Na Na Na Na Na "
 
-'#{6 * 6}'
-#=> "\#{6 * 6}"
-
 "#{6 * 6}"
 #=> "36"
+
+'#{6 * 6}'
+#=> "\#{6 * 6}"
 
 %q(<p class='quote'>"What did you say?"<p>)
 #=> "<p class='quote'>\"What did you say?\"<p>"
@@ -132,15 +132,28 @@ String.new
 'Con' + 'cat' + 'ena' + 'te'
 #=> "Concatenate"
 
-'This string is so long, it does not fit nicely into your code, ' \
-'so you can use this "multiline" concatenation technique, and deserve ' \
+'This string is so long, it does not fit nicely into your code, so you can use this "multiline" concatenation technique, and deserve a cookie for being nice.'
+#=> "This string is so long, it does not fit nicely into your code, so you can use this \"multiline\" concatenation technique, and deserve a cookie for being nice."
+
+'This string is so long, it does not fit nicely' \
+'into your code, so you can use this "multiline" ' \
+'concatenation technique, and deserve ' \
 'a cookie for being nice.'
 #=> "This string is so long, it does not fit nicely into your code, so you can use this \"multiline\" concatenation technique, and deserve a cookie for being nice."
 
 str = 'Luke'
 #=> "Luke"
 
+str + ', I am your father'
+#=> "Luke, I am your father"
+
+str
+#=> "Luke"
+
 str << ', I am your father'
+#=> "Luke, I am your father"
+
+str
 #=> "Luke, I am your father"
 
 str.concat(', LOL')
