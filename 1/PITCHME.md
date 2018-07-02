@@ -482,6 +482,8 @@ some_europe_countries * '/'
 @[18-19](Addition)
 @[21-25](Multiplication)
 
++++
+
 #### Iterators
 
 ```ruby
