@@ -246,10 +246,10 @@ Array.new(4) { |i| i.to_s }
 #=> ["pow", [nil, nil], [1, 2], 3.14]
 
 %w(monkey fish lion dog cat #{Time.now})
-#=> ["monkey", "fish", "lion", "dog", "cat", "\#{Time.now}"]
+#=> ["dog", "cat", "\#{Time.now}"]
 
 %W(monkey fish lion dog cat #{Time.now})
-#=> ["monkey", "fish", "lion", "dog", "cat", "2018-06-24 11:24:17 +0300"]
+#=> ["dog", "cat", "2018-06-24 11:24:17 +0300"]
 ```
 
 @[1,2]()
