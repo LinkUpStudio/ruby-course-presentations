@@ -160,6 +160,13 @@ str.concat(', LOL')
 #=> "Luke, I am your father, LOL"
 ```
 
+@[1-5](Simplest ways of concatenation)
+@[7-15](Multi-line concatenation)
+@[17,18](Create variable)
+@[19-23](What if concatenate it with "+")
+@[25-29](What if concatenate it with "<<" operator)
+@[31,21](".concat" method)
+
 +++
 
 #### String accessing
@@ -185,6 +192,12 @@ str[0...4]
 #=> "Luke"
 ```
 
+@[1,2](Initialize variable)
+@[4-7](Get single character)
+@[9,10](Using regex)
+@[12,13]()
+@[15-18](Using ranges)
+
 +++
 
 #### String has a lot of useful methods
@@ -205,6 +218,10 @@ https://ruby-doc.org/core-2.5.1/String.html <br>
 'Luke, I am your father'.split(', ')
 #=> ["Luke", "I am your father"]
 ```
+
+@[1,2](Capitalization)
+@[4,5](Find index)
+@[7-11](Split by)
 
 ---
 
@@ -228,3 +245,8 @@ Array.new(4) { |i| i.to_s }
 ['pow', Array.new(2), [1, 2], 3.14]
 #=> ["pow", [nil, nil], [1, 2], 3.14]
 ```
+
+@[1,2]()
+@[4,5]()
+@[7,8]()
+@[10,11]()
