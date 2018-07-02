@@ -266,7 +266,9 @@ Array.new(4) { |i| i.to_s }
 ```ruby
 languages = 'Ruby', 'JavaScript', 'Python', 'Scala'
 #=> ["Ruby", "JavaScript", "Python", "Scala"]
+```
 
+```ruby
 languages[0]
 #=> "Ruby"
 
@@ -290,10 +292,8 @@ languages[1] = "CoffeeScript"
 languages
 #=> ["Ruby", "CoffeeScript", "Python", "Scala"]
 ```
-
-@[1-2]()
-@[4-11]()
+@[1-8]()
+@[10-11]()
 @[13-14]()
 @[16-17]()
-@[19-20]()
-@[21-24]()
+@[19-22]()
