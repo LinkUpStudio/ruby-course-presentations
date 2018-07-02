@@ -377,10 +377,37 @@ languages = 'Ruby', 'JS', 'Elm', 'Python', 'Elm'
 languages.uniq
 #=> ["Ruby", "JS", "Elm", "Python"]
 ```
-@[1-2](Pop)
+@[1-2]()
 @[4-7](Pop)
 @[9-12](Shift)
 @[14-17](Delete at)
 @[19-22](Delete)
 @[24-27](Compact)
 @[29-32](Uniq)
+
++++
+
+#### Obtaining information about array
+
+```ruby
+languages = 'Ruby', 'JavaScript', 'Scala', 'Python', 'Scala'
+#=> ["Ruby", "JavaScript", "Scala", "Python", "Scala"]
+
+languages.length
+languages.count
+languages.size
+#=> 5
+
+languages.empty?
+#=> false
+
+languages.include?('Ruby')
+#=> true
+
+languages.include?('PHP')
+#=> false
+```
+@[1-2]()
+@[4-7](Count)
+@[9-10](Empty)
+@[12-16](Include)
