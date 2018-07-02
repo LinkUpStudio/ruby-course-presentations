@@ -257,7 +257,7 @@ Array.new(4) { |i| i.to_s }
 @[7,8]()
 @[10,11]()
 @[13,14]()
-@[16,17]()
+@[16-19]()
 
 +++
 
@@ -269,8 +269,10 @@ languages = 'Ruby', 'JavaScript', 'Python', 'Scala'
 
 languages[0]
 #=> "Ruby"
+
 languages.at(0)
 #=> "Ruby"
+
 languages[1]
 #=> "JavaScript"
 
@@ -289,9 +291,9 @@ languages
 #=> ["Ruby", "CoffeeScript", "Python", "Scala"]
 ```
 
-@[1,2]()
-@[4-9]()
-@[11,12]()
-@[14,15]()
-@[17,18]()
-@[19,22]()
+@[1-2]()
+@[4-11]()
+@[13-14]()
+@[16-17]()
+@[19-20]()
+@[21-24]()
