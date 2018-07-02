@@ -386,10 +386,136 @@ languages = 'Ruby', 'JS', 'Elm', 'Python', 'Elm'
 languages.uniq
 #=> ["Ruby", "JS", "Elm", "Python"]
 ```
-@[1-2](Pop)
+@[1-2]()
 @[4-7](Pop)
 @[9-12](Shift)
 @[14-17](Delete at)
 @[19-22](Delete)
 @[24-27](Compact)
 @[29-32](Uniq)
+
++++
+
+#### Obtaining information about array
+
+```ruby
+languages = 'Ruby', 'JavaScript', 'Scala', 'Python', 'Scala'
+#=> ["Ruby", "JavaScript", "Scala", "Python", "Scala"]
+
+languages.length
+#=> 5
+languages.count
+#=> 5
+languages.size
+#=> 5
+
+languages.empty?
+#=> false
+
+languages.include?('Ruby')
+#=> true
+
+languages.include?('PHP')
+#=> false
+```
+@[1-2]()
+@[4-9](Count)
+@[11-12](Empty)
+@[14-18](Include)
+
++++
+
+#### Concatenation arrays
+
+```ruby
+days1 = ['Mon', 'Tue', 'Wed']
+#=> ["Mon", "Tue", "Wed"]
+days2 = ['Thu', 'Fri', 'Sat', 'Sun']
+#=> ["Thu", "Fri", "Sat", "Sun"]
+
+days1 + days2
+#=> ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+days1
+#=> ["Mon", "Tue", "Wed"]
+
+days1.concat(days2)
+#=> ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+days1
+#=> ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+
+days1 = ['Mon', 'Tue', 'Wed']
+#=> ["Mon", "Tue", "Wed"]
+days1 << 'Thu' << 'Fri' << 'Sat' << 'Sun'
+#=> ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+```
+@[1-4]()
+@[6-9](Count)
+@[11-14](Empty)
+@[16-19](Include)
+
++++
+
+#### Operations with arrays
+
+```ruby
+some_countries = %w[Norway Canada Ukraine Japan]
+#=> ["Norway", "Canada", "Ukraine", "Japan"]
+some_europe_countries = %w[Norway Spain Ukraine]
+#=> ["Norway", "Spain", "Ukraine"]
+
+some_countries | some_europe_countries
+#=> ["Norway", "Canada", "Ukraine", "Japan", "Spain"]
+
+some_countries & some_europe_countries
+#=> ["Norway", "Ukraine"]
+
+some_countries - some_europe_countries
+#=> ["Canada", "Japan"]
+
+some_europe_countries - some_countries
+#=> ["Spain"]
+
+some_europe_countries + ['Italy']
+#=> ["Norway", "Spain", "Ukraine", "Italy"]
+
+some_europe_countries * 2
+#=> ["Norway", "Spain", "Ukraine", "Norway", "Spain", "Ukraine"]
+
+some_europe_countries * '/'
+#=> "Norway/Spain/Ukraine"
+```
+@[1-4]()
+@[6-7](Union)
+@[9-10](Intersection)
+@[12-16](Difference)
+@[18-19](Addition)
+@[21-25](Multiplication)
+
++++
+
+#### Iterators
+
+```ruby
+a = %w[a b c]
+#=> ["a", "b", "c"]
+
+a.each { |x| print x, ' -- ' }
+# a -- b -- c -- => ["a", "b", "c"]
+
+a.each_index { |x| print x, ' -- ' }
+# 0 -- 1 -- 2 -- => ["a", "b", "c"]
+
+a.each_with_index { |item, index| puts "[#{index}] => #{item}" }
+# [0] => a
+# [1] => b
+# [2] => c
+#=> ["a", "b", "c"]
+
+a.map { |x| print x, " -- " }
+# a -- b -- c -- => [nil, nil, nil]
+```
+@[1-2]()
+@[4-5](Each)
+@[7-8](Each index)
+@[10-14](Each with index)
+@[16-17](Map)
