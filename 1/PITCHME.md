@@ -45,7 +45,7 @@ Use `rvm`, or `rbenv`, or just like me - <br>
 `ruby-install`+`chruby`, as it is the simplest toolset of them all.
 
 We will use the following guide: <br>
-https://ryanbigg.com/2014/10/ubuntu-ruby-ruby-install-chruby-and-yo
+https://ryanbigg.com/2014/10/ubuntu-ruby-ruby-install-chruby-and-you
 
 ---
 
