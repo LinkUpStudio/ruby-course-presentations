@@ -249,7 +249,7 @@ Array.new(4) { |i| i.to_s }
 #=> ["monkey", "fish", "lion", "dog", "cat", "\#{Time.now}"]
 
 %W(monkey fish lion dog cat #{Time.now})
-#=> ["monkey", "fish", "lion", "dog", "cat", "2013-05-03 12:24:42 +0300"]
+#=> ["monkey", "fish", "lion", "dog", "cat", "2018-06-24 11:24:17 +0300"]
 ```
 
 @[1,2]()
@@ -257,17 +257,17 @@ Array.new(4) { |i| i.to_s }
 @[7,8]()
 @[10,11]()
 @[13,14]()
-@[16-19]()
+@[16-20]()
 
 +++
 
 #### Elements accessing
 
-_["Ruby", "JavaScript", "Python", "Scala"]_
+_["Ruby", "JS", "Python", "Scala"]_
 
 ```ruby
-languages = 'Ruby', 'JavaScript', 'Python', 'Scala'
-#=> ["Ruby", "JavaScript", "Python", "Scala"]
+languages = 'Ruby', 'JS', 'Python', 'Scala'
+#=> ["Ruby", "JS", "Python", "Scala"]
 
 languages[0]
 #=> "Ruby"
@@ -276,7 +276,7 @@ languages.at(0)
 #=> "Ruby"
 
 languages[1]
-#=> "JavaScript"
+#=> "JS"
 
 languages[4]
 #=> nil
@@ -285,7 +285,7 @@ languages[2..3]
 #=> ["Python", "Scala"]
 
 languages.take(3)
-#=> ["Ruby", "JavaScript", "Python"]
+#=> ["Ruby", "JS", "Python"]
 
 languages[1] = "CoffeeScript"
 #=> "CoffeeScript"
@@ -303,23 +303,23 @@ languages
 
 #### Adding elements to array
 
-_["Ruby", "JavaScript", "Python", "Scala"]_
+_["Ruby", "JS", "Python", "Scala"]_
 
 ```ruby
 languages.push("Haskell")
-#=> ["Ruby", "JavaScript", "Python", "Scala", "Haskell"]
+#=> ["Ruby", "JS", "Python", "Scala", "Haskell"]
 
-languages << "Assembler"
-#=> ["Ruby", "JavaScript", "Python", "Scala", "Haskell", "Assembler"]
+languages << "C#"
+#=> ["Ruby", "JS", "Python", "Scala", "Haskell", "C#"]
 
 > languages.unshift("C++")
-#=> ["C++", "Ruby", "JavaScript", "Python", "Scala", "Haskell", "Assembler"]
+#=> ["C++", "Ruby", "JS", "Python", "Scala", "Haskell", "C#"]
 
-languages.insert(3, "CoffeeScript")
-#=> ["C++", "Ruby", "JavaScript", "CoffeeScript", "Python", "Scala", "Haskell", "Assembler"]
+languages.insert(3, "Elm")
+#=> ["C++", "Ruby", "JS", "Elm", "Python", "Scala", "Haskell", "C#"]
 
 languages.insert(4, "Haml", "Sass")
-#=> ["C++", "Ruby", "JavaScript", "CoffeeScript", "Haml", "Sass", "Python", "Scala", "Haskell", "Assembler"]
+#=> ["C++", "Ruby", "JS", "Elm", "Haml", "Sass", "Python", "Scala", "Haskell", "C#"]
 
 ```
 @[1-2](Push)
