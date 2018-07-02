@@ -481,3 +481,29 @@ some_europe_countries * '/'
 @[12-16](Difference)
 @[18-19](Addition)
 @[21-25](Multiplication)
+
+#### Iterators
+
+```ruby
+a = %w[a b c]
+#=> ["a", "b", "c"]
+
+a.each { |x| print x, ' -- ' }
+# a -- b -- c -- => ["a", "b", "c"]
+
+a.each_index { |x| print x, ' -- ' }
+# 0 -- 1 -- 2 -- => ["a", "b", "c"]
+
+a.each_with_index { |item, index| puts "[#{index}] => #{item}" }
+# [0] => a
+# [1] => b
+# [2] => c
+#=> ["a", "b", "c"]
+
+a.map { |x| print x, " -- " }
+# a -- b -- c -- => [nil, nil, nil]
+```
+@[1-2]()
+@[4-5](Each)
+@[7-8](Each index)
+@[10-11](Each with index)
