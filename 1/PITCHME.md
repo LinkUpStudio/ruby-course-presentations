@@ -263,12 +263,12 @@ Array.new(4) { |i| i.to_s }
 
 #### Elements accessing
 
+_["Ruby", "JavaScript", "Python", "Scala"]_
+
 ```ruby
 languages = 'Ruby', 'JavaScript', 'Python', 'Scala'
 #=> ["Ruby", "JavaScript", "Python", "Scala"]
-```
 
-```ruby
 languages[0]
 #=> "Ruby"
 
@@ -292,8 +292,9 @@ languages[1] = "CoffeeScript"
 languages
 #=> ["Ruby", "CoffeeScript", "Python", "Scala"]
 ```
-@[1-2,3-10]()
-@[1-2,12-13]()
-@[1-2,15-16]()
-@[1-2,18-19]()
-@[1-2,21-24]()
+@[1-2]()
+@[4-11]()
+@[13-14]()
+@[16-17]()
+@[19-20]()
+@[22-25]()
