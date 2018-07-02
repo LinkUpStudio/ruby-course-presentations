@@ -100,11 +100,11 @@ String.new
 'Na ' * 5
 #=> "Na Na Na Na Na "
 
-'#{6 * 6}'
-#=> "\#{6 * 6}"
-
 "#{6 * 6}"
 #=> "36"
+
+'#{6 * 6}'
+#=> "\#{6 * 6}"
 
 %q(<p class='quote'>"What did you say?"<p>)
 #=> "<p class='quote'>\"What did you say?\"<p>"
@@ -132,20 +132,40 @@ String.new
 'Con' + 'cat' + 'ena' + 'te'
 #=> "Concatenate"
 
-'This string is so long, it does not fit nicely into your code, ' \
-'so you can use this "multiline" concatenation technique, and deserve ' \
+'This string is so long, it does not fit nicely into your code, so you can use this "multiline" concatenation technique, and deserve a cookie for being nice.'
+#=> "This string is so long, it does not fit nicely into your code, so you can use this \"multiline\" concatenation technique, and deserve a cookie for being nice."
+
+'This string is so long, it does not fit nicely ' \
+'into your code, so you can use this "multiline" ' \
+'concatenation technique, and deserve ' \
 'a cookie for being nice.'
 #=> "This string is so long, it does not fit nicely into your code, so you can use this \"multiline\" concatenation technique, and deserve a cookie for being nice."
 
 str = 'Luke'
 #=> "Luke"
 
+str + ', I am your father'
+#=> "Luke, I am your father"
+
+str
+#=> "Luke"
+
 str << ', I am your father'
+#=> "Luke, I am your father"
+
+str
 #=> "Luke, I am your father"
 
 str.concat(', LOL')
 #=> "Luke, I am your father, LOL"
 ```
+
+@[1-5](Simplest ways of concatenation)
+@[7-15](Multi-line concatenation)
+@[16-17](Initialize variable)
+@[19-23](What if concatenate it with "+")
+@[25-29](What if concatenate it with "<<" operator)
+@[31-32](".concat" method)
 
 +++
 
@@ -172,6 +192,12 @@ str[0...4]
 #=> "Luke"
 ```
 
+@[1,2](Initialize variable)
+@[4-7](Get single character)
+@[9,10](Using regex)
+@[12,13]()
+@[15-18](Using ranges)
+
 +++
 
 #### String has a lot of useful methods
@@ -192,6 +218,10 @@ https://ruby-doc.org/core-2.5.1/String.html <br>
 'Luke, I am your father'.split(', ')
 #=> ["Luke", "I am your father"]
 ```
+
+@[1,2](Capitalization)
+@[4,5](Find index)
+@[7-11](Split by)
 
 ---
 
@@ -215,3 +245,142 @@ Array.new(4) { |i| i.to_s }
 ['pow', Array.new(2), [1, 2], 3.14]
 #=> ["pow", [nil, nil], [1, 2], 3.14]
 ```
+
+@[1,2]()
+@[4,5]()
+@[7,8]()
+@[10,11]()
+@[13,14]()
+
++++
+
+#### Percent syntax for arrays
+
+```ruby
+%w[word Dart\ Vader #{6 * 6}]
+#=> ["word", "Dart Vader", "\#{6", "*", "6}"]
+
+%W[word Dart\ Vader #{6 * 6}]
+#=> ["word", "Dart Vader", "36"]
+
+%i[word Dart\ Vader #{6 * 6}]
+#=> [:word, :"Dart Vader", :"\#{6", :*, :"6}"]
+
+%I[word Dart\ Vader #{6 * 6}]
+#=> [:word, :"Dart Vader", :"36"]
+```
+@[1-5]()
+@[7-11]()
+
++++
+
+#### Elements accessing
+
+_["Ruby", "JS", "Python", "Scala"]_
+
+```ruby
+languages = 'Ruby', 'JS', 'Python', 'Scala'
+#=> ["Ruby", "JS", "Python", "Scala"]
+
+languages[0]
+#=> "Ruby"
+
+languages.at(0)
+#=> "Ruby"
+
+languages[1]
+#=> "JS"
+
+languages[4]
+#=> nil
+
+languages[2..3]
+#=> ["Python", "Scala"]
+
+languages.take(3)
+#=> ["Ruby", "JS", "Python"]
+
+languages[1] = 'CoffeeScript'
+#=> "CoffeeScript"
+languages
+#=> ["Ruby", "CoffeeScript", "Python", "Scala"]
+```
+@[1-2]()
+@[4-11]()
+@[13-14]()
+@[16-17]()
+@[19-20]()
+@[22-25]()
+
++++
+
+#### Adding elements to array
+
+_["Ruby", "JS", "Python", "Scala"]_
+
+```ruby
+languages.push('Haskell')
+#=> ["Ruby", "JS", "Python", "Scala", "Haskell"]
+
+languages << 'C#'
+#=> ["Ruby", "JS", "Python", "Scala", "Haskell", "C#"]
+
+> languages.unshift('C++')
+#=> ["C++", "Ruby", "JS", "Python", "Scala", "Haskell", "C#"]
+
+languages.insert(3, 'Elm')
+#=> ["C++", "Ruby", "JS", "Elm", "Python", "Scala", "Haskell", "C#"]
+
+languages.insert(4, 'Haml', 'Sass')
+#=> ["C++", "Ruby", "JS", "Elm", "Haml", "Sass", "Python", "Scala", "Haskell", "C#"]
+```
+@[1-2](Push)
+@[4-5](Push operator)
+@[7-8](Unshift)
+@[10-14](Insert)
+
++++
+
+#### Removing elements from array
+
+```ruby
+languages = ['C++', 'Ruby', 'JS', 'Elm', 'Haml', 'Sass', 'Python', 'Scala']
+#=> ["C++", "Ruby", "JS", "Eml", "Haml", "Sass", "Python", "Scala"]
+
+languages.pop
+#=> "Scala"
+languages
+#=> ["C++", "Ruby", "JS", "Elm", "Haml", "Sass", "Python"]
+
+languages.shift
+#=> "C++"
+languages
+#=> ["Ruby", "JS", "Elm", "Haml", "Sass", "Python"]
+
+languages.delete_at(2)
+#=> "Elm"
+languages
+#=> ["Ruby", "JS", "Haml", "Sass", "Python"]
+
+languages.delete('Sass')
+#=> "Sass"
+languages
+#=> ["Ruby", "JS", "Haml", "Python"]
+
+languages = 'Ruby', 'JS', nil, 0, 'Python', nil
+#=> ["Ruby", "JS", nil, 0, "Python", nil]
+languages.compact
+#=> ["Ruby", "JS", 0, "Python"]
+
+languages = 'Ruby', 'JS', 'Elm', 'Python', 'Elm'
+#=> ["Ruby", "JS", "Elm", "Python", "Elm"]
+languages.uniq
+#=> ["Ruby", "JS", "Elm", "Python"]
+```
+@[1-2](Pop)
+@[4-7](Pop)
+@[9-12](Shift)
+@[14-17](Delete at)
+@[19-22](Delete)
+@[24-27](Compact)
+@[29-32](Uniq)
