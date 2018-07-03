@@ -639,17 +639,17 @@ h
 h = {'a' => 100, 'b' => 200}
 #=> {"a"=>100, "b"=>200}
 
-h.each {|key, value| puts "#{key} is #{value}" }
+h.each { |key, value| puts "#{key} is #{value}" }
 # a is 100
 # b is 200
 # => {"a"=>100, "b"=>200}
 
-h.each_key {|key| puts key }
+h.each_key { |key| puts key }
 # a
 # b
 #=> {"a"=>100, "b"=>200}
 
-h.each_value {|value| puts value }
+h.each_value { |value| puts value }
 # 100
 # 200
 # => {"a"=>100, "b"=>200}
@@ -664,7 +664,7 @@ h.each_value {|value| puts value }
 #### Hash
 
 ```ruby
-h = { 'a' => 100, 'b' => 200, 'c' => 300 }
+h = {'a' => 100, 'b' => 200, 'c' => 300}
 #=> {"a"=>100, "b"=>200, "c"=>300}
  
 h.key?('a')
@@ -687,10 +687,34 @@ h.values
 
 h.values_at('a', 'c')
 #=> [100, 300]
+
+h.select { |key, value| value > 100 }
+#=> {"b" => 200, "c" => 300}
+
+h.length
+#=> 3
+
+h.delete('a')
+#=> 100
+
+h.length
+#=> 2
+
+h1 = {'a' => 100, 'b' => 200}
+#=> {"a"=>100, "b"=>200}
+
+h2 = {'b' => 254, 'c' => 300}
+#=> {"b"=>254, "c"=>300}
+
+h1.merge(h2)
+#=> {"a"=>100, "b"=>254, "c"=>300}
 ```
 @[1-2]()
-@[4-8](Returns true if the given key is present in hash.)
-@[10-14](Returns true if the given value is present for some key in hash.)
-@[16-17](Returns a new array populated with the keys from hash.)
-@[19-20](Returns a new array populated with the values from hash.)
-@[22-23](Return an array containing the values associated with the given keys.)
+@[4-8](Returns true if the given key is present in hash)
+@[10-14](Returns true if the given value is present for some key in hash)
+@[16-17](Returns a new array populated with the keys from hash)
+@[19-20](Returns a new array populated with the values from hash)
+@[22-23](Return an array containing the values associated with the given keys)
+@[25-26](Returns a new hash consisting of entries for which the block returns true)
+@[28-35](Returns the number of key-value pairs in the hash)
+@[37-44](Returns a new hash containing the contents of other_hash and the contents of hash)
