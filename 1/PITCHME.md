@@ -36,6 +36,14 @@ nil.class
 
 ---
 
+#### Join our Slack!
+
+https://goo.gl/oL9Vy8
+
+"oh, big L, nine, big V, why, eight"
+
+---
+
 #### Installing Ruby
 
 Rule #1 - **DO NOT** use `apt` or any other built-in package manager to install
@@ -46,14 +54,6 @@ Use `rvm`, or `rbenv`, or just like me - <br>
 
 We will use the following guide: <br>
 https://ryanbigg.com/2014/10/ubuntu-ruby-ruby-install-chruby-and-you
-
----
-
-#### Join our Slack!
-
-https://goo.gl/oL9Vy8
-
-"oh, big L, nine, big V, why, eight"
 
 ---
 
@@ -471,7 +471,7 @@ languages.push('Haskell')
 languages << 'C#'
 #=> ["Ruby", "JS", "Python", "Scala", "Haskell", "C#"]
 
-> languages.unshift('C++')
+languages.unshift('C++')
 #=> ["C++", "Ruby", "JS", "Python", "Scala", "Haskell", "C#"]
 
 languages.insert(3, 'Elm')
