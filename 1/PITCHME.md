@@ -517,6 +517,7 @@ some_europe_countries * 2
 
 some_europe_countries * '/'
 #=> "Norway/Spain/Ukraine"
+
 some_europe_countries.join('/')
 #=> "Norway/Spain/Ukraine"
 ```
@@ -526,7 +527,7 @@ some_europe_countries.join('/')
 @[12-16](Difference, not commutative!)
 @[18-19](Addition)
 @[21-22](Multiplication)
-@[24-27](Joining into single string by given "joining" string)
+@[24-28](Joining into single string by given "joining" string)
 
 +++
 
@@ -662,6 +663,7 @@ h.each_value { |value| puts value }
 +++
 
 #### Hash
+_{"a" => 100, "b" => 200, "c" => 300}_
 
 ```ruby
 h = {'a' => 100, 'b' => 200, 'c' => 300}
