@@ -259,8 +259,77 @@ https://ruby-doc.org/core-2.5.1/String.html <br>
 
 ---
 
+#### Ranges
+https://ruby-doc.org/core-2.5.1/Range.html
+
+```ruby
+(-1..-5).to_a      #=> []
+(-5..-1).to_a      #=> [-5, -4, -3, -2, -1]
+('a'..'e').to_a    #=> ["a", "b", "c", "d", "e"]
+('a'...'e').to_a   #=> ["a", "b", "c", "d"]
+```
+@[1](Wrong range, works in ASCending order only)
+@[2,3](Inclusive range)
+@[4](Exclusive range)
+
+---
+
+#### Symbols
+https://ruby-doc.org/core-2.5.1/Symbol.html
+
+```ruby
+:fast_and_furious
+#=> :fast_and_furious
+:'fast_and_furious'
+#=> :fast_and_furious
+
+:*
+#=> :*
+
+:'Frodo Baggins'
+#=> :"Frodo Baggins"
+
+:'-#{6 * 6}-'
+#=> :"-\#{6 * 6}-"
+:"-#{6 * 6}-"
+#=> :"-36-"
+```
+@[1-4](Normal Symbol literals)
+@[6-7](Some single characters may also be used, like + - * / % ^ & |)
+@[9-10](Any other strings may also be used)
+@[12-15](And of corse, interpolation)
+
++++
+
+#### Symbols are always same (like numbers)
+
+```ruby
+:Frodo.object_id
+#=> 1283748
+:Frodo.object_id
+#=> 1283748
+1.object_id
+#=> 3
+1.object_id
+#=> 3
+
+'Frodo'.object_id
+#=> 47384436502040
+'Frodo'.object_id
+#=> 47384436496380
+
+'Frodo'.to_sym
+#=> :Frodo
+'Frodo'.to_sym.object_id
+#=> 1283748
+```
+@[1-8](:Frodo is always the same :Frodo, just like 1)
+@[10-13](While 'Frodo' each time is DIFFERENT object in memory)
+@[15-18](Any String can be converted to Symbol, and still same :Frodo)
+
+---
+
 #### Arrays
-Check this out: <br>
 https://ruby-doc.org/core-2.5.1/Array.html
 
 ```ruby
