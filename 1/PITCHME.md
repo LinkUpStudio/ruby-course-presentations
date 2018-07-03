@@ -51,7 +51,9 @@ https://ryanbigg.com/2014/10/ubuntu-ruby-ruby-install-chruby-and-you
 
 #### Join our Slack!
 
-goo.gl/oL9Vy8
+https://goo.gl/oL9Vy8
+
+"oh big L nine big V why? eight"
 
 ---
 
