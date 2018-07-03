@@ -557,7 +557,7 @@ a.map { |x| print x, " -- " }
 @[10-14](Each with index)
 @[16-17](Map)
 
-+++
+---
 
 #### Hash
 Check this out: <br>
