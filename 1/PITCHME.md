@@ -596,3 +596,37 @@ h['key']
 @[10-13](Default value)
 @[15-18](Default value)
 @[20-23](Default value)
+
++++
+
+#### Hash elements deleting
+
+```ruby
+h = {'a' => 100, 'b' => 200}
+#=> {"a"=>100, "b"=>200}
+h.delete('a')
+#=> 100
+h.delete('z')
+#=> nil
+
+h = {'a' => 100, 'b' => 200, 'c' => 300}
+#=> {"a"=>100, "b"=>200, "c"=>300}
+h.delete_if { |key, value| value > 100 }  
+#=> {"a"=>100}
+
+h = {'a' => 100, 'b' => 200, 'c' => 300}
+#=> {"a"=>100, "b"=>200, "c"=>300}
+h.keep_if {|key, value| value > 100 }
+#=> {"b"=>200, "c"=>300}
+
+h = {1 => 'a', 2 => 'b', 3 => 'c'}
+#=> {1=>"a", 2=>"b", 3=>"c"}
+h.shift
+#=> [1, "a"]
+h
+#=> {2=>"b", 3=>"c"}
+```
+@[1-6](Delete)
+@[8-11](Delete if)
+@[13-16](Keep if)
+@[18-23](Shift)
