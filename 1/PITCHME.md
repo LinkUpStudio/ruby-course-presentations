@@ -725,6 +725,8 @@ h1.merge(h2)
 
 #### Time
 
+http://ruby-doc.org/core-2.5.1/Time.html
+
 ```ruby
 t = Time.new
 #=> 2018-06-22 15:52:16 +0300
@@ -758,10 +760,14 @@ t.zone
 
 t.strftime('%Y-%m-%d %H:%M:%S')
 #=> "2018-06-22 15:52:16"
+
+t.sunday?
+#=> false
 ```
 @[1-2]()
 @[4-11]()
 @[13-17]()
 @[19-26]()
-@[28-29]()
-@[31-32]()
+@[28-29](Returns the name of the time zone used for time)
+@[31-32](Formats time according to the directives in the given format string)
+@[34-35](Returns true if time represents Sunday)
