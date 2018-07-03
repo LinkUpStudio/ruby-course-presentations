@@ -658,3 +658,39 @@ h.each_value {|value| puts value }
 @[4-7](Each)
 @[9-12](Each key)
 @[14-17](Each value)
+
++++
+
+#### Hash
+
+```ruby
+h = { 'a' => 100, 'b' => 200, 'c' => 300 }
+#=> {"a"=>100, "b"=>200, "c"=>300}
+ 
+h.key?('a')
+#=> true
+
+h.key?('z')
+#=> false
+
+h.value?(100)
+#=> true
+ 
+h.value?(999)
+#=> false
+
+h.keys
+#=> ["a", "b", "c"]
+
+h.values
+#=> [100, 200, 300]
+
+h.values_at('a', 'c')
+#=> [100, 300]
+```
+@[1-2]()
+@[4-8](Returns true if the given key is present in hash.)
+@[10-14](Returns true if the given value is present for some key in hash.)
+@[16-17](Returns a new array populated with the keys from hash.)
+@[19-20](Returns a new array populated with the values from hash.)
+@[22-23](Return an array containing the values associated with the given keys.)
