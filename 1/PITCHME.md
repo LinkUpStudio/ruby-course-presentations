@@ -297,7 +297,7 @@ https://ruby-doc.org/core-2.5.1/Symbol.html
 @[1-4](Normal Symbol literals)
 @[6-7](Some single characters may also be used, like + - * / % ^ & |)
 @[9-10](Any other strings may also be used)
-@[12-15](And of corse, interpolation)
+@[12-15](And of course, interpolation)
 
 +++
 
