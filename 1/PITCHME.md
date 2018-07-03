@@ -471,7 +471,7 @@ languages.push('Haskell')
 languages << 'C#'
 #=> ["Ruby", "JS", "Python", "Scala", "Haskell", "C#"]
 
-> languages.unshift('C++')
+languages.unshift('C++')
 #=> ["C++", "Ruby", "JS", "Python", "Scala", "Haskell", "C#"]
 
 languages.insert(3, 'Elm')
