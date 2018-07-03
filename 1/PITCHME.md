@@ -542,14 +542,14 @@ a.each { |x| print x, ' -- ' }
 a.each_index { |x| print x, ' -- ' }
 # 0 -- 1 -- 2 -- => ["a", "b", "c"]
 
-a.each_with_index { |item, index| puts "[#{index}] => #{item}" }
-# [0] => a
-# [1] => b
-# [2] => c
+a.each_with_index { |item, index| puts "#{index}: #{item}" }
+# 0: a
+# 1: b
+# 2: c
 #=> ["a", "b", "c"]
 
-a.map { |x| print x, " -- " }
-# a -- b -- c -- => [nil, nil, nil]
+a.map { |x| x.upcase }
+#=> ["A", "B", "C"]
 ```
 @[1-2]()
 @[4-5](Each)
