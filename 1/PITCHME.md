@@ -248,7 +248,6 @@ Array.new(4) { |i| i.to_s }
 ['pow', Array.new(2), [1, 2], 3.14]
 #=> ["pow", [nil, nil], [1, 2], 3.14]
 ```
-
 @[1-5](Blank Array creation)
 @[7,8](Creation of Array with initial size)
 @[10,11](Creation of Array with initial size and default object)
@@ -291,10 +290,9 @@ languages[0]
 languages.at(0)
 #=> "Ruby"
 
-languages[1]
-#=> "JS"
-
 languages[4]
+#=> nil
+languages[-100]
 #=> nil
 
 languages[2..3]
@@ -307,19 +305,55 @@ languages[1] = 'CoffeeScript'
 #=> "CoffeeScript"
 languages
 #=> ["Ruby", "CoffeeScript", "Python", "Scala"]
-
-languages[100]
-#=> nil
-languages[-100]
-#=> nil
 ```
-@[1-2]()
-@[4-11]()
-@[13-14]()
-@[16-17]()
-@[19-20]()
-@[22-25]()
-@[27-30](No "index-out-of-range" errors!)
+@[1-2](Initializing Array with no square brackets!)
+@[4-8](Accessing elements by index)
+@[10-13](No "index-out-of-range" errors!)
+@[15-16](Ranges again)
+@[18-19](Taking first few elements)
+@[21-24](Replacing Array elements)
+
++++
+
+#### A bit about "no brackets" stuff
+
+```ruby
+first, second = 'I am first!', 2, 3
+#=> ["I am first!", 2, 3]
+first
+#=> "I am first!"
+second
+#=> 2
+
+first, second = ['I am first!', 2, 3]
+#=> ["I am first!", 2, 3]
+first
+#=> "I am first!"
+second
+#=> 2
+
+first, second = second, first
+#=> [2, "I am first!"]
+first
+#=> 2
+second
+#=> "I am first!"
+
+first, second, *others, last = [1, 2, 3, 4, 5, 6]
+#=> [1, 2, 3, 4, 5, 6]
+first
+#=> 1
+second
+#=> 2
+others
+#=> [3, 4, 5]
+last
+#=> 6
+```
+@[1-6](Multiple variables assignment)
+@[8-13](Same, but with brackets)
+@[15-20](Variables swapping without third variable!)
+@[22-31](Hello, Splat operator! Slicing arrays use-case.)
 
 +++
 
@@ -343,9 +377,9 @@ languages.insert(3, 'Elm')
 languages.insert(4, 'Haml', 'Sass')
 #=> ["C++", "Ruby", "JS", "Elm", "Haml", "Sass", "Python", "Scala", "Haskell", "C#"]
 ```
-@[1-2](Push)
-@[4-5](Push operator)
-@[7-8](Unshift)
+@[1-2](Push, e.g. add to end)
+@[4-5](Append operator, same as push)
+@[7-8](Unshift - add to beginning)
 @[10-14](Insert)
 
 +++
@@ -387,12 +421,12 @@ languages.uniq
 #=> ["Ruby", "JS", "Elm", "Python"]
 ```
 @[1-2]()
-@[4-7](Pop)
-@[9-12](Shift)
-@[14-17](Delete at)
-@[19-22](Delete)
-@[24-27](Compact)
-@[29-32](Uniq)
+@[4-7](Pop, e.g. remove last)
+@[9-12](Shift - remove first)
+@[14-17](Delete by index)
+@[19-22](Delete particular object)
+@[24-27](Compact - clear from nils)
+@[29-32](Uniq - cleat from duplicates)
 
 +++
 
@@ -419,13 +453,13 @@ languages.include?('PHP')
 #=> false
 ```
 @[1-2]()
-@[4-9](Count)
-@[11-12](Empty)
-@[14-18](Include)
+@[4-9](Number of elements)
+@[11-12](Is empty?)
+@[14-18](Includes particular object?)
 
 +++
 
-#### Concatenation arrays
+#### Arrays concatenation 
 
 ```ruby
 days1 = ['Mon', 'Tue', 'Wed']
@@ -449,9 +483,9 @@ days1 << 'Thu' << 'Fri' << 'Sat' << 'Sun'
 #=> ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 ```
 @[1-4]()
-@[6-9]()
-@[11-14]()
-@[16-19]()
+@[6-9](Non object changing concatenation)
+@[11-14](Object changing concatenation)
+@[16-19](Multiple append operators, also changing)
 
 +++
 
@@ -483,13 +517,16 @@ some_europe_countries * 2
 
 some_europe_countries * '/'
 #=> "Norway/Spain/Ukraine"
+some_europe_countries.join('/')
+#=> "Norway/Spain/Ukraine"
 ```
 @[1-4]()
 @[6-7](Union)
 @[9-10](Intersection)
-@[12-16](Difference)
+@[12-16](Difference, not commutative!)
 @[18-19](Addition)
-@[21-25](Multiplication)
+@[21-22](Multiplication)
+@[24-27](Joining into single string by given "joining" string)
 
 +++
 
