@@ -620,6 +620,7 @@ some_europe_countries * 2
 
 some_europe_countries * '/'
 #=> "Norway/Spain/Ukraine"
+
 some_europe_countries.join('/')
 #=> "Norway/Spain/Ukraine"
 ```
@@ -629,11 +630,11 @@ some_europe_countries.join('/')
 @[12-16](Difference, not commutative!)
 @[18-19](Addition)
 @[21-22](Multiplication)
-@[24-27](Joining into single string by given "joining" string)
+@[24-28](Joining into single string by given "joining" string)
 
 +++
 
-#### Iterators
+#### Iterators for arrays
 
 ```ruby
 a = %w[a b c]
@@ -661,3 +662,219 @@ a
 @[7-8](Each index)
 @[10-14](Each with index)
 @[16-19](Map - same as each, but returns array of results)
+
+---
+
+#### Hash
+Check this out: <br>
+http://ruby-doc.org/core-2.5.1/Hash.html
+
+```ruby
+{:font_size => 10, :font_family => "Arial"}
+#=> {:font_size=>10, :font_family=>"Arial"}
+
+{font_size: 10, font_family: 'Arial'}
+#=> {:font_size=>10, :font_family=>"Arial"}
+
+Hash.new
+#=> {}
+
+h = Hash.new('Default value')
+#=> {}
+h['key']
+#=> "Default value"
+
+h = Hash.new { |hash, key| hash[key] = "Default value: #{key}" }
+#=> {}
+h['key']
+#=> "Default value: key"
+
+h = Hash.new
+h.default = 'Default value'
+h['key']
+#=> "Default value"
+```
+@[1-2](Hash creation)
+@[4-5](Hash creation)
+@[7-8](Hash creation)
+@[10-13](Default value)
+@[15-18](Default value)
+@[20-23](Default value)
+
++++
+
+#### Hash elements deleting
+
+```ruby
+h = {'a' => 100, 'b' => 200}
+#=> {"a"=>100, "b"=>200}
+h.delete('a')
+#=> 100
+h.delete('z')
+#=> nil
+
+h = {'a' => 100, 'b' => 200, 'c' => 300}
+#=> {"a"=>100, "b"=>200, "c"=>300}
+h.delete_if { |key, value| value > 100 }  
+#=> {"a"=>100}
+
+h = {'a' => 100, 'b' => 200, 'c' => 300}
+#=> {"a"=>100, "b"=>200, "c"=>300}
+h.keep_if {|key, value| value > 100 }
+#=> {"b"=>200, "c"=>300}
+
+h = {1 => 'a', 2 => 'b', 3 => 'c'}
+#=> {1=>"a", 2=>"b", 3=>"c"}
+h.shift
+#=> [1, "a"]
+h
+#=> {2=>"b", 3=>"c"}
+```
+@[1-6](Delete)
+@[8-11](Delete if)
+@[13-16](Keep if)
+@[18-23](Shift)
+
++++
+
+#### Iterators for hash
+
+```ruby
+h = {'a' => 100, 'b' => 200}
+#=> {"a"=>100, "b"=>200}
+
+h.each { |key, value| puts "#{key} is #{value}" }
+# a is 100
+# b is 200
+# => {"a"=>100, "b"=>200}
+
+h.each_key { |key| puts key }
+# a
+# b
+#=> {"a"=>100, "b"=>200}
+
+h.each_value { |value| puts value }
+# 100
+# 200
+# => {"a"=>100, "b"=>200}
+```
+@[1-2]()
+@[4-7](Each)
+@[9-12](Each key)
+@[14-17](Each value)
+
++++
+
+#### Hash
+_{"a" => 100, "b" => 200, "c" => 300}_
+
+```ruby
+h = {'a' => 100, 'b' => 200, 'c' => 300}
+#=> {"a"=>100, "b"=>200, "c"=>300}
+ 
+h.key?('a')
+#=> true
+
+h.key?('z')
+#=> false
+
+h.value?(100)
+#=> true
+ 
+h.value?(999)
+#=> false
+
+h.keys
+#=> ["a", "b", "c"]
+
+h.values
+#=> [100, 200, 300]
+
+h.values_at('a', 'c')
+#=> [100, 300]
+
+h.select { |key, value| value > 100 }
+#=> {"b" => 200, "c" => 300}
+
+h.length
+#=> 3
+
+h.delete('a')
+#=> 100
+
+h.length
+#=> 2
+
+h1 = {'a' => 100, 'b' => 200}
+#=> {"a"=>100, "b"=>200}
+
+h2 = {'b' => 254, 'c' => 300}
+#=> {"b"=>254, "c"=>300}
+
+h1.merge(h2)
+#=> {"a"=>100, "b"=>254, "c"=>300}
+```
+@[1-2]()
+@[4-8](Returns true if the given key is present in hash)
+@[10-14](Returns true if the given value is present for some key in hash)
+@[16-17](Returns a new array populated with the keys from hash)
+@[19-20](Returns a new array populated with the values from hash)
+@[22-23](Return an array containing the values associated with the given keys)
+@[25-26](Returns a new hash consisting of entries for which the block returns true)
+@[28-35](Returns the number of key-value pairs in the hash)
+@[37-44](Returns a new hash containing the contents of other_hash and the contents of hash)
+
+---
+
+#### Time
+
+http://ruby-doc.org/core-2.5.1/Time.html
+
+```ruby
+t = Time.new
+#=> 2018-06-22 15:52:16 +0300
+
+t.year
+#=> 2018
+ 
+t.month
+#=> 6
+ 
+t.day
+#=> 22
+ 
+t.wday
+#=> 5
+ 
+t.yday
+#=> 173
+ 
+t.hour
+#=> 15
+ 
+t.min
+#=> 52
+ 
+t.sec
+#=> 16
+ 
+t.zone
+#=> "EEST"
+
+t.strftime('%Y-%m-%d %H:%M:%S')
+#=> "2018-06-22 15:52:16"
+
+t.sunday?
+#=> false
+```
+@[1-2]()
+@[4-11]()
+@[13-17]()
+@[19-26]()
+@[28-29](Returns the name of the time zone used for time)
+@[31-32](Formats time according to the directives in the given format string)
+@[34-35](Returns true if time represents Sunday)
+
+---
+
+#### To be continued...
