@@ -556,3 +556,23 @@ a.map { |x| print x, " -- " }
 @[7-8](Each index)
 @[10-14](Each with index)
 @[16-17](Map)
+
++++
+
+#### Hash
+Check this out: <br>
+http://ruby-doc.org/core-2.5.1/Hash.html
+
+```ruby
+{:font_size => 10, :font_family => "Arial"}
+#=> {:font_size=>10, :font_family=>"Arial"}
+
+{font_size: 10, font_family: 'Arial'}
+#=> {:font_size=>10, :font_family=>"Arial"}
+
+Hash.new
+#=> {}
+```
+@[1-2]()
+@[4-5]()
+@[7-8]()
