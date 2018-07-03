@@ -771,3 +771,7 @@ t.sunday?
 @[28-29](Returns the name of the time zone used for time)
 @[31-32](Formats time according to the directives in the given format string)
 @[34-35](Returns true if time represents Sunday)
+
+---
+
+#### To be continued...
