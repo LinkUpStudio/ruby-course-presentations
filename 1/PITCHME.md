@@ -58,10 +58,17 @@ https://ryanbigg.com/2014/10/ubuntu-ruby-ruby-install-chruby-and-you
 1 + 2.0
 #=> 3.0
 
+1.0 / 2
+#=> 0.5
+
 1 / 2
 #=> 0
 
-1.0 / 2
+one = 1
+#=> 1
+two = 2
+#=> 2
+one / two.to_f
 #=> 0.5
 
 10.0 % 3
@@ -76,6 +83,13 @@ Math.sqrt(9)
 1_000_000_000
 #=> 1000000000
 ```
+@[1-5]()
+@[7-11](Division gotcha!)
+@[13-18](What if we got 2 integer variables, but need correct division)
+@[20-21](Remaining from division)
+@[23-24](Power operation)
+@[26-27](Squire root)
+@[29-30](Readable syntax for big numbers)
 
 +++
 
@@ -85,6 +99,19 @@ Math.sqrt(9)
 100_000_000**10
 #=> 100000000000000000000000000000000000000000000000000000000000000000000000000000000
 ```
+
++++
+
+#### Float is NOT to count money!
+
+```ruby
+0.1 + 0.5
+#=> 0.6
+0.1 + 0.2
+#=> 0.30000000000000004
+```
+
+Count money in **cents** instead.
 
 ---
 
@@ -115,7 +142,6 @@ String.new
 %Q(#{6 * 6})
 #=> "36"
 ```
-
 @[1-5](Creation of blank String)
 @[7,8](Strings can be multiplied)
 @[10-14](Difference between single and double quotes)
