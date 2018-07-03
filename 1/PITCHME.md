@@ -530,7 +530,7 @@ some_europe_countries.join('/')
 
 +++
 
-#### Iterators
+#### Iterators for arrays
 
 ```ruby
 a = %w[a b c]
@@ -630,3 +630,31 @@ h
 @[8-11](Delete if)
 @[13-16](Keep if)
 @[18-23](Shift)
+
++++
+
+#### Iterators for hash
+
+```ruby
+h = {'a' => 100, 'b' => 200}
+#=> {"a"=>100, "b"=>200}
+
+h.each {|key, value| puts "#{key} is #{value}" }
+# a is 100
+# b is 200
+# => {"a"=>100, "b"=>200}
+
+h.each_key {|key| puts key }
+# a
+# b
+#=> {"a"=>100, "b"=>200}
+
+h.each_value {|value| puts value }
+# 100
+# 200
+# => {"a"=>100, "b"=>200}
+```
+@[1-2]()
+@[4-7](Each)
+@[9-12](Each key)
+@[14-17]()
