@@ -574,7 +574,25 @@ http://ruby-doc.org/core-2.5.1/Hash.html
 
 Hash.new
 #=> {}
+
+h = Hash.new('Default value')
+#=> {}
+h['key']
+#=> "Default value"
+
+h = Hash.new { |hash, key| hash[key] = "Default value: #{key}" }
+#=> {}
+h['key']
+#=> "Default value: key"
+
+h = Hash.new
+h.default = 'Default value'
+h['key']
+#=> "Default value"
 ```
-@[1-2]()
-@[4-5]()
-@[7-8]()
+@[1-2](Hash creation)
+@[4-5](Hash creation)
+@[7-8](Hash creation)
+@[10-13](Default value)
+@[15-18](Default value)
+@[20-23](Default value)
