@@ -720,3 +720,48 @@ h1.merge(h2)
 @[25-26](Returns a new hash consisting of entries for which the block returns true)
 @[28-35](Returns the number of key-value pairs in the hash)
 @[37-44](Returns a new hash containing the contents of other_hash and the contents of hash)
+
+---
+
+#### Time
+
+```ruby
+t = Time.new
+#=> 2018-06-22 15:52:16 +0300
+
+t.year
+#=> 2018
+ 
+t.month
+#=> 6
+ 
+t.day
+#=> 22
+ 
+t.wday
+#=> 5
+ 
+t.yday
+#=> 173
+ 
+t.hour
+#=> 15
+ 
+t.min
+#=> 52
+ 
+t.sec
+#=> 16
+ 
+t.zone
+#=> "EEST"
+
+t.strftime('%Y-%m-%d %H:%M:%S')
+#=> "2018-06-22 15:52:16"
+```
+@[1-2]()
+@[4-11]()
+@[13-17]()
+@[19-26]()
+@[28-29]()
+@[31-32]()
