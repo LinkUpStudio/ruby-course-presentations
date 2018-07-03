@@ -542,20 +542,22 @@ a.each { |x| print x, ' -- ' }
 a.each_index { |x| print x, ' -- ' }
 # 0 -- 1 -- 2 -- => ["a", "b", "c"]
 
-a.each_with_index { |item, index| puts "[#{index}] => #{item}" }
-# [0] => a
-# [1] => b
-# [2] => c
+a.each_with_index { |item, index| puts "#{index}: #{item}" }
+# 0: a
+# 1: b
+# 2: c
 #=> ["a", "b", "c"]
 
-a.map { |x| print x, " -- " }
-# a -- b -- c -- => [nil, nil, nil]
+a.map { |x| x.upcase }
+#=> ["A", "B", "C"]
+a
+#=> ["a", "b", "c"]
 ```
 @[1-2]()
-@[4-5](Each)
+@[4-5](Each - applies given block to each element, returns initial array)
 @[7-8](Each index)
 @[10-14](Each with index)
-@[16-17](Map)
+@[16-19](Map - same as each, but returns array of results)
 
 ---
 
