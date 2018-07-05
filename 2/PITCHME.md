@@ -479,3 +479,277 @@ seven_times { x += 10 }
 @[1-9]()
 @[11-20]()
 
+---
+
+#### Classes
+
+##### Creating the class
+
+```ruby
+class User
+end
+```
+
+##### Define ruby objects
+
+```ruby
+user = User.new
+user.class # => User
+user.is_a? User # => true
+```
+
+##### Initializing the class
+
+```ruby
+class User
+  def initialize(first_name, last_name, email)
+    @first_name = first_name
+    @last_name = last_name
+    @email = email
+  end
+end
+ 
+User.new('Clay', 'Jensen', 'clay.jensen@gmail.com')
+```
+
++++
+
+##### Defining a @css[ruby-red](.full_name) method
+
+```ruby
+class User
+  def initialize(first_name, last_name, email)
+    @first_name = first_name
+    @last_name = last_name
+    @email = email
+  end
+
+  def full_name
+    "#{@first_name} #{@last_name}"
+  end
+end
+
+user = User.new('Clay', 'Jensen', 'clay.jensen@gmail.com')
+user.full_name # => "Clay Jensen"
+```
+
++++
+
+##### Creating methods for set and get attributes
+
+```ruby
+class User
+  def initialize(first_name, last_name, email)
+    @first_name = first_name
+    @last_name = last_name
+    @email = email
+  end
+
+  def last_name
+    @email
+  end
+
+  def last_name=(value)
+    @email = value
+  end
+end
+
+user = User.new('Clay', 'Jensen', 'clay.jensen@gmail.com')
+user.last_name # => "Jensen"
+user.last_name = 'Kamman'
+user.last_name # => "Kamman"
+ 
+user.first_name          # => NoMethodError: undefined method `first_name'
+user.first_name = 'John' # => NoMethodError: undefined method `first_name='
+```
+
++++
+
+##### Accessor and attributes
+
+```ruby
+class User
+  attr_accessor :first_name
+  attr_writer :last_name
+  attr_reader :email
+
+  def initialize(first_name, last_name, email)
+    @first_name = first_name
+    @last_name = last_name
+    @email = email
+  end
+end
+ 
+user = User.new('Clay', 'Jensen', 'clay.jensen@gmail.com')
+
+user.first_name = 'John'
+user.first_name # => "John"
+ 
+user.last_name = 'Kamman'
+user.last_name # => NoMethodError: undefined method 'last_name'
+ 
+user.email # => "clay.jensen@gmail.com"
+user.email = 'john.kamman@gmail.com' # => NoMethodError: undefined method 'email='
+```
+
++++
+
+##### Virtual attributes
+
+```ruby
+class Product
+  attr_reader :name, :price
+
+  def initialize(name, price)
+    @name = name
+    @price = price
+  end
+  
+  def price_in_cents
+    (@price * 100 + 0.5).to_i
+  end
+ 
+  def price_in_cents=(value)
+    @price = value / 100.0
+  end
+end
+ 
+product = Product.new('Book', 8.99)
+ 
+product.price_in_cents = 100
+product.price                # => 1.0
+product.price_in_cents       # => 100
+```
+
++++
+
+##### Defining operators
+
+```ruby
+class Product
+  attr_reader :name, :price
+
+  def initialize(name, price)
+    @name = name
+    @price = price
+  end
+  
+  def +(object)
+    Product.new("#{@name}, #{object.name}", @price+object.price)
+  end
+end
+
+book = Product.new('Book', 8.99)
+magazine = Product.new('Magazine', 7.6)
+merged_product = book + magazine
+ 
+merged_product.name  # => "Book, Magazine"
+merged_product.price  # => 16.59
+```
+
+##### Objects comparison
+
+```ruby
+product1 = Product.new('Book', 8.99) # => #<Product:0x00555cc8164de0 @name="Book", @price=8.99>
+product2 = Product.new('Book', 8.99) # => #<Product:0x00555cc8149388 @name="Book", @price=8.99>
+product1 == product2 # => false
+
+class Product
+  attr_reader :name, :price
+
+  def initialize(name, price)
+    @name = name
+    @price = price
+  end
+  
+  def ==(object)
+    if object.is_a? Product
+      @name == object.name && @price == object.price
+    else
+      false
+    end
+  end
+end
+ 
+product1 == product2 # => true
+```
+
++++
+
+##### Class method
+
+```ruby
+class Product
+  attr_reader :name, :price
+
+  def initialize(name, price)
+    @name = name
+    @price = price
+  end
+ 
+  def self.total_amount(*products)
+    products.map(&:price).reduce(:+)
+  end
+end
+
+book = Product.new('Book', 20)
+magazine = Product.new('Magazine', 10)
+Product.total_amount(book, magazine) # => 30.0
+
+class Product
+  class << self
+    def total_amount(*products)
+      #code
+    end
+  end
+end
+```
+
++++
+
+##### Class variables
+
+```ruby
+class Product
+  attr_reader :name, :price
+
+  @@count = 0
+
+  def initialize(name, price)
+    @name = name
+    @price = price
+    @@count += 1
+  end
+ 
+  def self.total_count
+    @@count
+  end
+end
+ 
+5.times { Product.new('Book', 20) }
+Product.total_count # => 5
+ 
+product = Product.new('Book', 20)
+product.count # => NoMethodError: undefined method 'count'
+```
+
++++
+
+##### Class constants
+
+```ruby
+class Product
+  STORE_NAME = 'Ashan'
+end
+ 
+Product::STORE_NAME # => "Blizen'ko"
+ 
+Product::MIN_PRICE = 10
+Product::MIN_PRICE # => 10
+
+Product::MIN_PRICE = 20 
+# warning: already initialized constant Product::MIN_PRICE
+#=> 20
+
+Product::MIN_PRICE # => 20
+```
