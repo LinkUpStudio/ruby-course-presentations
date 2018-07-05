@@ -489,14 +489,14 @@ seven_times { x += 10 }
 
 #### Classes
 
-##### Creating the class
+Creating a class
 
 ```ruby
 class User
 end
 ```
 
-##### Define ruby objects (instances)
+Define ruby objects (instances)
 
 ```ruby
 user = User.new
@@ -504,23 +504,9 @@ user.class # => User
 user.is_a?(User) # => true
 ```
 
-##### Initializing class instances
-
-```ruby
-class User
-  def initialize(first_name, last_name, email)
-    @first_name = first_name
-    @last_name = last_name
-    @email = email
-  end
-end
-
-User.new('Clay', 'Jensen', 'clay.jensen@gmail.com')
-```
-
 +++
 
-##### Defining a @css[ruby-red no-text-transform](#full_name) method
+##### With constructor and @css[ruby-red no-text-transform](#full_name) method
 
 ```ruby
 class User
@@ -536,8 +522,11 @@ class User
 end
 
 user = User.new('Clay', 'Jensen', 'clay.jensen@gmail.com')
-user.full_name # => "Clay Jensen"
+user.full_name   # => "Clay Jensen"
 ```
+@[2-6](Constructor in Ruby)
+@[8-10]()
+@[13-14]()
 
 +++
 
