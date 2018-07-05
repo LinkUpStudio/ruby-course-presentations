@@ -360,6 +360,8 @@ def split_apart(first, *, last)
 end
 ```
 @[1-3]()
+@[5-10]()
+@[12-15]()
 
 +++
 
