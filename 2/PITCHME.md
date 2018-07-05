@@ -241,3 +241,216 @@ i
 1.upto(10) { |i| print "#{i} " }
 # 1 2 3 4 5 6 7 8 9 10 => 1
 ```
+
+---
+
+#### Methods & friends
+
+```ruby
+def movie_listing(title, rank = 5)
+  %("#{title}" has a rank of #{rank})
+end
+#=> :movie_listing
+
+movie_listing("Lord of the Rings", 10)
+#=> "\"Lord of the Rings\" has a rank of 10"
+movie_listing("Hobbit", 8)
+#=> "\"Hobbit\" has a rank of 8"
+movie_listing('Some mediocre movie')
+#=> "\"Some mediocre movie\" has a rank of 5"
+```
+@[2](% is preferred shorthand for %Q)
+
++++
+
+More arguments with default values
+
+```ruby
+def spanish_name(first = 'Rick', middle = '', last = 'Sanchez')
+  "#{first} #{middle} #{last}".gsub(/\s{2,}/, ' ')
+end
+
+spanish_name
+#=> "Rick Sanchez"
+spanish_name('Jose', 'Maria')
+#=> "Jose Maria Sanchez"
+spanish_name('Jose', 'Maria', 'Rodriguez')
+#=> "Jose Maria Rodriguez"
+```
+
++++
+
+Ruby 2 Keyword arguments
+
+https://robots.thoughtbot.com/ruby-2-keyword-arguments
+
+```ruby
+def spanish_name(name:, surname:, mother: nil)
+  "#{name} #{mother} #{surname}".gsub(/\s{2,}/, ' ')
+end
+
+spanish_name(surname: 'Sanchez', name: 'Rick')
+#=> "Rick Sanchez"
+```
+
++++
+
+Splat operator again!
+
+```ruby
+def var_args(first, *rest)
+  "first = #{first}, rest = #{rest}"
+end
+
+var_args('one')
+#=> "first = one, rest = []"
+
+var_args('one', 'two')
+#=> "first = one, rest = [\"two\"]"
+
+var_args('one', 'two', 'three')
+#=> "first = one, rest = [\"two\", \"three\"]"
+```
+
++++
+
+Splat, once again
+
+```ruby
+def split_apart(first, *other, last)
+  "first: #{first}, other: #{other}, last: #{last}"
+end
+
+split_apart(1, 2)
+#=> "first: 1, other: [], last: 2"
+split_apart(1, 2, 3)
+#=> "first: 1, other: [2], last: 3"
+split_apart(1, 2, 3, 4)
+#=> "first: 1, other: [2, 3], last: 4"
+
+def split_apart(first, *, last)
+  # only first and last are available here
+  # crazy, right?
+end
+```
+@[1-3]()
+
++++
+
+#### Return values
+
+```ruby
+def number_is(n)
+  if n > 0
+    'positive'
+  elsif n < 0
+    'negative'
+  else
+    'zero'
+  end
+end
+
+number_is(23)
+#=> "positive"
+number_is(0)
+#=> "zero"
+```
+
++++
+
+... actually using `return`
+
+```ruby
+def number_is(n)
+  return 'positive' if n > 0
+  return 'negative' if n < 0
+  'zero'
+end
+```
+@[2,3](This technique is called "Guard clause")
+
+much better :)
+
++++
+
+#### Methods with blocks
+
+```ruby
+def double(thing)
+  yield(thing * 2)
+end
+
+double(3) { |val| "I got #{val}" }
+#=> "I got 6"
+
+double('tom') do |val|
+  "Then I got #{val}"
+end
+#=> "Then I got tomtom"
+```
+
++++
+
+Block check
+
+```ruby
+def try
+  if block_given?
+    yield
+  else
+    'no block'
+  end
+end
+
+try { 'hello' }
+#=> "hello"
+try do 'hello' end
+#=> "hello"
+```
+
+---
+
+#### Closures
+
+##### What’s a Closure?
+
+A closure is basically a function that:
+
+- Can be treated like a variable, i.e. assigned to another variable, passed as a
+  method argument, etc.
+
+- Remembers the values of all the variables that were in scope when the function
+  was defined and is able to access these variables even if it is executed in a
+  different scope.
+
+Put differently, a closure is a first-class function that has lexical scope.
+
+> Blocks, procs, lambdas, and methods available in Ruby are collectively called
+closures.
+
++++
+
+More methods with blocks (or procs?)
+
+```ruby
+def thrice
+  yield
+  yield
+  yield
+end
+
+x = 0
+thrice { x += 1 }   #=> 3
+x                   #=> 3
+
+def seven_times(&block)
+  puts block.class
+  block.call
+  thrice(&block)
+  thrice(&block)
+end
+
+seven_times { x += 10 }
+# Proc
+#=> 73
+```
