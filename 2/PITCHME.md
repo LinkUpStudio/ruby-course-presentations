@@ -181,7 +181,7 @@ end
 
 #### Loops
 
-most primitive, (@css[ruby-red](Matz)\* told us not to use it)
+most primitive
 
 ```ruby
 i = 0
@@ -193,8 +193,6 @@ loop do
 end
 # 1 3 5 7 9 => nil
 ```
-
-\*Matz - Yukihiro Matsumoto, creator of @css[ruby-red](Ruby)
 
 +++
 
@@ -213,6 +211,10 @@ end
 
 #### "Do While"
 
+@css[ruby-red](Matz)\* told us to use `loop` instead,
+check [here](http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-core/6745)
+and [here](http://rosettacode.org/wiki/Loops/Do-while#Ruby)
+
 ```ruby
 i = 11
 begin
@@ -222,6 +224,8 @@ end while i < 10
 # i is 11
 # => nil
 ```
+
+\*Matz - Yukihiro Matsumoto, creator of @css[ruby-red](Ruby)
 
 +++
 
