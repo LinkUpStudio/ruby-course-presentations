@@ -124,7 +124,7 @@ a ||= true
 
 +++
 
-### Case, when
+#### Case, when
 
 ```ruby
 a = 1
@@ -138,7 +138,7 @@ r = case
 
 +++
 
-### Case-when with parameter
+#### Case-when with parameter
 
 ```ruby
 a = 1
@@ -153,4 +153,91 @@ else
   "#{a} less than 0"
 end
 #=> "1 is between 0 and 5 (but not 5)"
+```
+
+---
+
+#### Loops
+
+most primitive, (@css[ruby-red](Matz)\* told us not to use it)
+
+```ruby
+i = 0
+loop do
+  i += 1
+  break if i >= 10
+  next if i.even?
+  print "#{i} "
+end
+# 1 3 5 7 9 => nil
+```
+
+\*Matz - Yukihiro Matsumoto, creator of @css[ruby-red](Ruby)
+
++++
+
+#### While
+
+```ruby
+i = 0
+while i < 10
+  print "#{i} " if i.even?
+  i += 1
+end
+# 0 2 4 6 8 => nil
+```
+
++++
+
+#### "Do While"
+
+```ruby
+i = 11
+begin
+  puts "i is #{i}"
+  i += 1
+end while i < 10
+# i is 11
+#=> nil
+```
+
++++
+
+#### Until
+
+```ruby
+i = 1
+until i > 5
+  print "#{i} "
+  i += 1
+end
+# 1 2 3 4 5 => nil
+```
+
++++
+
+#### For
+
+```ruby
+for i in 1..10
+  print "#{i} "
+end
+# 1 2 3 4 5 6 7 8 9 10 => 1..10
+i
+#=> 10
+```
+
++++
+
+#### Times & Upto
+
+```ruby
+10.times { |i| print "#{i} " }
+# 0 1 2 3 4 5 6 7 8 9 => 10
+
+5.times { print '- ' }
+# - - - - - => 5
+
+1.upto(10) { |i| print "#{i} " }
+# 1 2 3 4 5 6 7 8 9 10 => 1
 ```
