@@ -157,7 +157,7 @@ end
 @[1-3]()
 @[5-11](In such cases please use #empty?)
 @[13-16](Read in style guide about using parentheses https://github.com/rubocop-hq/ruby-style-guide#method-invocation-parens)
-@[18-20](Best solution)
+@[18-20](Best solution. But can be shorter: arr.inject(0, :+))
 
 +++
 
