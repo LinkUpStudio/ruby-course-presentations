@@ -39,7 +39,8 @@ book.discount_price                 # => NoMethodError
 magazine = Product.new('Magazine', 5)
 book.together_price(magazine)       # => 12.59
 ```
-@[1-18]()
-@[9-17]()
+@[4-7]()
+@[9-11]()
+@[13-17]()
 @[20-21]()
 @[23-24]()
