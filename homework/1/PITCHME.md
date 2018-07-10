@@ -36,7 +36,7 @@ end
 
 ###### 01_temperature
 
-##### Solution 1 
+Solution 1 
 Some of ".0" are not necessary
 
 ```ruby
@@ -53,7 +53,7 @@ end
 
 ###### 01_temperature
 
-##### Solution 2 (BAD)
+Solution 2 (BAD)
 
 ```ruby
 def ftoc(t)
@@ -70,7 +70,7 @@ end
 
 ###### 01_temperature
 
-##### Solution 3 (Monkey Patching)
+Solution 3 (Monkey Patching)
 https://www.culttt.com/2015/06/17/what-is-monkey-patching-in-ruby/
 
 ```ruby
@@ -94,7 +94,7 @@ end
 
 ###### 01_temperature
 
-##### Solution 4
+Solution 4
 
 ```ruby
 def ftoc (fahrenheit)
@@ -340,7 +340,7 @@ end
 
 `#titleize`
 
-##### Solution 1
+Solution 1
 
 ```ruby
 def titleize(string)
@@ -366,7 +366,7 @@ end
 
 `#titleize`
 
-##### Solution 2
+Solution 2
 
 ```ruby
 def titleize(word)
@@ -391,7 +391,7 @@ end
 
 `#titleize`
 
-##### Solution 3
+Solution 3
 
 ```ruby
 def titleize(sentence)
@@ -410,7 +410,7 @@ end
 
 `#titleize`
 
-##### Solution 4
+Solution 4
 
 ```ruby
 def titleize(words)
@@ -434,7 +434,7 @@ end
 
 `#titleize`
 
-##### Solution 5
+Solution 5
 
 ```ruby
 def titleize (string)
@@ -445,7 +445,7 @@ end
 
 ###### 04_pig_latin
 
-##### Solution 1 ...Awesome readability
+Solution 1 ...Awesome readability
 
 ```ruby
 def translate(string)
@@ -471,7 +471,7 @@ end
 
 ###### 04_pig_latin
 
-##### Solution 1
+Solution 1
 
 ```ruby
 def translate(string)
@@ -495,7 +495,7 @@ end
 
 ###### 04_pig_latin
 
-##### Solution 2....
+Solution 2....
 
 
 ```ruby
@@ -509,7 +509,7 @@ end
 
 `#reverser`
 
-##### Solution 1
+Solution 1
 
 ```ruby
 def reverser
@@ -544,7 +544,7 @@ end
 
 `#reverser`
 
-##### Other solutions
+Other solutions
 
 ```ruby
 def reverser
@@ -719,7 +719,7 @@ end
 
 ###### 08_book_titles
 
-##### Solution 1
+Solution 1
 
 ```ruby
 class Book
@@ -746,7 +746,7 @@ end
 
 ###### 08_book_titles
 
-##### Solution 2
+Solution 2
 
 Oh...
 
@@ -781,7 +781,7 @@ end
 
 ###### 08_book_titles
 
-##### Solution 2
+Solution 2
 
 Lets make it more readable
 
@@ -819,7 +819,7 @@ end
 
 ###### 08_book_titles
 
-##### Solution 3
+Solution 3
 
 ```ruby
 class Book
@@ -845,7 +845,7 @@ end
 
 ###### 08_book_titles
 
-##### Solution 4
+Solution 4
 
 ```ruby
 class Book
@@ -867,7 +867,7 @@ end
 
 ###### 09_timer
 
-##### Solution 1
+Solution 1
 
 ```ruby
 class Timer
@@ -896,7 +896,7 @@ end
 
 ###### 09_timer
 
-##### Solution 2
+Solution 2
 
 ```ruby
 class Timer
@@ -922,7 +922,7 @@ end
 
 ###### 09_timer
 
-##### Solution 3
+Solution 3
 
 ```ruby
 class Timer
@@ -948,7 +948,7 @@ end
 
 ###### 09_timer
 
-##### Solution 3
+Solution 3
 
 ```ruby
 class Timer
