@@ -237,7 +237,8 @@ class Book < Product
 end
 
 poodr = Book.new('Sandi Metz', 'POODR', 19.79)
-# => ArgumentError (wrong number of arguments (given 3, expected 2))
+# => ArgumentError
+#   (wrong number of arguments (given 3, expected 2))
 ```
 @[4-7](super with no args here)
-@[10-11](given 3?)
+@[10-12](given 3?)
