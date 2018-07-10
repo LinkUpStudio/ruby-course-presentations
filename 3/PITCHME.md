@@ -5,10 +5,13 @@
 
 #### Method visibility
 
-All methods are `public` by default.
+All methods are `public` by **default**.
+
 You can also use `protected` and `private`.
 
-`protected` example:
++++
+
+Protected
 
 ```ruby
 class Product
