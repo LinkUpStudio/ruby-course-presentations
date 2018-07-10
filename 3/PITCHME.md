@@ -221,3 +221,23 @@ poodr.price                     # => 19.79
 @[1-8]()
 @[10-17]()
 @[19-22]()
+
++++
+
+More of `super`
+
+```ruby
+class Book < Product
+  attr_reader :author
+
+  def initialize(author, name, price)
+    @author = author
+    super
+  end
+end
+
+poodr = Book.new('Sandi Metz', 'POODR', 19.79)
+# => ArgumentError (wrong number of arguments (given 3, expected 2))
+```
+@[4-7](super with no args here)
+@[10-11](given 3?)
