@@ -293,3 +293,31 @@ B.value           # => 3
 @[9-11]()
 @[13-15]()
 @[17]()
+
++++
+
+Constants are good.
+
+But please **don't change** them :)
+
+```ruby
+class A
+  NUM = 2
+end
+
+class B < A
+end
+
+A::NUM        # => 2
+B::NUM        # => 2
+
+B::NUM = 3
+
+A::NUM        # => 2
+B::NUM        # => 3
+```
+@[1-3]()
+@[5-6]()
+@[8-9]()
+@[11]()
+@[13-14]()
