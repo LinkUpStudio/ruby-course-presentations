@@ -751,8 +751,6 @@ end
 
 Solution 2
 
-Oh...
-
 ```ruby
 class Book
   attr_accessor :title
@@ -785,8 +783,6 @@ end
 ###### 08_book_titles
 
 Solution 2
-
-Lets make it more readable
 
 ```ruby
 class Book
