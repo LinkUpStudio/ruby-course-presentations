@@ -915,7 +915,8 @@ class Timer
   end
 end
 ```
-@[5-10]()
+@[2](Strange...)
+@[6-9](Better: @seconds ||= 0.0)
 
 +++
 
