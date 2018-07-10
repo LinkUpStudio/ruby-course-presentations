@@ -263,3 +263,33 @@ poodr.price                     # => nil
 ```
 @[4-6](total method override)
 @[9-12]()
+
++++
+
+##### Class variables inheritance
+
+@css[ruby-red](total mess), **DO NOT** use them at all.
+
+```ruby
+class A
+  @@value = 1
+  def self.value
+    @@value
+  end
+end
+A.value           # => 1
+
+class B < A
+  @@value = 2
+end
+
+class C < A
+  @@value = 3
+end
+
+B.value           # => 3
+```
+@[1-7]()
+@[9-11]()
+@[13-15]()
+@[17]()
