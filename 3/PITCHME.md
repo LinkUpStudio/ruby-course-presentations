@@ -360,3 +360,43 @@ AudioConverter::Decoder.new('music.mp3')
 @[9-14]()
 @[16-20]()
 @[23-25]()
+
++++
+
+As mixins
+
+```ruby
+module FileHelpers
+  def get_format(file)
+    File.extname(file)
+  end
+end
+
+module AudioConverter
+  class Decoder
+    include FileHelpers
+
+    def initialize(file)
+      @file = file
+      @format = get_format(file)
+    end
+  end
+
+  class Encoder
+    include FileHelpers
+
+    def initialize(file)
+      @file = file
+      @format = get_format(file)
+    end
+  end
+end
+
+AudioConverter::Decoder.new('music.mp3')
+# => #<AudioConverter::Decoder ...
+#      @file="music.mp3", @format=".mp3">
+```
+@[1-5]()
+@[8-15]()
+@[17-24]()
+@[27-29]()
