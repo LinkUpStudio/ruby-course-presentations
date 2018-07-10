@@ -676,7 +676,7 @@ class Book
 end
 ```
 @[4](Should be without parentheses)
-@[6-14](We already analized this code on some of the previous slides)
+@[6-14](We already analyzed this code on some of the previous slides)
 
 +++
 
