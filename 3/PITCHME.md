@@ -153,3 +153,39 @@ book.full_cost                    # => 6.93
 @[14-17]()
 @[19-23]()
 @[30-33]()
+
+---
+
+#### Inheritance
+
+Method inheritance
+
+```ruby
+class A
+  protected
+
+  def protected_method
+    'protected method called'
+  end
+
+  private
+
+  def private_method
+    'private method called'
+  end
+end
+
+class B < A
+  def call_private_and_protected
+    private_method + ' and ' + protected_method
+  end
+end
+
+b = B.new
+b.call_private_and_protected
+# => "private method called and protected method called"
+```
+@[2-6]()
+@[8-12]()
+@[15-19]()
+@[21-23]()
