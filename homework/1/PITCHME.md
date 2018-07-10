@@ -332,6 +332,7 @@ end
   
   string.gsub(/ .*/, '')
 ```
+@[1](Not sure about "\b")
 
 +++
 
