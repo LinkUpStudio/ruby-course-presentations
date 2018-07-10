@@ -321,3 +321,42 @@ B::NUM        # => 3
 @[8-9]()
 @[11]()
 @[13-14]()
+
+---
+
+#### Modules
+
+As namespaces
+
+```ruby
+module AudioConverter
+  class Decoder
+    def initialize(file)
+      @file = file
+      @format = AudioHelpers.get_format(file)
+    end
+  end
+
+  class Encoder
+    def initialize(file)
+      @file = file
+      @format = AudioHelpers.get_format(file)
+    end
+  end
+
+  module AudioHelpers
+    def self.get_format(file)
+      File.extname(file)
+    end
+  end
+end
+
+AudioConverter::Decoder.new('music.mp3')
+# => #<AudioConverter::Decoder ...
+#      @file="music.mp3", @format=".mp3">
+```
+@[1]()
+@[2-7]()
+@[9-14]()
+@[16-20]()
+@[23-25]()
