@@ -206,6 +206,9 @@ def multiply(*args)
   args.reduce(:*)
 end
 ```
+@[1-5]()
+@[6-12]()
+@[13-15]()
 @[1-15]()
 @[17-19](Best solution)
 
