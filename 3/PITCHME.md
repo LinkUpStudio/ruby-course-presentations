@@ -224,7 +224,7 @@ poodr.price                     # => 19.79
 
 +++
 
-More of `super`
+`super` without arguments
 
 ```ruby
 class Book < Product
@@ -242,3 +242,24 @@ poodr = Book.new('Sandi Metz', 'POODR', 19.79)
 ```
 @[4-7](super with no args here)
 @[10-12](given 3?)
+
++++
+
+No `super`?
+
+```ruby
+class Book < Product
+  attr_reader :author
+
+  def initialize(author, name, price)
+    @author = author
+  end
+end
+
+poodr = Book.new('Sandi Metz', 'POODR', 19.79)
+poodr.author                    # => "Sandi Metz"
+poodr.name                      # => nil
+poodr.price                     # => nil
+```
+@[4-6](total method override)
+@[9-12]()
