@@ -2,7 +2,7 @@
 
 ---
 
-#### 00_hello
+###### 00_hello
 
 BAD :)
 
@@ -18,7 +18,7 @@ end
 
 +++
 
-#### 00_hello
+###### 00_hello
 
 GOOD
 
@@ -34,7 +34,7 @@ end
 
 ---
 
-#### 01_temperature
+###### 01_temperature
 
 ##### Solution 1 (BAD)
 
@@ -51,9 +51,10 @@ end
 
 +++
 
-#### 01_temperature
+######## 01_temperature
 
-##### Solution 2 (some of ".0" are not necessary)
+##### Solution 2 
+some of ".0" are not necessary
 
 ```ruby
 def ftoc(temperature)
@@ -67,10 +68,9 @@ end
 
 +++
 
-#### 01_temperature
+###### 01_temperature
 
 ##### Solution 3 (Monkey Patching)
-
 https://www.culttt.com/2015/06/17/what-is-monkey-patching-in-ruby/
 
 ```ruby
@@ -92,7 +92,7 @@ end
 
 +++
 
-#### 01_temperature
+###### 01_temperature
 
 ##### Solution 4
 
@@ -108,7 +108,7 @@ end
 
 ---
 
-#### 02_calculator
+###### 02_calculator
 
 `#add`, `#subtract`
 
@@ -128,7 +128,7 @@ end
 
 +++
 
-#### 02_calculator
+###### 02_calculator
 
 `#sum`
 
@@ -161,7 +161,7 @@ end
 
 +++
 
-#### 02_calculator
+###### 02_calculator
 
 `#power`
 
@@ -179,7 +179,7 @@ end
 
 +++
 
-#### 02_calculator
+###### 02_calculator
 
 `#multiply`
 
@@ -213,7 +213,7 @@ end
 
 +++
 
-#### 02_calculator
+###### 02_calculator
 
 `#factorial` best solutions
 
@@ -229,7 +229,7 @@ end
 
 ---
 
-#### 03_simon_says
+###### 03_simon_says
 
 `#echo`, `#shout`
 
@@ -245,7 +245,7 @@ end
 
 +++
 
-#### 03_simon_says
+###### 03_simon_says
 
 `#repeat`
 
@@ -284,7 +284,7 @@ end
 
 +++
 
-#### 03_simon_says
+###### 03_simon_says
 
 `#start_of_word`
 
@@ -300,7 +300,7 @@ end
 
 +++
 
-#### 03_simon_says
+###### 03_simon_says
 
 `#first_word` with split
 
@@ -319,7 +319,7 @@ end
 
 +++
 
-#### 03_simon_says
+###### 03_simon_says
 
 `#first_word` with regex
 
@@ -333,7 +333,7 @@ end
 
 +++
 
-#### 03_simon_says
+###### 03_simon_says
 
 `#titleize`
 
@@ -359,7 +359,7 @@ end
 
 +++
 
-#### 03_simon_says
+###### 03_simon_says
 
 `#titleize`
 
@@ -384,7 +384,7 @@ end
 
 +++
 
-#### 03_simon_says
+###### 03_simon_says
 
 `#titleize`
 
@@ -403,7 +403,7 @@ end
 
 +++
 
-#### 03_simon_says
+###### 03_simon_says
 
 `#titleize`
 
@@ -427,7 +427,7 @@ end
 
 +++
 
-#### 03_simon_says
+###### 03_simon_says
 
 `#titleize`
 
@@ -440,7 +440,7 @@ end
 ```
 ---
 
-#### 04_pig_latin
+###### 04_pig_latin
 
 ##### Solution 1 ...Awesome readability
 
@@ -466,7 +466,7 @@ end
 
 +++
 
-#### 04_pig_latin
+###### 04_pig_latin
 
 ##### Solution 1
 
@@ -490,7 +490,7 @@ def translate(string)
 end
 ```
 
-#### 04_pig_latin
+###### 04_pig_latin
 
 ##### Solution 2....
 
@@ -502,7 +502,7 @@ end
 
 ---
 
-#### 05_silly_blocks
+###### 05_silly_blocks
 
 `#reverser`
 
@@ -537,7 +537,7 @@ end
 
 +++
 
-#### 05_silly_blocks
+###### 05_silly_blocks
 
 `#reverser`
 
@@ -571,7 +571,7 @@ end
 
 +++
 
-#### 05_silly_blocks
+###### 05_silly_blocks
 
 `#adder`
 
@@ -589,7 +589,7 @@ end
 
 +++
 
-#### 05_silly_blocks
+###### 05_silly_blocks
 
 `#repeater`
 
@@ -622,7 +622,7 @@ end
 
 ---
 
-#### 06_performance_monitor
+###### 06_performance_monitor
 
 WAT?
 
@@ -641,7 +641,7 @@ end
 
 +++
 
-#### 06_performance_monitor
+###### 06_performance_monitor
 
 Someone really likes `#inject` :)
 
@@ -660,7 +660,7 @@ end
 
 +++
 
-#### 06_performance_monitor
+###### 06_performance_monitor
 
 ```ruby
 def measure(times = 1)
@@ -672,7 +672,7 @@ end
 
 ---
 
-#### 07_hello_friend
+###### 07_hello_friend
 
 ```ruby
 class Friend
@@ -714,7 +714,7 @@ end
 
 ---
 
-#### 08_book_titles
+###### 08_book_titles
 
 ##### Solution 1
 
@@ -741,7 +741,7 @@ end
 
 +++
 
-#### 08_book_titles
+###### 08_book_titles
 
 ##### Solution 2
 
@@ -776,7 +776,7 @@ end
 
 +++
 
-#### 08_book_titles
+###### 08_book_titles
 
 ##### Solution 2
 
@@ -814,7 +814,7 @@ end
 
 +++
 
-#### 08_book_titles
+###### 08_book_titles
 
 ##### Solution 3
 
@@ -840,7 +840,7 @@ end
 
 +++
 
-#### 08_book_titles
+###### 08_book_titles
 
 ##### Solution 4
 
@@ -862,7 +862,7 @@ end
 
 ---
 
-#### 09_timer
+###### 09_timer
 
 ##### Solution 1
 
@@ -891,7 +891,7 @@ end
 
 +++
 
-#### 09_timer
+###### 09_timer
 
 ##### Solution 2
 
@@ -917,7 +917,7 @@ end
 
 +++
 
-#### 09_timer
+###### 09_timer
 
 ##### Solution 3
 
@@ -943,7 +943,7 @@ end
 
 +++
 
-#### 09_timer
+###### 09_timer
 
 ##### Solution 3
 
