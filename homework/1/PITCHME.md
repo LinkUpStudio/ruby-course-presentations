@@ -36,7 +36,24 @@ end
 
 ###### 01_temperature
 
-##### Solution 1 (BAD)
+##### Solution 1 
+Some of ".0" are not necessary
+
+```ruby
+def ftoc(temperature)
+  (temperature - 32.0) / 9.0 * 5.0
+end
+
+def ctof(temperature)
+  temperature * 9.0 / 5.0 + 32.0
+end
+```
+
++++
+
+###### 01_temperature
+
+##### Solution 2 (BAD)
 
 ```ruby
 def ftoc(t)
@@ -46,23 +63,6 @@ end
 def ctof(t)
   t=t* 9.0/5.0 + 32
 
-end
-```
-
-+++
-
-###### 01_temperature
-
-##### Solution 2 
-some of ".0" are not necessary
-
-```ruby
-def ftoc(temperature)
-  (temperature - 32.0) / 9.0 * 5.0
-end
-
-def ctof(temperature)
-  temperature * 9.0 / 5.0 + 32.0
 end
 ```
 
