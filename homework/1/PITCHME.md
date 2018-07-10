@@ -74,7 +74,6 @@ end
 https://www.culttt.com/2015/06/17/what-is-monkey-patching-in-ruby/
 
 ```ruby
-# Float to big number converter
 class Float
   def to_big_i
     (self + 0.5).to_i
