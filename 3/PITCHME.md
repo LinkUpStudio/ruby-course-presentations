@@ -189,3 +189,35 @@ b.call_private_and_protected
 @[8-12]()
 @[15-19]()
 @[21-23]()
+
++++
+
+Method `super`
+
+```ruby
+class Product
+  attr_reader :name, :price
+
+  def initialize(name, price)
+    @name = name
+    @price = price
+  end
+end
+
+class Book < Product
+  attr_reader :author
+
+  def initialize(author, name, price)
+    @author = author
+    super(name, price)
+  end
+end
+
+poodr = Book.new('Sandi Metz', 'POODR', 19.79)
+poodr.author                    # => "Sandi Metz"
+poodr.name                      # => "POODR"
+poodr.price                     # => 19.79
+```
+@[1-8]()
+@[10-17]()
+@[19-22]()
