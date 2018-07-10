@@ -134,7 +134,7 @@ class Product
   private
 
   def discount=(value)
-    @discount = (value).round(2)
+    @discount = value.round(2)
   end
 
   def tax
