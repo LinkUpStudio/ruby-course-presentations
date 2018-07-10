@@ -649,7 +649,7 @@ end
 @[1-9](Almost the best solution)
 @[13-15](Hard to read)
 @[17-23](Better to use interpolation)
-@[25-31]("if name.nil?" can be shorter: "if name". But it's not important )
+@[25-31]()
 
 ---
 
