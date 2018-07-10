@@ -525,18 +525,6 @@ def reverser
     reversed.join.rstrip
   end.call(string)
 end
-
-def reverser
-  split_string = yield.split(' ')
-  split_string.map! do |word|
-    chs = word.split('')
-    reversed_word = ''
-    chs.size.times { reversed_word << chs.pop }
-    reversed_word
-  end
-  split_string.join(' ').rstrip
-end
-
 ```
 @[1-13]()
 @[15-24]()
