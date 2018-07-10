@@ -191,7 +191,6 @@ def multiply(*arr)
   arr.each { |x| a = x * a }
   return a
 end
-
 def multiply(num_1=1, num_2=1)
   if num_1.is_a?(Integer)
     num_1*num_2
@@ -199,7 +198,6 @@ def multiply(num_1=1, num_2=1)
     num_1.inject(:*)
   end
 end
-
 def multiply(first_num, second_num, *array)
   first_num * second_num * array.reduce(1, :*)
 end
@@ -208,8 +206,8 @@ def multiply(*args)
   args.reduce(:*)
 end
 ```
-@[1-17]()
-@[19-21](Best solution)
+@[1-15]()
+@[17-19](Best solution)
 
 +++
 
