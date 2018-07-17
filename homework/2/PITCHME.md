@@ -117,7 +117,7 @@ def sum
   self.length == 0 ? 0 : self.inject(:&+)
 end
 ```
-@[2-2](use `inject(0, :+)` instead of `reduce(0, &:+)` it's a little bit faster))
+@[2-2](use `inject(0, :+)` instead of `inject(0, &:+)` it's a little bit faster))
 
 +++
 
@@ -132,14 +132,6 @@ def sum
   self.inject(0, :+)
 end
 ```
-
-+++
-
-###### 14_array_extensions
-
-`#reduce`
-
-use `reduce(0, :+)` instead of `reduce(0, &:+)` it's a little bit faster
 
 +++
 
