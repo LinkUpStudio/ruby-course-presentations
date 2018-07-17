@@ -340,6 +340,16 @@ end
 @[12-19]()
 @[21-31]()
 
++++
+
+Bonus
+
+```ruby
+def in_fahrenheit
+  @fahrenheit == nil ? Temperature.ctof(@celsius) : @fahrenheit
+end
+```
+
 ---
 
 ###### 11_dictionary
