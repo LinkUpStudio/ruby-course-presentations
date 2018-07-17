@@ -169,7 +169,7 @@ end
 ```
 @[4](using `map` like it is `each`)
 @[5](commas in regexp)
-@[10-12](it does nothing)
+@[9-13](hmmmmmmm...)
 @[14-19](not very DRY)
 
 +++
