@@ -40,7 +40,7 @@ class Temperature
 end
 ```
 @[8-9](Don't forget to use communicative variable name)
-@[4-7](Hash has by default values nil.)
+@[4-7](Hashes have a default value that is returned when accessing keys that do not exist in the hash. If no default is set nil is used.)
 @[14-17](We need just set a default value for attributes of a constructor)
 
 +++
