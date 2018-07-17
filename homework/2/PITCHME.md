@@ -19,7 +19,7 @@ def translate(str)
 end
 ```
 @[2](it could be just array)
-@[3](we have map for it, Carl)
+@[3]()
 
 +++
 
