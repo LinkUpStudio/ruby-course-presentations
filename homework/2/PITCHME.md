@@ -32,29 +32,16 @@ class Temperature
   end
 
   ...
+
+  def initialize(opts = {})
+    @f = opts[:f]
+    @c = opts[:c]
+  end
 end
 ```
-@[3-10]()
 @[8-9](Don't forget to use communicative variable name)
-@[4-7](It looks like you want to initialize default values. A good solution will look like this:)
-
-+++
-
-###### 10_temperature_object
-
-```ruby
-def initialize(opts = {})
-  opts = defaults.merge(opts)
-  @fahrenheit = opts[:f]
-  @celsius = opts[:c]
-end
-
-private
-
-def defaults
-  { f: nil, c: nil }
-end
-```
+@[4-7](Hash has by default values nil.)
+@[14-17](We need just set a default value for attributes of a constructor)
 
 +++
 
@@ -120,5 +107,43 @@ end
 
 ---
 
+###### 14_array_extensions
+
+GOOD
+
+```ruby
+def square
+  self.map { |arg| arg * arg }
+end
+
+def square!
+  self.map! { |arg| arg*arg }
+end
+```
+
++++
 
 
+```ruby
+
+COOL
+
+class Array
+  SQUARE_PROC = proc { |value| value**2 }
+
+  def square
+    map(&SQUARE)
+  end
+
+  def square!
+    map!(&SQUARE)
+  end
+
+  private
+
+  def square_proc
+    proc { |value| value**2 }
+  end
+end
+
+```
