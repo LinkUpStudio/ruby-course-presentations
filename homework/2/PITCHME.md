@@ -61,8 +61,7 @@ def in_celsius
   @celsius ||= ((@fahrenheit.to_f - 32) / 1.8).round
 end
 ```
-@[1-5](But in our case, this will be enough)
-@[6-12](also, here we have a bug)
+@[6-12](Also, here we have a bug)
 
 +++
 
