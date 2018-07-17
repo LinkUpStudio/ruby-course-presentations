@@ -85,29 +85,22 @@ GOOD
 
 ```ruby
 class Temperature
-  attr_reader :in_fahrenheit, :in_celsius
-
-  def initialize(f: nil, c: nil)
-    self.in_fahrenheit = f
-    self.in_celsius = c
+  def initialize(options)
+    @in_fahrenheit = options[:f] || options[:c] * (9.0 / 5) + 32
   end
 
-  def self.from_celsius(celsius)
-    new(c: celsius)
+  attr_reader :in_fahrenheit
+
+  def self.from_celsius(degrees_celsius)
+    new(c: degrees_celsius)
   end
 
-  def self.from_fahrenheit(fahrenheit)
-    new(f: fahrenheit)
+  def self.from_fahrenheit(degrees_fahrenheit)
+    new(f: degrees_fahrenheit)
   end
 
-  def in_fahrenheit=(fahrenheit)
-    fahrenheit ? (@in_fahrenheit = fahrenheit) : return
-    @in_celsius = (fahrenheit - 32) * 5 / 9.0
-  end
-
-  def in_celsius=(celsius)
-    celsius ? (@in_celsius = celsius) : return
-    @in_fahrenheit = celsius * 9 / 5.0 + 32
+  def in_celsius
+    @in_celsius ||= (@degrees_fahrenheit - 32) * (5.0 / 9)
   end
 end
 
