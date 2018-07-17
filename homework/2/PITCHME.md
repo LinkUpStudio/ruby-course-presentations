@@ -772,8 +772,7 @@ end
 
 Your `#sum` implementations
 
-But you should know that class Array already has this method :) <br>
-https://goo.gl/jixQ9u
+But you should know that class Array already has this method :)
 
 ```ruby
 def sum
