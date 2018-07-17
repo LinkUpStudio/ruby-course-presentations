@@ -108,34 +108,98 @@ end
 
 ###### 14_array_extensions
 
-GOOD
+`#sum`
+
+not good
 
 ```ruby
-def square
-  self.map { |arg| arg * arg }
+def sum
+  self.length == 0 ? 0 : self.inject(:&+)
 end
+```
+@[2-2](use `inject(0, :+)` instead of `reduce(0, &:+)` it's a little bit faster))
 
-def square!
-  self.map! { |arg| arg*arg }
++++
+
+###### 14_array_extensions
+
+`#sum`
+
+good
+
+```ruby
+def sum
+  self.inject(0, :+)
 end
 ```
 
 +++
 
+###### 14_array_extensions
+
+`#reduce`
+
+use `reduce(0, :+)` instead of `reduce(0, &:+)` it's a little bit faster
+
++++
+
+###### 14_array_extensions
+
+`#sum`
+
+The best solution is to use ready solutions
+
+`https://goo.gl/jixQ9u`
+
++++
+
+###### 14_array_extensions
+
+not good
 
 ```ruby
+def square
+  self.length == 0 ? self : self.map{ |num| num**2 }
+end
+def square!
+  self.length == 0 ? self : self.map!{ |num| num**2 }
+end
+```
+
++++
+
+###### 14_array_extensions
+
+`#square`, `#square!`
+
+GOOD
+
+```ruby
+def square
+  self.map { |arg| arg**2 }
+end
+
+def square!
+  self.map! { |arg| arg**2 }
+end
+```
+
++++
+
+###### 14_array_extensions
+
+`#square`, `#square!`
 
 COOL
 
+```ruby
 class Array
-  SQUARE_PROC = proc { |value| value**2 }
-
   def square
-    map(&SQUARE)
+    map(&square_proc)
   end
 
   def square!
-    map!(&SQUARE)
+    map!(&square_proc)
   end
 
   private
@@ -146,3 +210,5 @@ class Array
 end
 
 ```
+
+---
