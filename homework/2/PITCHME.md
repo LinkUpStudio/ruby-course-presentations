@@ -90,6 +90,10 @@ def translate(str)
   words.join(" ")
 end
 
+def softLit?(let)
+  "aeiouy".include? let
+end
+
 def second_methods(second)
   size = second.length
   if softLit?(second[0])
@@ -106,13 +110,11 @@ def second_methods(second)
     second[1..(second.length - 1)] + second[0] + "ay"
   end
 end
-
-def softLit?(let)
-  "aeiouy".include? let
-end
 ```
-@[9]()
-@[26-28]()
+@[9-11]()
+@[13]()
+@[14](it was never used)
+@[18]()
 
 +++
 
@@ -135,24 +137,8 @@ def translate(string)
   s_res.rstrip!
 end
 ```
-@[3-14]()
-@[15-17](we got `join` for it)
-
-+++
-
-```ruby
-def translate(word)
-  translator = word.split.map do |hub, i|
-    letter = hub.index(/[aeiou]/)
-    translator = hub + 'ay' if letter.zero?
-    letter += 1 if word[letter] == 'u' && word[letter - 1] == 'q'
-    cons = hub.slice!(0, letter)
-    translator = hub + cons + 'ay'
-  end
-  translator.join(' ')
-end
-```
-@[2](what's i?)
+@[3-13]()
+@[14-16](we got `join` for it)
 
 +++
 
@@ -233,3 +219,22 @@ end
 @[2]()
 @[3-8]()
 @[9-10]()
+
++++
+
+Pretty good logic
+
+```ruby
+def translate(word)
+  translator = word.split.map do |hub, i|
+    letter = hub.index(/[aeiou]/)
+    translator = hub + 'ay' if letter.zero?
+    letter += 1 if word[letter] == 'u' && word[letter - 1] == 'q'
+    cons = hub.slice!(0, letter)
+    translator = hub + cons + 'ay'
+  end
+  translator.join(' ')
+end
+```
+@[2](what's i?)
+@[4](use `next` here, or remove this line at all, as it does nothing)
