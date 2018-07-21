@@ -39,7 +39,8 @@ $ rails generate scaffold User email:string
 
 #### Preparation
 
-OK, we're ready to start. Just open the project in your IDE/Editor
+OK, we're ready to start<br>
+Just open the project in your IDE/Editor
 
 ---
 
