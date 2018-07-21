@@ -13,5 +13,6 @@ code {
 
 ul.big-list > li {
   font-size: 0.8em;
+  top: 15px;
   margin-bottom: 15px;
 }
