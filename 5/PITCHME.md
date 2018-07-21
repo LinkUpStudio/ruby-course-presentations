@@ -29,7 +29,7 @@ $ cd publications_app
 #### Preparation
 
 Generate a scaffold for the User resource <br>
-@size[2em](We need it now for the lecture but please don't use scaffolding in future projects.)
+@size[0.5em](We need it now for the lecture but please don't use scaffolding in future projects.)
 
 ```text
 $ rails generate scaffold User email:string
