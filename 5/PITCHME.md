@@ -162,5 +162,7 @@ It controls the interaction with our models and with our views.
 
 +++
 
+#### MVC in Rails
+
 ![MVC in Rails](assets/images/mvc_rails_dia.png)
 

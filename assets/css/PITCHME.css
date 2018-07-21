@@ -21,3 +21,8 @@ ul.custom-list > li {
   top: 15px;
   margin-bottom: 15px;
 }
+
+.reveal section img {
+  border: 0;
+  box-shadow: none;
+}
