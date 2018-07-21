@@ -4,7 +4,7 @@
 
 #### Preparation
 
-Check RoR version to make sure that RoR has been installed
+Check Rails version <br>to make sure that Rails has been installed
 
 ```bash
 $ rails -v
@@ -28,8 +28,8 @@ $ cd publications_app
 
 #### Preparation
 
-Generate a scaffold for the User resource <br>
-@size[0.5em](We need it now for the lecture but please don't use scaffolding in future projects.)
+Generate a scaffold for the **User** resource <br>
+@size[0.6em](We need it now for the lecture but please don't use scaffolding in future projects.)
 
 ```bash
 $ rails generate scaffold User email:string
@@ -94,7 +94,7 @@ gem 'active_campaign', github: 'mhenrixon/active_campaign', branch: 'master'
 
 #### Configuring a Database
 
-Just about every Rails application will interact with a database. <br>
+Just about every Rails application will interact with a database.
 The database to use is specified in a configuration file, `config/database.yml`.
 
 +++
