@@ -11,6 +11,10 @@ code {
   color: #a03838;
 }
 
+.reveal p {
+  margin: 15px 0;
+}
+
 ul.custom-list {
   max-width: 800px;
   list-style-type: square;
