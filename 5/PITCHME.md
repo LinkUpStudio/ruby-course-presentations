@@ -44,9 +44,102 @@ Just open the project in your IDE/Editor
 
 ---
 
+#### MVC in Rails
+
+##### **Models**<br>
+The model refers to the data objects that we use. 
+It's the object oriented approach to design. 
+The data in our database will be the most common type of object that we'll put there.
+
++++
+
+#### MVC in Rails
+
+##### **Views**<br>
+The view is the Presentation layer. 
+It's what the user sees and interacts with, essentially the web pages. 
+The HTML, the CSS and the JavaScript.
+
++++
+
+#### MVC in Rails
+
+##### **Controllers**<br>
+The controller will make decisions based on the request and then control what happens in response. 
+It controls the interaction with our models and with our views.
+
++++
+
+#### MVC in Rails
+
+![MVC in Rails](assets/images/mvc_rails_dia.png)
+
++++
+
+#### MVC in Rails
+
+**@size[0.7em](Railstaurant Metaphore)**
+
+@ul[custom-list]
+  - **client** - a customer eating in the restaurant
+  - **server** - the waiter
+  - **router** - waiter who hands off orders
+  - **controller** - the kitchen
+  - **database** - the giant walk-in refrigerator with ingredients
+  - **model** - the person fetching ingredients from the refrigerator
+  - **view** - the chef who makes the meal look pretty and relays it back to the customer
+@ulend
+
+---
+
+#### Rails File Structure
+
+app - most important directory
+
+@ul[custom-list]
+  - models, views, controllers are all in here
+  - helpers is where you put helper code for views
+  - mailers - for sending emails
+  - assets -> where we put static files
+@ulend
+
++++
+
+#### Rails File Structure
+
+@ul[custom-list]
+  - bin - bundle, rails, rake our binary files
+  - config - application configuration, set config files for routes, db and environments
+  - db - store code related to db - Migrations go here!
+  - doc - Documentation for the application
+  - lib - Library modules
+  - log - Application log files
+@ulend
+
++++
+
+#### Rails File Structure
+
+@ul[custom-list]
+  - public - simple html files here (anything here will be visible to the public). Data accessible to the public (e.g., web browsers), including images and cascading style sheets (CSS)
+  - test for testing
+  - tmp - temp files for rails to store stuff
+  - vendor - Third-party code such as plugins and gems, much less used because of gems
+  - README - A brief description of the application
+  - Rakefile - Utility tasks available via the rake command
+@ulend
+
+---
+
 #### Gemfile and Gemfile.lock
 
 These files allow you to specify what gem dependencies are needed for your Rails application.
+
+@ul[custom-list]
+  - You have to put any gem you want to use in your Gemfile. 
+  - You have to run bundle anytime you change your Gemfile. 
+  - Your rails server needs to be restarted after any changes to your Gemfile.
+@ulend
 
 +++
 
@@ -122,7 +215,7 @@ production:
   password: <%= ENV['PUBLICATIONS_APP_DATABASE_PASSWORD'] %>
 ```
 
-+++
+---
 
 #### Rails Environments
 
@@ -132,52 +225,4 @@ There are 3 different default environments:
 - **DEVELOPMENT** - is used on your development/local computer as you interact manually with the application.
 - **TEST** - is used when running automated tests.
 - **PRODUCTION** - is used when you deploy your application for the world to use.
-@ulend
-
----
-
-#### MVC in Rails
-
-##### **Models**<br>
-The model refers to the data objects that we use. 
-It's the object oriented approach to design. 
-The data in our database will be the most common type of object that we'll put there.
-
-+++
-
-#### MVC in Rails
-
-##### **Views**<br>
-The view is the Presentation layer. 
-It's what the user sees and interacts with, essentially the web pages. 
-The HTML, the CSS and the JavaScript.
-
-+++
-
-#### MVC in Rails
-
-##### **Controllers**<br>
-The controller will make decisions based on the request and then control what happens in response. 
-It controls the interaction with our models and with our views.
-
-+++
-
-#### MVC in Rails
-
-![MVC in Rails](assets/images/mvc_rails_dia.png)
-
-+++
-
-#### MVC in Rails
-
-**@size[0.7em](Railstaurant Metaphore)**
-
-@ul[custom-list]
-  - **client** - a customer eating in the restaurant
-  - **server** - the waiter
-  - **router** - waiter who hands off orders
-  - **controller** - the kitchen
-  - **database** - the giant walk-in refrigerator with ingredients
-  - **model** - the person fetching ingredients from the refrigerator
-  - **view** - the chef who makes the meal look pretty and relays it back to the customer
 @ulend
