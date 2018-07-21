@@ -29,7 +29,7 @@ $ cd publications_app
 #### Preparation
 
 Generate a scaffold for the User resource <br>
-@size[12](We need it now for the lecture but please don't use scaffolding in future projects.)
+@size[8](We need it now for the lecture but please don't use scaffolding in future projects.)
 
 ```text
 $ rails generate scaffold User email:string
@@ -86,9 +86,9 @@ gem 'active_campaign', github: 'mhenrixon/active_campaign', branch: 'master'
 ```
 @[1](Gemfiles require at least one gem source, in the form of the URL for a RubyGems server)
 @[2](This line allows us to get source of some gems from specific repositories, branches on the GitHub)
-@[28](For example)
+@[30](For example)
 @[6-9](Every gem from default set has description)
-@[14-26](If we need some gems not in all environments we can do like this)
+@[13-26](If we need some gems not in all environments we can do like this)
 
 ---
 
