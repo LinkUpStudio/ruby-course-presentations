@@ -8,5 +8,10 @@ code {
 .no-text-transform { text-transform: none; }
 
 .reveal h4 {
-  color: #ce3f3f;
+  color: #a03838;
+}
+
+ul.big-list {
+  font-size: 0.8em;
+  margin-bottom: 15px;
 }

@@ -126,12 +126,12 @@ production:
 
 #### Rails Environments
 
-There are three different environments in which Rails can run by default:
+There are 3 different environments in which Rails can run by default:
 
-@ul[squares]
-- The **development** environment is used on your development/local computer as you interact manually with the application.
-- The **test** environment is used when running automated tests.
-- The **production** environment is used when you deploy your application for the world to use.
+@ul[big-list]
+- **DEVELOPMENT** - is used on your development/local computer as you interact manually with the application.
+- **TEST** - is used when running automated tests.
+- **PRODUCTION** - is used when you deploy your application for the world to use.
 @ulend
 
 ---
