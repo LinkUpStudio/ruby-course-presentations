@@ -46,16 +46,15 @@ Just open the project in your IDE/Editor
 
 #### MVC in Rails
 
-##### **Models**<br>
+##### **Models**
 The model refers to the data objects that we use. 
-It's the object oriented approach to design. 
-The data in our database will be the most common type of object that we'll put there.
+It's the object oriented approach to design.
 
 +++
 
 #### MVC in Rails
 
-##### **Views**<br>
+##### **Views**
 The view is the Presentation layer. 
 It's what the user sees and interacts with, essentially the web pages. 
 The HTML, the CSS and the JavaScript.
@@ -64,7 +63,7 @@ The HTML, the CSS and the JavaScript.
 
 #### MVC in Rails
 
-##### **Controllers**<br>
+##### **Controllers**
 The controller will make decisions based on the request and then control what happens in response. 
 It controls the interaction with our models and with our views.
 
@@ -94,13 +93,13 @@ It controls the interaction with our models and with our views.
 
 #### Rails File Structure
 
-app - most important directory
+**app** - most important directory
 
 @ul[custom-list]
-  - models, views, controllers are all in here
-  - helpers is where you put helper code for views
-  - mailers - for sending emails
-  - assets -> where we put static files
+- models, views, controllers are all in here
+- helpers is where you put helper code for views
+- mailers - for sending emails
+- assets - where we put static files
 @ulend
 
 +++
@@ -108,12 +107,12 @@ app - most important directory
 #### Rails File Structure
 
 @ul[custom-list]
-  - bin - bundle, rails, rake our binary files
-  - config - application configuration, set config files for routes, db and environments
-  - db - store code related to db - Migrations go here!
-  - doc - Documentation for the application
-  - lib - Library modules
-  - log - Application log files
+- **bin** - bundle, rails, rake our binary files
+- **config** - application configuration, set config files for routes, db and environments
+- **db** - store code related to db; migrations go here!
+- **doc** - documentation for the application
+- **lib** - library modules
+- **log** - application log files
 @ulend
 
 +++
@@ -121,12 +120,12 @@ app - most important directory
 #### Rails File Structure
 
 @ul[custom-list]
-  - public - simple html files here (anything here will be visible to the public). Data accessible to the public (e.g., web browsers), including images and cascading style sheets (CSS)
-  - test for testing
-  - tmp - temp files for rails to store stuff
-  - vendor - Third-party code such as plugins and gems, much less used because of gems
-  - README - A brief description of the application
-  - Rakefile - Utility tasks available via the rake command
+- **public** - data accessible to the public (e.g., web browsers), including images and cascading style sheets (CSS)
+- **test** for testing
+- **tmp** - temp files for rails to store stuff
+- **vendor** - third-party code such as plugins and gems, much less used because of gems
+- **README** - a brief description of the application
+- **Rakefile** - utility tasks available via the rake command
 @ulend
 
 ---
@@ -136,9 +135,9 @@ app - most important directory
 These files allow you to specify what gem dependencies are needed for your Rails application.
 
 @ul[custom-list]
-  - You have to put any gem you want to use in your Gemfile. 
-  - You have to run bundle anytime you change your Gemfile. 
-  - Your rails server needs to be restarted after any changes to your Gemfile.
+- You have to put any gem you want to use in your Gemfile. 
+- You have to run bundle anytime you change your Gemfile. 
+- Your rails server needs to be restarted after any changes to your Gemfile.
 @ulend
 
 +++

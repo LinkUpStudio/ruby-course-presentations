@@ -3,7 +3,7 @@
 
 ---
 
-#### Conditionals
+##### Conditionals
 
 if / unless
 
@@ -63,7 +63,7 @@ b.zero? ? (a != 4 ? 'wtf' : 'omg' ) : (a.zero? ? ':(' : "Nooo")
 
 +++
 
-#### Boolean operators
+##### Boolean operators
 
 Boolean "AND"
 
@@ -111,7 +111,7 @@ false || 99
 
 +++
 
-#### @css[ruby-red](Low priority) Boolean operators
+##### @css[ruby-red](Low priority) Boolean operators
 @css[ruby-red](Better don't play with them)
 
 ```ruby
@@ -126,7 +126,7 @@ a                 # => 99
 
 +++
 
-#### Bonus
+##### Bonus
 
 ```ruby
 b = 8
@@ -146,7 +146,7 @@ a ||= true
 
 +++
 
-#### Case, when
+##### Case, when
 
 ```ruby
 a = 1
@@ -160,7 +160,7 @@ r = case
 
 +++
 
-#### Case-when with parameter
+##### Case-when with parameter
 
 ```ruby
 a = 1
@@ -179,7 +179,7 @@ end
 
 ---
 
-#### Loops
+##### Loops
 
 most primitive
 
@@ -196,7 +196,7 @@ end
 
 +++
 
-#### While
+##### While
 
 ```ruby
 i = 0
@@ -209,7 +209,7 @@ end
 
 +++
 
-#### "Do While"
+##### "Do While"
 
 @css[ruby-red](Matz)\* told us to use `loop` instead,
 check [here](http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-core/6745)
@@ -229,7 +229,7 @@ end while i < 10
 
 +++
 
-#### Until
+##### Until
 
 ```ruby
 i = 1
@@ -242,7 +242,7 @@ end
 
 +++
 
-#### For
+##### For
 
 ```ruby
 for i in 1..10
@@ -255,7 +255,7 @@ i
 
 +++
 
-#### Times & Upto
+##### Times & Upto
 
 ```ruby
 10.times { |i| print "#{i} " }
@@ -270,7 +270,7 @@ i
 
 ---
 
-#### Methods
+##### Methods
 
 ```ruby
 def movie_listing(title, rank = 5)
@@ -365,7 +365,7 @@ end
 
 +++
 
-#### Return values
+##### Return values
 
 ```ruby
 def number_is(n)
@@ -401,7 +401,7 @@ much better :)
 
 +++
 
-#### Methods with blocks
+##### Methods with blocks
 
 ```ruby
 def double(thing)
@@ -438,7 +438,7 @@ try do 'hello' end
 
 ---
 
-#### Closures
+##### Closures
 
 ##### What’s a Closure?
 
@@ -487,7 +487,7 @@ seven_times { x += 10 }
 
 ---
 
-#### Classes
+##### Classes
 
 Creating a class
 

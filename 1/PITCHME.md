@@ -16,7 +16,7 @@ write.
 
 ---
 
-#### ... and everything is an object
+##### ... and everything is an object
 
 ```ruby
 'I am calm'.upcase
@@ -36,7 +36,7 @@ nil.class
 
 ---
 
-#### Join our Slack!
+##### Join our Slack!
 
 https://goo.gl/oL9Vy8
 
@@ -44,7 +44,7 @@ https://goo.gl/oL9Vy8
 
 ---
 
-#### Installing Ruby
+##### Installing Ruby
 
 Rule #1 - **DO NOT** use `apt` or any other built-in package manager to install
 Ruby.
@@ -57,7 +57,7 @@ https://ryanbigg.com/2014/10/ubuntu-ruby-ruby-install-chruby-and-you
 
 ---
 
-#### Numbers (Integer & Float)
+##### Numbers (Integer & Float)
 
 ```ruby
 1 + 2
@@ -101,7 +101,7 @@ Math.sqrt(9)
 
 +++
 
-#### Extreme numbers
+##### Extreme numbers
 
 ```ruby
 100_000_000**10
@@ -110,7 +110,7 @@ Math.sqrt(9)
 
 +++
 
-#### Float is NOT to count money!
+##### Float is NOT to count money!
 
 ```ruby
 0.1 + 0.5
@@ -123,7 +123,7 @@ Count money in **cents** instead.
 
 ---
 
-#### Strings
+##### Strings
 
 ```ruby
 String.new
@@ -157,7 +157,7 @@ String.new
 
 +++
 
-#### String concatenation
+##### String concatenation
 
 ```ruby
 'Con' 'cat' 'ena' 'te'
@@ -203,7 +203,7 @@ str.concat(', LOL')
 
 +++
 
-#### String accessing
+##### String accessing
 
 ```ruby
 str = 'Luke, I am your father'
@@ -234,7 +234,7 @@ str[0...4]
 
 +++
 
-#### String has a lot of useful methods
+##### String has a lot of useful methods
 Check this out: <br>
 https://ruby-doc.org/core-2.5.1/String.html <br>
 (Or just google *"ruby string"* **or any other class**)
@@ -259,7 +259,7 @@ https://ruby-doc.org/core-2.5.1/String.html <br>
 
 ---
 
-#### Ranges
+##### Ranges
 https://ruby-doc.org/core-2.5.1/Range.html
 
 ```ruby
@@ -274,7 +274,7 @@ https://ruby-doc.org/core-2.5.1/Range.html
 
 ---
 
-#### Symbols
+##### Symbols
 https://ruby-doc.org/core-2.5.1/Symbol.html
 
 ```ruby
@@ -301,7 +301,7 @@ https://ruby-doc.org/core-2.5.1/Symbol.html
 
 +++
 
-#### Symbols are always same (like numbers)
+##### Symbols are always same (like numbers)
 
 ```ruby
 :Frodo.object_id
@@ -329,7 +329,7 @@ https://ruby-doc.org/core-2.5.1/Symbol.html
 
 ---
 
-#### Arrays
+##### Arrays
 https://ruby-doc.org/core-2.5.1/Array.html
 
 ```ruby
@@ -359,7 +359,7 @@ Array.new(4) { |i| i.to_s }
 
 +++
 
-#### Percent syntax for arrays
+##### Percent syntax for arrays
 
 ```ruby
 %w[word Dart\ Vader #{6 * 6}]
@@ -379,7 +379,7 @@ Array.new(4) { |i| i.to_s }
 
 +++
 
-#### Elements accessing
+##### Elements accessing
 
 _["Ruby", "JS", "Python", "Scala"]_
 
@@ -418,7 +418,7 @@ languages
 
 +++
 
-#### A bit about "no brackets" stuff
+##### A bit about "no brackets" stuff
 
 ```ruby
 first, second = 'I am first!', 2, 3
@@ -460,7 +460,7 @@ last
 
 +++
 
-#### Adding elements to array
+##### Adding elements to array
 
 _["Ruby", "JS", "Python", "Scala"]_
 
@@ -487,7 +487,7 @@ languages.insert(4, 'Haml', 'Sass')
 
 +++
 
-#### Removing elements from array
+##### Removing elements from array
 
 ```ruby
 languages = ['C++', 'Ruby', 'JS', 'Elm', 'Haml', 'Sass', 'Python', 'Scala']
@@ -533,7 +533,7 @@ languages.uniq
 
 +++
 
-#### Obtaining information about array
+##### Obtaining information about array
 
 ```ruby
 languages = 'Ruby', 'JavaScript', 'Scala', 'Python', 'Scala'
@@ -562,7 +562,7 @@ languages.include?('PHP')
 
 +++
 
-#### Arrays concatenation 
+##### Arrays concatenation 
 
 ```ruby
 days1 = ['Mon', 'Tue', 'Wed']
@@ -592,7 +592,7 @@ days1 << 'Thu' << 'Fri' << 'Sat' << 'Sun'
 
 +++
 
-#### Operations with arrays
+##### Operations with arrays
 
 ```ruby
 some_countries = %w[Norway Canada Ukraine Japan]
@@ -634,7 +634,7 @@ some_europe_countries.join('/')
 
 +++
 
-#### Iterators for arrays
+##### Iterators for arrays
 
 ```ruby
 a = %w[a b c]
@@ -665,7 +665,7 @@ a
 
 ---
 
-#### Hash
+##### Hash
 Check this out: <br>
 http://ruby-doc.org/core-2.5.1/Hash.html
 
@@ -703,7 +703,7 @@ h['key']
 
 +++
 
-#### Hash elements deleting
+##### Hash elements deleting
 
 ```ruby
 h = {'a' => 100, 'b' => 200}
@@ -737,7 +737,7 @@ h
 
 +++
 
-#### Iterators for hash
+##### Iterators for hash
 
 ```ruby
 h = {'a' => 100, 'b' => 200}
@@ -765,7 +765,7 @@ h.each_value { |value| puts value }
 
 +++
 
-#### Hash
+##### Hash
 _{"a" => 100, "b" => 200, "c" => 300}_
 
 ```ruby
@@ -826,7 +826,7 @@ h1.merge(h2)
 
 ---
 
-#### Time
+##### Time
 
 http://ruby-doc.org/core-2.5.1/Time.html
 
@@ -877,4 +877,4 @@ t.sunday?
 
 ---
 
-#### To be continued...
+##### To be continued...

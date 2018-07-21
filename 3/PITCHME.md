@@ -3,7 +3,7 @@
 
 ---
 
-#### Method visibility
+##### Method visibility
 
 All methods are `public` by **default**.
 
@@ -156,7 +156,7 @@ book.full_cost                    # => 6.93
 
 ---
 
-#### Inheritance
+##### Inheritance
 
 Method inheritance
 
@@ -324,7 +324,7 @@ B::NUM        # => 3
 
 ---
 
-#### Modules
+##### Modules
 
 As namespaces
 
@@ -403,4 +403,4 @@ AudioConverter::Decoder.new('music.mp3')
 
 ---
 
-#### Yay! End for today!
+### Yay! End for today!
