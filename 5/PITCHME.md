@@ -6,7 +6,7 @@
 
 Check RoR version to make sure that RoR has been installed
 
-```text
+```bash
 $ rails -v
 ```
 
@@ -16,11 +16,11 @@ $ rails -v
 
 Create new rails project
 
-```text
+```bash
 $ rails new publications_app --database=postgresql
 ```
 
-```text
+```bash
 $ cd publications_app
 ```
 
@@ -31,7 +31,7 @@ $ cd publications_app
 Generate a scaffold for the User resource <br>
 @size[0.5em](We need it now for the lecture but please don't use scaffolding in future projects.)
 
-```text
+```bash
 $ rails generate scaffold User email:string
 ```
 
