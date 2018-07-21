@@ -160,7 +160,7 @@ The HTML, the CSS and the JavaScript.
 The controller will make decisions based on the request and then control what happens in response. 
 It controls the interaction with our models and with our views.
 
-+++?image=assets/images/mvc_rails_dia.png
++++
 
-#### MVC in Rails
+![MVC in Rails](assets/images/mvc_rails_dia.png)
 
