@@ -173,11 +173,11 @@ It controls the interaction with our models and with our views.
 **@size[0.7em](Railstaurant Metaphore)**
 
 @ul[custom-list]
-  **client** - a customer eating in the restaurant
-  **server** - the waiter
-  **router** - waiter who hands off orders
-  **controller** - the kitchen
-  **database** - the giant walk-in refrigerator with ingredients
-  **model** - the person fetching ingredients from the refrigerator
-  **view** - the chef who makes the meal look pretty and relays it back to the customer
+  - **client** - a customer eating in the restaurant
+  - **server** - the waiter
+  - **router** - waiter who hands off orders
+  - **controller** - the kitchen
+  - **database** - the giant walk-in refrigerator with ingredients
+  - **model** - the person fetching ingredients from the refrigerator
+  - **view** - the chef who makes the meal look pretty and relays it back to the customer
 @ulend
