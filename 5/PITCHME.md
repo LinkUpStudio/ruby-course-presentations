@@ -137,8 +137,6 @@ There are 3 different default environments:
 ---
 
 #### MVC in Rails
- 
-@size[0.5em](Let's remember MVC)
 
 ##### **Models**<br>
 The model refers to the data objects that we use. 
@@ -149,8 +147,6 @@ The data in our database will be the most common type of object that we'll put t
 
 #### MVC in Rails
 
-@size[0.5em](Let's remember MVC)
-
 ##### **Views**<br>
 The view is the Presentation layer. 
 It's what the user sees and interacts with, essentially the web pages. 
@@ -159,8 +155,6 @@ The HTML, the CSS and the JavaScript.
 +++
 
 #### MVC in Rails
-
-@size[0.5em](Let's remember MVC)
 
 ##### **Controllers**<br>
 The controller will make decisions based on the request and then control what happens in response. 
