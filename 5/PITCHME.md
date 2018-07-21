@@ -84,10 +84,10 @@ end
 gem 'active_campaign', github: 'mhenrixon/active_campaign', branch: 'master'
 ```
 @[1](Gemfiles require at least one gem source, in the form of the URL for a RubyGems server)
-@[2](This line allow us to get source of some gems from specific repositories, branches on the GitHub)
-@[29](For example)
+@[2](This line allows us to get source of some gems from specific repositories, branches on the GitHub)
+@[28](For example)
 @[6-9](Every gem from default set has description)
-@[13-25](If we need some gems not in all environments we can do like this)
+@[14-26](If we need some gems not in all environments we can do like this)
 
 ---
 
