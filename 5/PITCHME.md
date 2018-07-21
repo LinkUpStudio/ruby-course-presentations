@@ -126,7 +126,7 @@ production:
 
 #### Rails Environments
 
-There are 3 different environments in which Rails can run by default:
+There are 3 different default environments:
 
 @ul[big-list]
 - **DEVELOPMENT** - is used on your development/local computer as you interact manually with the application.
