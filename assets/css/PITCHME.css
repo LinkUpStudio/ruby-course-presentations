@@ -11,7 +11,12 @@ code {
   color: #a03838;
 }
 
-ul.big-list > li {
+ul.custom-list {
+  max-width: 800px;
+  list-style-type: square;
+}
+
+ul.custom-list > li {
   font-size: 0.8em;
   top: 15px;
   margin-bottom: 15px;

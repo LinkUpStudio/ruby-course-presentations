@@ -128,7 +128,7 @@ production:
 
 There are 3 different default environments:
 
-@ul[big-list]
+@ul[custom-list]
 - **DEVELOPMENT** - is used on your development/local computer as you interact manually with the application.
 - **TEST** - is used when running automated tests.
 - **PRODUCTION** - is used when you deploy your application for the world to use.
