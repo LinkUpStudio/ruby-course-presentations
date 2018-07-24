@@ -257,7 +257,7 @@ RSpec.configure do |config|
 end
 ```
 
-and "require" it(*rpec_configs.rb*) in every file with tests
+and "require" it (*rpec_configs.rb*) in every file with tests
 
 ---
 
@@ -388,7 +388,7 @@ end
 @[8](`#` instead of `.`)
 @[9](It's not cool description for context. Is `context` really need here?)
 @[4,12](Same ingredient is initialized twice)
-@[13](Just `@recipe.ingredient_quantities.push(ingredient)`, `=` is unnecessary)
+@[13](Can be just `@recipe.ingredient_quantities.push(ingredient)`; `=` is unnecessary)
 
 ---
 
