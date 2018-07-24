@@ -225,3 +225,32 @@ There are 3 different default environments:
 - **TEST** - is used when running automated tests.
 - **PRODUCTION** - is used when you deploy your application for the world to use.
 @ulend
+
+---
+
+#### 2 major guiding principles of Rails
+
+@ul
+- Don't Repeat Yourself
+- Convention Over Configuration
+@ulend
+
++++
+
+#### Don't Repeat Yourself
+
+> Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.
+
+@size[0.8em](By not writing the same information over and over again, our code is more maintainable, more extensible, and less buggy.)
+
++++
+
+#### Convention Over Configuration
+
+Rails has opinions about the best way to do many things in a web application, 
+and defaults to this set of conventions, 
+rather than require that you specify minutiae through endless configuration files.
+
+---
+
+More detailed will be on the next lecture
