@@ -185,7 +185,7 @@ end
 @[2](`pomodoro` is used...)
 @[4-8](...only in this context)
 @[9-14](there is no `pomodoro` here)
-@[9-14](So it's better to put this `let` inside the first `context` only)
+@[2,4-8](So it's better to put this `let` inside the first `context` only)
 
 ---
 
