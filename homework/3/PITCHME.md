@@ -11,7 +11,10 @@ Let's repeat some things
 
 +++
 
-Describe an account when it is first opened. It has a balance of zero.<br>
+We have the following sentence: <br>
+@size[0.8em](_Describe an account when it is first opened. It has a balance of zero._)
+
+We can write it as rspec-test:
 
 ```ruby
 describe 'account' do
@@ -23,6 +26,8 @@ end
 ```
 
 +++
+
+Basic structure of tests:
 
 ```ruby
 describe 'something' do
@@ -40,8 +45,8 @@ describe 'something' do
 end
 ```
 @[1](`describe` -  to wrap a set of tests against one functionality)
-@[2,7](`context` - to wrap a set of tests against one functionality under the same state)
-@[3,8](`it` - what should happen with (should do) described thing)
+@[2,9](`context` - to wrap a set of tests against one functionality under the same state)
+@[3,5,10](`it` - what should do/should happen with described thing)
 
 +++
 
