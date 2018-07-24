@@ -7,6 +7,94 @@ It's good to test **constructors** too
 
 ---
 
+Let's repeat some things
+
++++
+
+Describe an account when it is first opened. It has a balance of zero.<br>
+-<br>
+`describe` an _account_ `|` _when it is first opened_ `it` _has a balance of zero_
+
++++
+
+```ruby
+describe 'something' do
+  context 'in one context' do
+    it 'does one thing' do
+    end
+  end
+
+  context 'in another context' do
+    it 'does another thing' do
+    end
+  end
+end
+```
+@[1](`describe` -  to wrap a set of tests against one functionality)
+@[2,7](`context` - to wrap a set of tests against one functionality under the same state)
+@[3,8](`it` - what should happen with (should do) described thing)
+
++++
+
+Use the Ruby documentation convention of `.` (or `::`) when referring to a class method's name 
+and `#` when referring to an instance method's name
+
+```ruby
+# BAD
+describe 'the authenticate method for User' do
+describe 'if the user is an admin' do
+
+# GOOD
+describe '.authenticate' do
+describe '#admin?' do
+```
+
++++
+
+Do not use **should** when describing your tests. 
+Use the third person in the present tense. 
+Even better start using the new expectation syntax.
+
+```ruby
+# BAD
+it 'should not change timings' do
+  consumption.occur_at.should == valid.occur_at
+end
+
+# GOOD
+it 'does not change timings' do
+  expect(consumption.occur_at).to equal(valid.occur_at)
+end
+```
+
++++
+
+When you have to assign a variable instead of using a `before` block 
+**to create an instance variable**, use `let`. Using `let` the variable lazy loads 
+only when it is used the first time in the test and get cached until that specific test is finished
+
+```ruby
+# this:
+let(:foo) { Foo.new }
+
+# is very nearly equivalent to this:
+def foo
+  @foo ||= Foo.new
+end
+```
+
++++
+
+Depending on your personal preference you could use before blocks when
+
+@ul
+- There are variables that don't need to be referenced directly but are required
+- There are many commands to be executed because its syntax is clearer when many commands are involved
+- Creating mocks/stubs
+@ulend
+
+---
+
 `Ingredient#==`
 
 ```ruby
@@ -284,85 +372,5 @@ end
 @[4,12]()
 
 ---
-
-Let's summarize
-
-+++
-
-When you have to assign a variable instead of using a `before` block 
-**to create an instance variable**, use `let`. Using `let` the variable lazy loads 
-only when it is used the first time in the test and get cached until that specific test is finished
-
-
-```ruby
-# this:
-let(:foo) { Foo.new }
-
-# is very nearly equivalent to this:
-def foo
-  @foo ||= Foo.new
-end
-```
-
-+++
-
-Do not use **should** when describing your tests. 
-Use the third person in the present tense. 
-Even better start using the new expectation syntax.)
-
-```ruby
-# BAD
-it 'should not change timings' do
-  consumption.occur_at.should == valid.occur_at
-end
-
-# GOOD
-it 'does not change timings' do
-  expect(consumption.occur_at).to equal(valid.occur_at)
-end
-```
-
-+++
-
-How to describe your methods<br> 
-Use the Ruby documentation convention of `.` (or `::`) when referring to a class method's name 
-and `#` when referring to an instance method's name
-
-```ruby
-# BAD
-describe 'the authenticate method for User' do
-describe 'if the user is an admin' do
-
-# GOOD
-describe '.authenticate' do
-describe '#admin?' do
-```
-
-+++
-
-*Describe an account when it is first opened. It has a balance of zero.*<br>
--
-`describe` an account `|` when it is first opened. `it` has a balance of zero.
-
-+++
-
-```ruby
-describe 'something' do
-  context 'in one context' do
-    it 'does one thing' do
-    end
-  end
-
-  context 'in another context' do
-    it 'does another thing' do
-    end
-  end
-end
-```
-@[1](`describe` -  to wrap a set of tests against one functionality)
-@[2,7](`context` - to wrap a set of tests against one functionality under the same state)
-@[3,8](`it` - what should happen with (should do) described thing)
-
-+++
 
 Any other questions?
