@@ -3,7 +3,7 @@
 ---
 
 First of all<br>
-It's good to test constructors too
+It's good to test **constructors** too
 
 ---
 
@@ -38,10 +38,14 @@ describe '#==' do
   end
 end
 ```
+@[2]()
+@[4-10]()
+@[12-18]()
+@[20-26]()
 
 +++
 
-What remarks could be for these tests?
+How to improve these tests?
 
 ```ruby
 describe '#==' do
@@ -65,8 +69,7 @@ end
 ---
 
 `IngredientQuantity#total_cost`<br>
-@size[0.5em](cost - per 1 kg)<br>
-@size[0.5em](quantity - in grams)
+@size[0.5em](cost - per 1 kg; quantity - in grams)
 
 ```ruby
 let(:tomato) { Ingredient.new(name: 'Tomato', cost: 10) }
@@ -84,7 +87,7 @@ end
 
 +++
 
-Improved version of `IngredientQuantity#total_cost`
+Improved version
 
 ```ruby
 subject(:tomatoes_bag) { bag_of(tomato(cost: 10), quantity: 250) }
@@ -100,7 +103,7 @@ end
 
 +++
 
-How? You can provide some helper for example
+How it works<br> You can provide some helper for example
 
 ```ruby
 module Helpers
@@ -140,7 +143,6 @@ and "require" it in every file with tests
 
 ```ruby
 subject(:tomatoes_bag) { bag_of(tomato(cost: 10), quantity: 250) }
-subject(:potatoes_bag) { bag_of(potato(cost: 5), quantity: 1500) }
 
 describe '#+' do
   context 'when objects with the same ingredient' do
@@ -153,12 +155,17 @@ describe '#+' do
   end
 
   context 'when objects with different ingredients' do
+    let(:potatoes_bag) { bag_of(potato(cost: 5), quantity: 1500) }
+  
     it 'raises error' do
-      expect { potatoes_bag + tomatoes_bag }.to raise_error(ArgumentError)
+      expect { tomatoes_bag + potatoes_bag }.to raise_error(ArgumentError)
     end
   end
 end
 ```
+@[1]()
+@[4-11]()
+@[13-19]()
 
 +++
 
@@ -255,3 +262,95 @@ describe '.total_cost' do
   end
 end
 ```
+@[1-7]()
+@[8]()
+@[9]()
+@[4,12]()
+
+---
+
+Let's summarize
+
++++
+
+@size[0.6em](
+  When you have to assign a variable instead of using a `before` block 
+  to create an **instance variable**, use `let`. Using `let` the variable lazy loads 
+  only when it is used the first time in the test and get cached until that specific test is finished
+)
+
+```ruby
+# this:
+let(:foo) { Foo.new }
+
+# is very nearly equivalent to this:
+def foo
+  @foo ||= Foo.new
+end
+```
+
++++
+
+@size[0.6em](
+  Do not use **should** when describing your tests. 
+  Use the third person in the present tense. 
+  Even better start using the new expectation syntax.
+)
+
+```ruby
+# BAD
+it 'should not change timings' do
+  consumption.occur_at.should == valid.occur_at
+end
+
+# GOOD
+it 'does not change timings' do
+  expect(consumption.occur_at).to equal(valid.occur_at)
+end
+```
+
++++
+
+How to describe your methods<br> 
+Use the Ruby documentation convention of `.` (or `::`) when referring to a class method's name 
+and `#` when referring to an instance method's name
+
+```ruby
+# BAD
+describe 'the authenticate method for User' do
+describe 'if the user is an admin' do
+
+# GOOD
+describe '.authenticate' do
+describe '#admin?' do
+end
+```
+
++++
+
+*Describe an account when it is first opened. It has a balance of zero.*<br>
+
+`describe` an account `|` when it is first opened. `it` has a balance of zero.
+
++++
+
+```ruby
+describe 'something' do
+  context 'in one context' do
+    it 'does one thing' do
+    end
+  end
+
+  context 'in another context' do
+    it 'does another thing' do
+    end
+  end
+end
+```
+@[1](`describe` -  to wrap a set of tests against one functionality)
+@[2,7](`context` - to wrap a set of tests against one functionality under the same state)
+@[3,8](`it` - what should happen with (should do) described thing)
+
++++
+
+Any other questions?
