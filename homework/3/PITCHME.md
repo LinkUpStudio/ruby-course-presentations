@@ -247,7 +247,7 @@ end
 
 +++
 
-Add file with configurations (`rpec_configs.rb`)
+Add file with configurations (_rpec_configs.rb_)
 
 ```ruby
 require 'helpers'
@@ -257,7 +257,7 @@ RSpec.configure do |config|
 end
 ```
 
-and `require` it(`rpec_configs.rb`) in every file with tests
+and "require" it(_rpec_configs.rb_) in every file with tests
 
 ---
 
