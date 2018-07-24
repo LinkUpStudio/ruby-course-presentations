@@ -164,7 +164,7 @@ add_index :users, :email
 
 #### Migrations
 
-More detailed about migrations you can find here: <br> https://edgeguides.rubyonrails.org/active_record_migrations.html
+More details about migrations you can find here: <br> https://edgeguides.rubyonrails.org/active_record_migrations.html
 
 ---
 
