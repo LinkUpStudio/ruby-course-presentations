@@ -5,9 +5,9 @@
 
 #### ORM (Object-Relational Mapping)
 
-- technique that connects the **rich objects** of an application to **tables** in a RDBMS. <br>
+technique that connects the **rich objects** of an application to **tables** in a RDBMS. <br>
 
-@size[0.8em](The properties and relationships of the objects in an application can be easily stored and retrieved from a database without writing SQL statements directly and with less overall database access code.)
+@size[0.7em](The properties and relationships of the objects in an application can be easily stored and retrieved from a database without writing SQL statements directly and with less overall database access code.)
 
 +++
 
@@ -25,13 +25,13 @@
 
 #### Naming Conventions
 
-Database Table - Plural with underscores separating words <br>
-Model Class - Singular with the first letter of each word capitalized <br>
+DB Table - Plural with underscores separating words <br>
+Model - Singular with the first letter of each word capitalized <br>
 
-@size[0.8em](Model: `Article`, table: `articles`)
-@size[0.8em](Model: `LineItem`, table: `line_items`)
-@size[0.8em](Model: `Deer`, table: `deers`)
-@size[0.8em](Model: `Mouse`, table: `mice`)
+@size[0.8em](Model: `Article`, table: `articles`)<br>
+@size[0.8em](Model: `LineItem`, table: `line_items`)<br>
+@size[0.8em](Model: `Deer`, table: `deers`)<br>
+@size[0.8em](Model: `Mouse`, table: `mice`)<br>
 @size[0.8em](Model: `Person`, table: `people`)
 
 +++
