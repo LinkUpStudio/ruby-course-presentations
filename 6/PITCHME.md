@@ -145,7 +145,7 @@ end
 - `index` - adds an index for the column
 @ulend
 
-#### Examples
+#### Another example of migration
 
 ```ruby
 change_table :users do |t|
@@ -162,37 +162,12 @@ add_index :users, :email
 
 +++
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### Migrations
 
 More detailed about migrations you can find here: <br> https://edgeguides.rubyonrails.org/active_record_migrations.html
 
 ---
 
-#### Validations
-
-
-
-
-
-
-
+#### Associations
 
 
