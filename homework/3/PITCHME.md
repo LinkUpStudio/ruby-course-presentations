@@ -45,6 +45,20 @@ end
 
 +++
 
+What's wrong with these test?
+
+```ruby
+describe '#==' do
+  first_ingredient = Ingredient.new(name: 'potato', price: 10)
+  second_ingredient = Ingredient.new(name: 'potato', price: 10)
+  it '==' do
+    expect(first_ingredient == second_ingredient).to be_trythy
+  end
+end
+```
+
++++
+
 How to improve these tests?
 
 ```ruby
@@ -69,7 +83,7 @@ end
 ---
 
 `IngredientQuantity#total_cost`<br>
-@size[0.5em](cost - per 1 kg; quantity - in grams)
+@size[0.5em](if cost - per 1 kg; quantity - in grams)
 
 ```ruby
 let(:tomato) { Ingredient.new(name: 'Tomato', cost: 10) }
@@ -221,6 +235,8 @@ end
 
 ---
 
+`Recipe#total_cost`
+
 ```ruby
 let(:tomatoes_bag) { bag_of(tomato(cost: 50), quantity: 250) }
 let(:potatoes_bag) { bag_of(potato(cost: 100), quantity: 500) }
@@ -273,11 +289,10 @@ Let's summarize
 
 +++
 
-@size[0.6em](
-  When you have to assign a variable instead of using a `before` block 
-  to create an **instance variable**, use `let`. Using `let` the variable lazy loads 
-  only when it is used the first time in the test and get cached until that specific test is finished
-)
+When you have to assign a variable instead of using a `before` block 
+**to create an instance variable**, use `let`. Using `let` the variable lazy loads 
+only when it is used the first time in the test and get cached until that specific test is finished
+
 
 ```ruby
 # this:
@@ -291,11 +306,9 @@ end
 
 +++
 
-@size[0.6em](
-  Do not use **should** when describing your tests. 
-  Use the third person in the present tense. 
-  Even better start using the new expectation syntax.
-)
+Do not use **should** when describing your tests. 
+Use the third person in the present tense. 
+Even better start using the new expectation syntax.)
 
 ```ruby
 # BAD
@@ -323,13 +336,12 @@ describe 'if the user is an admin' do
 # GOOD
 describe '.authenticate' do
 describe '#admin?' do
-end
 ```
 
 +++
 
 *Describe an account when it is first opened. It has a balance of zero.*<br>
-
+-
 `describe` an account `|` when it is first opened. `it` has a balance of zero.
 
 +++
