@@ -12,8 +12,15 @@ Let's repeat some things
 +++
 
 Describe an account when it is first opened. It has a balance of zero.<br>
--<br>
-`describe` an _account_ `|` _when it is first opened_ `it` _has a balance of zero_
+
+```ruby
+describe 'account' do
+  context 'when it is first opened' do
+    it 'has a balance of zero' do
+    end
+  end
+end
+```
 
 +++
 
@@ -21,11 +28,13 @@ Describe an account when it is first opened. It has a balance of zero.<br>
 describe 'something' do
   context 'in one context' do
     it 'does one thing' do
+    end    
+    it 'does another thing' do
     end
   end
 
   context 'in another context' do
-    it 'does another thing' do
+    it 'does something else' do
     end
   end
 end
@@ -36,7 +45,7 @@ end
 
 +++
 
-Use the Ruby documentation convention of `.` (or `::`) when referring to a class method's name 
+Use the Ruby documentation convention of `.` when referring to a class method's name 
 and `#` when referring to an instance method's name
 
 ```ruby
@@ -69,9 +78,8 @@ end
 
 +++
 
-When you have to assign a variable instead of using a `before` block 
-**to create an instance variable**, use `let`. Using `let` the variable lazy loads 
-only when it is used the first time in the test and get cached until that specific test is finished
+When you have to assign a variable instead of using a `before` block **to create an instance variable**, use `let`. <br> 
+@size[0.8em](Using `let` the variable lazy loads only when it is used the first time in the test and get cached until that specific test is finished)
 
 ```ruby
 # this:
@@ -85,7 +93,7 @@ end
 
 +++
 
-Depending on your personal preference you could use before blocks when
+Depending on your personal preference you could use `before` blocks when
 
 @ul
 - There are variables that don't need to be referenced directly but are required
@@ -99,13 +107,13 @@ Depending on your personal preference you could use before blocks when
 
 ```ruby
 describe '#==' do
-  subject(:pomidor) { described_class(cost: 35) }
+  subject(:pomidor) { described_class.new('pomidor', 35) }
 
   context 'when names and costs are the same' do
     let(:ingredient) { described_class.new('pomidor', 35) }
   
     it 'returns true' do
-      expect(ingredient).to eq(pomidor)
+      expect(ingredient == pomidor).to be true
     end
   end
 
@@ -113,7 +121,7 @@ describe '#==' do
     let(:ingredient) { described_class.new('termidor', 35) }
 
     it 'returns false' do
-      expect(ingredient).not_to eq(pomidor)
+      expect(ingredient == pomidor).to be false
     end
   end
 
@@ -121,7 +129,7 @@ describe '#==' do
     let(:ingredient) { described_class.new('pomidor', 10) }
 
     it 'returns false' do
-      expect(ingredient).not_to eq(pomidor)
+      expect(ingredient == pomidor).to be false
     end
   end
 end
@@ -133,7 +141,7 @@ end
 
 +++
 
-What's wrong with these test?
+What's wrong with this test?
 
 ```ruby
 describe '#==' do
@@ -144,6 +152,9 @@ describe '#==' do
   end
 end
 ```
+@[2-3](Should be `let`)
+@[4](Description of `it` is very bad)
+@[1-7](There are no test for case when ingredients are not equal)
 
 +++
 
@@ -166,7 +177,10 @@ describe '#==' do
   end
 end
 ```
-@[2]()
+@[2](`pomodoro` is used...)
+@[4-8](...only in this context)
+@[9-14](there is no `pomodoro` here)
+@[9-14](So it's better to put this `let` inside the first `context` only)
 
 ---
 
@@ -175,12 +189,13 @@ end
 
 ```ruby
 let(:tomato) { Ingredient.new(name: 'Tomato', cost: 10) }
-subject(:tomatoes_bag) { described_class.new(tomato, quantity: 250) }
 let(:potato) { Ingredient.new(name: 'Potato', cost: 5) }
+
+subject(:tomatoes_bag) { described_class.new(tomato, quantity: 250) }
 subject(:potatoes_bag) { described_class.new(potato, quantity: 1500) }
-  
+
 describe '#total_cost' do
-  it 'returns cost of ingredient in quantity' do
+  it 'returns cost of certain quantity of ingredient' do
     expect(tomatoes_bag.total_cost).to be_within(0.001).of(2.5)
     expect(potatoes_bag.total_cost).to be_within(0.001).of(7.5)
   end
@@ -205,7 +220,7 @@ end
 
 +++
 
-How it works<br> You can provide some helper for example
+How it works<br> You can provide some helper, for example
 
 ```ruby
 module Helpers
@@ -227,7 +242,7 @@ end
 
 +++
 
-Add file with configurations
+Add file with configurations (`rpec_configs.rb`)
 
 ```ruby
 require 'helpers'
@@ -237,7 +252,7 @@ RSpec.configure do |config|
 end
 ```
 
-and "require" it in every file with tests
+and `require` it(`rpec_configs.rb`) in every file with tests
 
 ---
 
@@ -247,16 +262,16 @@ and "require" it in every file with tests
 subject(:tomatoes_bag) { bag_of(tomato(cost: 10), quantity: 250) }
 
 describe '#+' do
-  context 'when objects with the same ingredient' do
+  context 'when given objects with the same ingredient' do
     let(:other_tomatoes_bag) { bag_of(tomato(cost: 10), quantity: 350) }
 
-    it 'returns new IngredientQuantity' do
+    it 'returns new instance with summed quantities' do
       summary_bag = tomatoes_bag + other_tomatoes_bag
       expect(summary_bag.quantity).to eq(600)
     end
   end
 
-  context 'when objects with different ingredients' do
+  context 'when given objects with different ingredients' do
     let(:potatoes_bag) { bag_of(potato(cost: 5), quantity: 1500) }
   
     it 'raises error' do
@@ -292,7 +307,8 @@ describe '+' do
   end
 end
 ```
-@[11]()
+@[1,4,5,10,13-14](descriptions could be better)
+@[11](Should be `let` instead)
 
 +++
 
@@ -319,7 +335,9 @@ describe '#+' do
   end
 end
 ```
-@[1-5]()
+@[2,4](`@onion` variable is used only here, so why is it an instance variable?)
+@[3-4](Should be `let` instead of instance variables in `before` block)
+@[16](Here should be `{}` instead of `()`)
 
 ---
 
@@ -333,19 +351,13 @@ subject(:recipe) { Recipe.new('soup', 2, [tomatoes_bag, potatoes_bag]) }
 describe '#total_cost' do
   it 'returns cost of the recipe' do
     expect(recipe.total_cost).to be_within(0.001).of(62.5)
-
-    recipe.servings_count = 1
-    expect(recipe.total_cost).to be_within(0.001).of(62.5)
-
-    recipe.ingredient_quantities.pop
-    expect(recipe.total_cost).to be_within(0.001).of(12.5)
   end
 end
 ```
 
 +++
 
-What's wrong?
+What's wrong here?
 
 ```ruby
 before(:each) do
@@ -366,10 +378,12 @@ describe '.total_cost' do
   end
 end
 ```
-@[1-7]()
-@[8]()
-@[9]()
-@[4,12]()
+@[1-7](Most likely to use `let` instead of instance variables)
+@[5-6]()
+@[8](`#` instead of `.`)
+@[9](It's not cool description for context. Is `context` really need here?)
+@[4,12](Same ingredient is initialized twice)
+@[13](Just `@recipe.ingredient_quantities.push(ingredient)`, `=` is unnecessary)
 
 ---
 
