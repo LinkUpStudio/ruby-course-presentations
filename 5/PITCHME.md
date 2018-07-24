@@ -99,7 +99,7 @@ It controls the interaction with our models and with our views.
 - models, views, controllers are all in here
 - helpers is where you put helper code for views
 - mailers - for sending emails
-- assets - where we put static files
+- assets - where we put CSS and JS files, images and fonts, etc.
 @ulend
 
 +++
@@ -120,7 +120,7 @@ It controls the interaction with our models and with our views.
 #### Rails File Structure
 
 @ul[custom-list]
-- **public** - data accessible to the public (e.g., web browsers), including images and cascading style sheets (CSS)
+- **public** - the only folder seen by the world as-is. Contains static files and compiled assets.
 - **test** for testing
 - **tmp** - temp files for rails to store stuff
 - **vendor** - third-party code such as plugins and gems, much less used because of gems
@@ -132,7 +132,7 @@ It controls the interaction with our models and with our views.
 
 #### Gemfile and Gemfile.lock
 
-These files allow you to specify what gem dependencies are needed for your Rails application.
+These files allow you to specify what gem dependencies are needed for your ruby application.
 
 @ul[custom-list]
 - You have to put any gem you want to use in your Gemfile. 
