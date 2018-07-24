@@ -25,8 +25,8 @@ technique that connects the **rich objects** of an application to **tables** in 
 
 #### Naming Conventions
 
-DB Table - Plural with underscores separating words <br>
-Model - Singular with the first letter of each word capitalized <br>
+@size[1em](**DB Table** - plural with underscores separating words) <br>
+@size[1em](**Model** - singular with the first letter of each word capitalized) <br>
 
 @size[0.8em](Model: `Article`, table: `articles`)<br>
 @size[0.8em](Model: `LineItem`, table: `line_items`)<br>
