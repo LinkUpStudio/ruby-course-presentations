@@ -228,7 +228,7 @@ There are 3 different default environments:
 
 ---
 
-#### 2 major guiding principles of Rails
+#### Two major guiding principles of Rails
 
 @ul
 - Don't Repeat Yourself
@@ -253,4 +253,5 @@ rather than require that you specify minutiae through endless configuration file
 
 ---
 
-More detailed will be on the next lecture
+More detailed will be on the next lecture<br>
+Thank you for your attention!
