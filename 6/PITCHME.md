@@ -491,19 +491,19 @@ In Rails, an association is a connection between two Active Record models
 
 +++
 
-#### `belongs_to` Association
+#### `belongs_to`
 
 A belongs_to association sets up a one-to-one connection with another model, such that each instance of the declaring model "belongs to" one instance of the other model.
 
 +++
 
-#### `has_many` Association
+#### `has_many`
 
 A has_many association indicates a one-to-many connection with another model. You'll often find this association on the "other side" of a belongs_to association. This association indicates that each instance of the model has zero or more instances of another model.
 
 +++
 
-#### `belongs_to` and `has_many` Associations
+#### `belongs_to` and `has_many`
 
 ```ruby
 class Team < ApplicationRecord
@@ -519,13 +519,13 @@ In "users" table must be "team_id" column.
 
 +++
 
-#### The `has_one` Association
+#### `has_one`
 
 A has_one association also sets up a one-to-one connection with another model, but with somewhat different semantics (and consequences). This association indicates that each instance of a model contains or possesses one instance of another model. 
 
 +++
 
-#### The `has_one` Association
+#### `has_one`
 
 ```ruby
 class Passport < ApplicationRecord
@@ -541,7 +541,7 @@ In "passports" table must be "user_id" column.
 
 +++
 
-#### `has_many :through` Association
+#### `has_many :through`
 
 First example of usage
 
@@ -564,7 +564,7 @@ end
 
 +++
 
-#### `has_many :through` Association
+#### `has_many :through`
 
 Another example of usage
 
@@ -587,7 +587,7 @@ end
 
 +++
 
-#### `has_and_belongs_to_many` Association
+#### `has_and_belongs_to_many`
 
 No intervening model
 
@@ -605,7 +605,7 @@ Table "teams_users" is required
 
 +++
 
-#### `has_and_belongs_to_many` Association
+#### `has_and_belongs_to_many`
 
 You should use `has_many :through` if you need validations, callbacks or extra attributes on the join model.
 
