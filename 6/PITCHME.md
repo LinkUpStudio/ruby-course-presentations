@@ -133,7 +133,7 @@ class RemoveNameFromUsers < ActiveRecord::Migration[5.0]
   end
 end
 ```
-@[3](Type of column need it to rollback this migration)
+@[4](Type of column need it to rollback this migration)
 
 +++
 
@@ -144,6 +144,8 @@ end
 - `default` - allows to set a default value on the column
 - `index` - adds an index for the column
 @ulend
+
++++
 
 #### Another example of migration
 
