@@ -100,7 +100,7 @@ class ChangeUsersBirthDay < ActiveRecord::Migration[5.0]
 end
 ```
 
-@size[0.8em](But when writing constructive migrations (adding tables or columns), always use the `change` method)
+@size[0.8em](But when writing constructive migrations - adding tables or columns, always use the `change` method)
 
 +++
 
