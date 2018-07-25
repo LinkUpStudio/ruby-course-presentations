@@ -168,6 +168,407 @@ More details about migrations you can find here: <br> https://edgeguides.rubyonr
 
 ---
 
+#### CRUD: Initialization
+
+```ruby
+user = User.new
+user.name = 'John'
+user.email = 'john@kamman.com'
+
+user = User.new(name: 'John', email: 'john@kamman.com')
+
+user = User.new do |u|
+  u.name = 'John'
+  u.email = 'john@kamman.com'
+end
+```
+
++++
+
+#### CRUD: Creation
+
+```ruby
+user = User.create(name: 'John', email: 'john@kamman.com')
+
+user = User.new(name: 'John', email: 'john@kamman.com')
+user.save
+```
+
++++
+
+#### CRUD: Reading
+
+```ruby
+users = User.all
+
+user = User.first
+
+user = User.find(4)
+
+user = User.find_by(email: 'john@kamman.com')
+
+users = User.where(name: 'John')
+```
+
++++
+
+#### CRUD: Updating
+
+```ruby
+user = User.find_by(email: 'john@kamman.com')
+user.email = 'john.kamman@gmail.com'
+user.save
+
+user = User.find_by(email: 'john@kamman.com')
+user.update(email: 'john.kamman@gmail.com')
+
+User.update_all(email_confirmed_at: nil)
+```
+
++++
+
+#### CRUD: Deleting
+
+```ruby
+user = User.find(4)
+user.destroy
+
+User.where(name: 'John').destroy_all
+
+User.destroy_all
+```
+
+---
+
+#### Validations
+
+```ruby
+class User < ApplicationRecord
+  validates :name, presence: true
+end
+
+User.new(name: 'John Doe').valid? 
+#=> true
+
+User.new.valid? 
+#=> false
+
+user = User.new
+#=> #<User id: nil, name: nil>
+user.errors.messages
+#=> {}
+
+user.valid?
+#=> false
+user.errors.messages
+#=> {name:["can't be blank"]}
+
+user = User.create
+#=> #<User id: nil, name: nil>
+user.errors.messages
+#=> {name:["can't be blank"]}
+
+user.save
+#=> false
+
+user.save!
+#=> ActiveRecord::RecordInvalid: Validation failed: Name can't be blank
+
+User.create!
+#=> ActiveRecord::RecordInvalid: Validation failed: Name can't be blank
+```
+
++++
+
+#### Main validation helpers
+
+```ruby
+validates :name, :email, presence: true
+```
+
+```ruby
+validates :email, uniqueness: true
+```
+
+```ruby
+validates :sing_in_count, numericality: { only_integer: true }
+```
+
+Read more here: https://guides.rubyonrails.org/active_record_validations.html#validation-helpers
+
++++
+
+#### Custom method for validation
+
+```ruby
+class Invoice < ApplicationRecord
+  validate :active_customer, on: :create
+
+  def active_customer
+    errors.add(:customer_id, 'is not active') unless customer.active?
+  end
+end
+```
+
++++
+
+#### Methods that trigger validations
+
+@ul[custom-list]
+- `create`
+- `create!`
+- `save`
+- `save!`
+- `update`
+- `update!`
+@ulend
+
++++
+
+#### Skipping Validations
+
+@ul[custom-list]
+- `update_all`
+- `update_attribute`
+- `update_column`
+- `update_columns`
+- `save(validate: false)`
+- else (https://guides.rubyonrails.org/active_record_validations.html#skipping-validations)
+@ulend
+
+---
+
+#### Callbacks
+
+```ruby
+class User < ApplicationRecord
+  validates :name, :email, presence: true
+
+  before_validation :ensure_name_has_a_value
+
+  private
+
+  def ensure_name_has_a_value
+    self.name = email[/\w+/] if name.nil? && email
+  end
+end
+```
+
++++
+
+#### Callbacks
+
+@ul[custom-list]
+- `before_validation`, `after_validation`
+- `before_save`, `around_save`, `after_save`
+- `before_create`, `around_create`, `after_create`
+- `before_update`, `around_update`, `after_update`
+- `before_destroy`, `around_destroy`, `after_destroy`
+- `after_commit`/`after_rollback`
+- also `after_initialize`, `after_find` and `after_touch`
+@ulend
+
++++
+
+#### Running Callbacks
+
+@ul[custom-list]
+- `create`, `create!`
+- `destroy`, `destroy!`, `destroy_all`
+- `save`, `save!`, `save(validate: false)`
+- `update_attribute`, `update`, `update!`
+- `valid?`
+- else (https://guides.rubyonrails.org/active_record_callbacks.html#running-callbacks)
+@ulend
+
++++
+
+#### Skipping Callbacks
+
+@ul[custom-list]
+- `delete`
+- `delete_all`
+- `update_column`
+- `update_columns`
+- `update_all`
+- else (https://guides.rubyonrails.org/active_record_callbacks.html#skipping-callbacks)
+@ulend
+
+---
+
 #### Associations
+
+In Rails, an association is a connection between two Active Record models
+
++++
+
+#### Types of Associations
+
+@ul[custom-list]
+- belongs_to
+- has_one
+- has_many
+- has_many :through
+- has_one :through
+- has_and_belongs_to_many
+@ulend
+
++++
+
+#### `belongs_to` Association
+
+A belongs_to association sets up a one-to-one connection with another model, such that each instance of the declaring model "belongs to" one instance of the other model.
+
++++
+
+#### `has_many` Association
+
+A has_many association indicates a one-to-many connection with another model. You'll often find this association on the "other side" of a belongs_to association. This association indicates that each instance of the model has zero or more instances of another model.
+
++++
+
+#### `belongs_to` and `has_many` Associations
+
+```ruby
+class Team < ApplicationRecord
+  has_many :users
+end
+
+class User < ApplicationRecord
+  belongs_to :team
+end
+```
+
+In "users" table must be "team_id" column.
+
++++
+
+#### The `has_one` Association
+
+A has_one association also sets up a one-to-one connection with another model, but with somewhat different semantics (and consequences). This association indicates that each instance of a model contains or possesses one instance of another model. 
+
++++
+
+#### The `has_one` Association
+
+```ruby
+class Passport < ApplicationRecord
+  belongs_to :user
+end
+
+class User < ApplicationRecord
+  has_one :passport
+end
+```
+
+In "passports" table must be "user_id" column.
+
++++
+
+#### `has_many :through` Association
+
+First example of usage
+
+```ruby
+class Team < ApplicationRecord
+  has_many :members
+  has_many :users, through: :members
+end
+
+class User < ApplicationRecord
+  has_many :members
+  has_many :teams, through: :members
+end
+
+class Member < ApplicationRecord
+  belongs_to :user
+  belongs_to :team
+end
+```
+
++++
+
+#### `has_many :through` Association
+
+Another example of usage
+
+```ruby
+class Company < ApplicationRecord
+  has_many :teams
+  has_many :users, through: :teams
+end
+
+class Team < ApplicationRecord
+  belongs_to :company
+  has_many :users
+end
+
+class User < ApplicationRecord
+  belongs_to :team
+  has_one :company, through: :team
+end
+```
+
++++
+
+#### `has_and_belongs_to_many` Association
+
+No intervening model
+
+```ruby
+class Team < ApplicationRecord
+  has_and_belongs_to_many :users
+end
+
+class User < ApplicationRecord
+  has_and_belongs_to_many :teams
+end
+```
+
+Table "teams_users" is required
+
++++
+
+#### `has_and_belongs_to_many` Association
+
+You should use `has_many :through` if you need validations, callbacks or extra attributes on the join model.
+
++++
+
+#### Polymorphic Association
+
+```ruby
+class Company < ApplicationRecord
+  has_many :images, as: :imageable
+end
+
+class User < ApplicationRecord
+  has_many :images, as: :imageable
+end
+
+class Picture < ApplicationRecord
+  belongs_to :imageable, polymorphic: true
+end
+```
+
++++
+
+#### Polymorphic Association
+
+```ruby
+class CreatePictures < ActiveRecord::Migration[5.0]
+  def change
+    create_table :pictures do |t|
+      t.string :name
+      t.references :imageable, polymorphic: true, index: true
+      t.timestamps
+    end
+  end
+end
+```
+
+---
+
+more about queries, options in associations, STI, counter_cache, concerns? n+1 problem...
 
 
