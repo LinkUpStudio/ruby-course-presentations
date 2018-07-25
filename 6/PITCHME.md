@@ -82,7 +82,7 @@ end
 
 #### Migrations
 
-In some cases you have to use `up` and `down` instead of `change`
+@size[1em]()In some cases you have to use `up` and `down` instead of `change`)
 
 ```ruby
 class ChangeUsersBirthDay < ActiveRecord::Migration[5.0]
@@ -100,7 +100,7 @@ class ChangeUsersBirthDay < ActiveRecord::Migration[5.0]
 end
 ```
 
-But when writing constructive migrations (adding tables or columns), always use the `change` method.
+@size[1em](But when writing constructive migrations (adding tables or columns), always use the `change` method)
 
 +++
 
@@ -159,6 +159,33 @@ add_index :users, :email
 @[2](Add/change if exists the "reviews_count" column that cannot be null and has a default value)
 @[4](Add indexed foreign key "city_id")
 @[7](Add index to "email" column of "users" table)
+
++++
+
+#### Running and Rolling Back Migrations
+
+```bash
+$ rails db:migrate
+
+$ rails db:migrate VERSION=20080906120000
+
+$ rails db:rollback
+
+$ rails db:rollback STEP=3
+
+$ rails db:setup
+
+$ rails db:drop
+
+$ rails db:reset
+```
+@[1]()
+@[3]()
+@[5]()
+@[7]()
+@[9]()
+@[11]()
+@[13]()
 
 +++
 
