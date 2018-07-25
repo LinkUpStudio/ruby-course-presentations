@@ -82,7 +82,7 @@ end
 
 #### Migrations
 
-@size[1em]()In some cases you have to use `up` and `down` instead of `change`)
+@size[0.8em]()In some cases you have to use `up` and `down` instead of `change`)
 
 ```ruby
 class ChangeUsersBirthDay < ActiveRecord::Migration[5.0]
@@ -100,7 +100,7 @@ class ChangeUsersBirthDay < ActiveRecord::Migration[5.0]
 end
 ```
 
-@size[1em](But when writing constructive migrations (adding tables or columns), always use the `change` method)
+@size[0.8em](But when writing constructive migrations (adding tables or columns), always use the `change` method)
 
 +++
 
