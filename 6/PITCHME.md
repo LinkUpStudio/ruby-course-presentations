@@ -201,16 +201,25 @@ More details about migrations you can find here: <br> https://edgeguides.rubyonr
 
 ```ruby
 user = User.new
+#=> #<User id: nil, email: nil, name: nil, created_at: nil, updated_at: nil>
 user.name = 'John'
+#=> "John"
 user.email = 'john@kamman.com'
+#=> "john@kamman.com"
 
 user = User.new(name: 'John', email: 'john@kamman.com')
+#=> #<User id: nil, email: "john@kamman.com", name: "John", created_at: nil, updated_at: nil>
 
 user = User.new do |u|
   u.name = 'John'
   u.email = 'john@kamman.com'
 end
+#=> #<User id: nil, email: "john@kamman.com", name: "John", created_at: nil, updated_at: nil>
+
 ```
+@[1-6]()
+@[8-9]()
+@[11-15]()
 
 +++
 
@@ -218,10 +227,15 @@ end
 
 ```ruby
 user = User.create(name: 'John', email: 'john@kamman.com')
+#=> #<User id: 1, email: "john@kamman.com", name: "John", created_at: "2018-07-25 17:11:03", updated_at: "2018-07-25 17:11:03">
 
 user = User.new(name: 'John', email: 'john@kamman.com')
+#=> #<User id: nil, email: "john@kamman.com", name: "John", created_at: nil, updated_at: nil>
 user.save
+#=> true
 ```
+@[1-2]()
+@[4-7]()
 
 +++
 
@@ -229,15 +243,33 @@ user.save
 
 ```ruby
 users = User.all
+#=> #<ActiveRecord::Relation [#<User id: 1, email: "john@kamman.com", name: "John", created_at: "2018-07-25 17:11:03", updated_at: "2018-07-25 17:11:03">]>
 
 user = User.first
+#=> #<User id: 1, email: "john@kamman.com", name: "John", created_at: "2018-07-25 17:11:03", updated_at: "2018-07-25 17:11:03">
+
+user = User.find(1)
+#=> #<User id: 1, email: "john@kamman.com", name: "John", created_at: "2018-07-25 17:11:03", updated_at: "2018-07-25 17:11:03">
 
 user = User.find(4)
+# ActiveRecord::RecordNotFound (Couldn't find User with 'id'=4)
+
+user = User.find_by(id: 4)
+#=> nil
 
 user = User.find_by(email: 'john@kamman.com')
+#=> #<User id: 1, email: "john@kamman.com", name: "John", created_at: "2018-07-25 17:11:03", updated_at: "2018-07-25 17:11:03">
 
 users = User.where(name: 'John')
+#=> #<ActiveRecord::Relation [#<User id: 1, email: "john@kamman.com", name: "John", created_at: "2018-07-25 17:11:03", updated_at: "2018-07-25 17:11:03">]>
 ```
+@[1-2]()
+@[4-5]()
+@[7-8]()
+@[10-11]()
+@[13-14]()
+@[16-17]()
+@[19-20]()
 
 +++
 
@@ -253,6 +285,9 @@ user.update(email: 'john.kamman@gmail.com')
 
 User.update_all(email_confirmed_at: nil)
 ```
+@[1-3]()
+@[5-6]()
+@[8]()
 
 +++
 
@@ -266,6 +301,9 @@ User.where(name: 'John').destroy_all
 
 User.destroy_all
 ```
+@[1-2]()
+@[4]()
+@[6]()
 
 ---
 
@@ -306,6 +344,15 @@ user.save!
 User.create!
 #=> ActiveRecord::RecordInvalid: Validation failed: Name can't be blank
 ```
+@[1-3](Name should be presence)
+@[5-6]()
+@[8-9]()
+@[11-14]()
+@[16-19]()
+@[21-24]()
+@[26-27]()
+@[29-30]()
+@[32-33]()
 
 +++
 
