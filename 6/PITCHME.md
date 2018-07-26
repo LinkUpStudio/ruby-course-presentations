@@ -672,7 +672,52 @@ end
 
 ---
 
-take a small break here
+let's take a small break here
+
+---
+
+#### Enum
+
+Declare an enum attribute where the values map to integers in the database, but can be queried by name
+
+```ruby
+class Payment < ActiveRecord::Base
+  enum status: { pending: 0, success: 1, denied: 2 }
+end
+```
+
+```ruby
+create_table :payments do |t|
+  t.column :status, :integer, default: 0
+end
+```
+
++++
+
+#### Enum
+
+```ruby
+payment = Payment.new
+payment.status   # => "pending"
+payment.success!
+payment.success? # => true
+payment.status   # => "success"
+
+Payment.success
+Payment.denied
+
+Payment.where(status: [:pending, :success])
+```
+@[1-5]()
+@[7-8](Scopes based on the allowed values of the enum field will be provided)
+@[10](You can also query them directly)
+
++++
+
+#### Enum
+
+@size[0.8em](Also you can read about `_suffix` and `_prefix` options here: https://api.rubyonrails.org/v5.2.0/classes/ActiveRecord/Enum.html)
+@size[0.8em](And about gem that will help you to realize enum with multiple values: https://github.com/brainspec/enumerize)
 
 ---
 
