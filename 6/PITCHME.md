@@ -672,7 +672,7 @@ end
 
 +++
 
-##### Self study
+##### Self study (important too)
 
 Read more about associations: <br>
 https://guides.rubyonrails.org/association_basics.html<br>
