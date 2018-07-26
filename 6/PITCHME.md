@@ -676,4 +676,195 @@ take a small break here
 
 ---
 
-more about queries, options in associations, STI, counter_cache, concerns? n+1 problem...
+#### Queries, in more detail
+
+Retrieving a **Single** Object
+
+```ruby
+user = User.take
+#=> #<User id: 1, email: "john@kamman.com", name: "John", created_at: "2018-07-25 17:11:03", updated_at: "2018-07-25 17:11:03">
+
+user = User.first
+#=> #<User id: 1, email: "john@kamman.com", name: "John", created_at: "2018-07-25 17:11:03", updated_at: "2018-07-25 17:11:03">
+
+user = User.last
+#=> #<User id: 100, email: "anna@linkupst.com", name: "Anna", created_at: "2018-07-26 17:11:03", updated_at: "2018-07-25 17:11:03">
+
+user = User.find(1)
+#=> #<User id: 1, email: "john@kamman.com", name: "John", created_at: "2018-07-25 17:11:03", updated_at: "2018-07-25 17:11:03">
+
+user = User.find(4)
+# ActiveRecord::RecordNotFound (Couldn't find User with 'id'=4)
+
+user = User.find_by(id: 4)
+#=> nil
+
+user = User.find_by(email: 'john@kamman.com')
+#=> #<User id: 1, email: "john@kamman.com", name: "John", created_at: "2018-07-25 17:11:03", updated_at: "2018-07-25 17:11:03">
+```
+@[1-2](retrieves a record **without any implicit ordering**)
+@[4-5](finds the first record **ordered by primary key** (default))
+@[7-8](finds the last record **ordered by primary key** (default))
+@[10-11](retrieves a record by given primary key)
+@[13-14](`find` raises error if record not found (**BUT IT IS GOOD**))
+@[16-20](`find_by` retrieves a record by given parameters, returns `nil` if not found)
+
++++
+
+#### Conditions
+
+Everything (and much more) is here: <br>
+https://guides.rubyonrails.org/active_record_querying.html
+
+```ruby
+Client.where("orders_count = ? AND locked = ?", params[:orders], false)
+
+Client.where(
+  "orders_count = :orders_count AND locked = :locked",
+  orders_count: params[:orders], locked: false
+)
+
+Client.where(orders_count: params[:orders], locked: false)
+```
+@[1]()
+@[3-6]()
+@[8](Only equality, range and subset checking are possible with Hash conditions.)
+
++++
+
+##### **@css[ruby-red](!NEVER DO THIS!)**
+
+because this is SQL-injection prone
+
+```ruby
+Client.where("orders_count = #{params[:orders]}")
+```
+
++++
+
+#### JOINS
+
+```ruby
+Author.joins(:articles).where(articles: { author: author })
+```
+
++++
+
+#### Range Conditions
+
+```ruby
+Client.where(created_at: (Time.now.midnight - 1.day)..Time.now.midnight)
+```
+
+```sql
+SELECT * FROM clients WHERE (clients.created_at BETWEEN '2008-12-21 00:00:00' AND '2008-12-22 00:00:00')
+```
+
++++
+
+#### Subset conditions
+
+```ruby
+Client.where(orders_count: [1,3,5])
+```
+
+```sql
+SELECT * FROM clients WHERE (clients.orders_count IN (1,3,5))
+```
+
++++
+
+#### NOT Conditions
+
+```ruby
+Client.where.not(locked: true)
+```
+
++++
+
+#### OR Conditions
+
+```ruby
+Client.where(locked: true).or(Client.where(orders_count: [1,3,5]))
+```
+
+```sql
+SELECT * FROM clients WHERE (clients.locked = 1 OR clients.orders_count IN (1,3,5))
+```
+
+---
+
+#### Ordering
+
+```ruby
+Client.order(:created_at)
+Client.order("created_at")
+
+Client.order(created_at: :desc)
+Client.order("created_at DESC")
+
+Client.order(created_at: :asc)
+Client.order("created_at ASC")
+```
+
++++
+
+#### Ordering
+
+On multiple fields
+
+```ruby
+Client.order(orders_count: :asc, created_at: :desc)
+Client.order(:orders_count, created_at: :desc)
+
+Client.order("orders_count ASC, created_at DESC")
+Client.order("orders_count ASC", "created_at DESC")
+```
+
+---
+
+#### pluck method
+
+```ruby
+Client.pluck(:name, :email)
+#=> [['John Kamman', 'john@kamman.com'], ['Chris Miller', 'chris@somewhere.com']]
+```
+
+---
+
+#### N + 1 queries problem
+
+```ruby
+clients = Client.limit(10)
+
+clients.each do |client|
+  puts client.address.postcode
+end
+```
+
+The above code executes: <br>
+1 (to find 10 clients) <br>
+\+ 10 (one per each client to load the address) <br>
+= 11 queries in total.
+
++++
+
+Solution
+
+```ruby
+lients = Client.includes(:address).limit(10)
+
+clients.each do |client|
+  puts client.address.postcode
+end
+```
+
+```sql
+SELECT * FROM clients LIMIT 10
+SELECT addresses.* FROM addresses
+  WHERE (addresses.client_id IN (1,2,3,4,5,6,7,8,9,10))
+```
+
+---
+
+That's all for today!
