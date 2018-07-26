@@ -670,6 +670,14 @@ class CreatePictures < ActiveRecord::Migration[5.0]
 end
 ```
 
++++
+
+##### Self study
+
+Read more about associations: <br>
+https://guides.rubyonrails.org/association_basics.html<br>
+Especially about different **options** for `belongs_to`, `has_many`, etc.
+
 ---
 
 let's take a small break here
