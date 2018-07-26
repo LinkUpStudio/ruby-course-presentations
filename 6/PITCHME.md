@@ -36,11 +36,15 @@ technique that connects the **rich objects** of an application to **tables** in 
 
 +++
 
-#### Schema Conventions ??????
+#### Schema Conventions
 
 @ul[custom-list]
-- **Foreign keys** - should be named following the pattern **singularized_table_name_id** (e.g., item_id, order_id)
-- **Primary keys** - by default, Active Record will use an integer column named **id** as the table's primary key
+- **Foreign keys** -
+  should be named following the pattern **singularized_table_name_id**
+  (e.g., item_id, order_id)
+- **Primary keys** -
+  by default, Active Record will use an integer column named **id** as the
+  table's primary key
 @ulend
 
 ---
@@ -48,15 +52,17 @@ technique that connects the **rich objects** of an application to **tables** in 
 #### Migrations
 
 A **migration** is a set of database instructions. <br>
-Those instructions are Ruby code, which migrates our database from one state to another. 
+Those instructions are Ruby code, which migrates our database from one state to
+another.
 Essentially they describe database changes.
 
 +++
 
 #### Migrations
 
-Each migration is a separate file, which Rails runs for us when we instruct it. 
-Rails keeps track of what's been run, so changes don't get attempted more than once.
+Each migration is a separate file, which Rails runs for us when we instruct it.
+Rails keeps track of what's been run, so changes don't get attempted more than
+once.
 
 +++
 
@@ -67,15 +73,15 @@ class CreateUsers < ActiveRecord::Migration[5.0]
   def change
     create_table :users do |t|
       t.string :email
- 
+
       t.timestamps
     end
   end
 end
 ```
 @[3](Creates "users" table)
-@[4-5](with "email" column)
-@[7](and with timestamps fields "created_at" and "updated_at")
+@[4](with "email" column)
+@[6](and with timestamps fields "created_at" and "updated_at")
 @[3-7](primary key will be automatically added (as "id" column))
 
 +++
@@ -99,6 +105,8 @@ class ChangeUsersBirthDay < ActiveRecord::Migration[5.0]
   end
 end
 ```
+@[2-6](called on `rails db:migrate`)
+@[8-12](called on `rails db:rollback`)
 
 @size[0.8em](But when writing constructive migrations - adding tables or columns, always use the `change` method)
 
@@ -133,7 +141,7 @@ class RemoveNameFromUsers < ActiveRecord::Migration[5.0]
   end
 end
 ```
-@[4](Type of column need it to rollback this migration)
+@[4](Column type is needed for automatic rollback of this migration)
 
 +++
 
@@ -159,7 +167,7 @@ end
 add_index :users, :email
 ```
 @[2](Add/change if exists the "reviews_count" column that cannot be null and has a default value)
-@[4](Add indexed foreign key "city_id")
+@[4](Add **indexed** foreign key "city_id")
 @[7](Add index to "email" column of "users" table)
 
 +++
@@ -181,19 +189,20 @@ $ rails db:drop
 
 $ rails db:reset
 ```
-@[1]()
-@[3]()
-@[5]()
-@[7]()
-@[9]()
-@[11]()
-@[13]()
+@[1](perform all migrations from current version to latest)
+@[3](migrate OR rollback to specified version)
+@[5](rollback to previous version)
+@[7](rollback given amount of migrations)
+@[9](runs `db:create` ~db:migrate~ `db:schema:load` `db:seed`)
+@[11](DESTROYS your whole db (ALSO, `db:schema:load` **cleans up all your DATA**))
+@[13](runs `db:drop` and `db:setup`)
 
 +++
 
 #### Migrations
 
-More details about migrations you can find here: <br> https://edgeguides.rubyonrails.org/active_record_migrations.html
+More details about migrations you can find here: <br>
+https://edgeguides.rubyonrails.org/active_record_migrations.html
 
 ---
 
@@ -287,7 +296,7 @@ User.update_all(email_confirmed_at: nil)
 ```
 @[1-3]()
 @[5-6]()
-@[8]()
+@[8](single DB query, no ruby objects, no validations/callbacks)
 
 +++
 
@@ -300,10 +309,13 @@ user.destroy
 User.where(name: 'John').destroy_all
 
 User.destroy_all
+
+User.delete_all
 ```
 @[1-2]()
 @[4]()
 @[6]()
+@[8](single DB query, no ruby objects, no callbacks)
 
 ---
 
@@ -314,10 +326,10 @@ class User < ApplicationRecord
   validates :name, presence: true
 end
 
-User.new(name: 'John Doe').valid? 
+User.new(name: 'John Doe').valid?
 #=> true
 
-User.new.valid? 
+User.new.valid?
 #=> false
 
 user = User.new
@@ -344,7 +356,7 @@ user.save!
 User.create!
 #=> ActiveRecord::RecordInvalid: Validation failed: Name can't be blank
 ```
-@[1-3](Name should be presence)
+@[1-3](Name should be present)
 @[5-6]()
 @[8-9]()
 @[11-14]()
@@ -370,7 +382,8 @@ validates :email, uniqueness: true
 validates :sing_in_count, numericality: { only_integer: true }
 ```
 
-Read more here: https://guides.rubyonrails.org/active_record_validations.html#validation-helpers
+Read more here: <br>
+https://guides.rubyonrails.org/active_record_validations.html#validation-helpers
 
 +++
 
@@ -378,10 +391,13 @@ Read more here: https://guides.rubyonrails.org/active_record_validations.html#va
 
 ```ruby
 class Invoice < ApplicationRecord
-  validate :active_customer, on: :create
+  validate :customer_is_active, on: :create
 
-  def active_customer
-    errors.add(:customer_id, 'is not active') unless customer.active?
+  private
+
+  def customer_is_active
+    return if customer.active?
+    errors.add(:customer, 'customer must be active')
   end
 end
 ```
@@ -420,11 +436,11 @@ end
 class User < ApplicationRecord
   validates :name, :email, presence: true
 
-  before_validation :ensure_name_has_a_value
+  before_validation :ensure_name_has_value
 
   private
 
-  def ensure_name_has_a_value
+  def ensure_name_has_value
     self.name = email[/\w+/] if name.nil? && email
   end
 end
@@ -493,13 +509,18 @@ In Rails, an association is a connection between two Active Record models
 
 #### `belongs_to`
 
-A belongs_to association sets up a one-to-one connection with another model, such that each instance of the declaring model "belongs to" one instance of the other model.
+A belongs_to association sets up a one-to-one connection with another model,
+such that each instance of the declaring model "belongs to" one instance of the
+other model.
 
 +++
 
 #### `has_many`
 
-A has_many association indicates a one-to-many connection with another model. You'll often find this association on the "other side" of a belongs_to association. This association indicates that each instance of the model has zero or more instances of another model.
+A has_many association indicates a one-to-many connection with another model.
+You'll often find this association on the "other side" of a belongs_to
+association. This association indicates that each instance of the model has
+zero or more instances of another model.
 
 +++
 
@@ -521,7 +542,10 @@ In "users" table must be "team_id" column.
 
 #### `has_one`
 
-A has_one association also sets up a one-to-one connection with another model, but with somewhat different semantics (and consequences). This association indicates that each instance of a model contains or possesses one instance of another model. 
+A has_one association also sets up a one-to-one connection with another model,
+but with somewhat different semantics (and consequences). This association
+indicates that each instance of a model contains or possesses one instance of
+another model.
 
 +++
 
@@ -543,22 +567,23 @@ In "passports" table must be "user_id" column.
 
 #### `has_many :through`
 
-First example of usage
+First example of usage (one user could be a member of many teams)
 
 ```ruby
 class Team < ApplicationRecord
-  has_many :members
-  has_many :users, through: :members
+  has_many :memberships
+  has_many :users, through: :memberships
 end
 
 class User < ApplicationRecord
-  has_many :members
-  has_many :teams, through: :members
+  has_many :memberships
+  has_many :teams, through: :memberships
 end
 
-class Member < ApplicationRecord
+class Membership < ApplicationRecord
   belongs_to :user
   belongs_to :team
+  # and has some additional data, like user's role in a team
 end
 ```
 
@@ -566,7 +591,7 @@ end
 
 #### `has_many :through`
 
-Another example of usage
+Another example of usage (one user could be a member of only 1 team)
 
 ```ruby
 class Company < ApplicationRecord
@@ -584,12 +609,13 @@ class User < ApplicationRecord
   has_one :company, through: :team
 end
 ```
+@[13](unusual, but cool usage of `has_one`)
 
 +++
 
 #### `has_and_belongs_to_many`
 
-No intervening model
+No intervening model, but join table "teams_users" is still required
 
 ```ruby
 class Team < ApplicationRecord
@@ -601,13 +627,14 @@ class User < ApplicationRecord
 end
 ```
 
-Table "teams_users" is required
-
 +++
 
 #### `has_and_belongs_to_many`
 
-You should use `has_many :through` if you need validations, callbacks or extra attributes on the join model.
+You should use `has_many :through` if you need validations, callbacks or extra
+attributes on the join model.
+
+Also `has_many :through` is considered more flexible and "ready for future".
 
 +++
 
@@ -615,11 +642,11 @@ You should use `has_many :through` if you need validations, callbacks or extra a
 
 ```ruby
 class Company < ApplicationRecord
-  has_many :images, as: :imageable
+  has_many :pictures, as: :imageable
 end
 
 class User < ApplicationRecord
-  has_many :images, as: :imageable
+  has_many :pictures, as: :imageable
 end
 
 class Picture < ApplicationRecord
@@ -645,6 +672,8 @@ end
 
 ---
 
+take a small break here
+
+---
+
 more about queries, options in associations, STI, counter_cache, concerns? n+1 problem...
-
-
