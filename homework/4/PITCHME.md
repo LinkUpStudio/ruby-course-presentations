@@ -353,12 +353,13 @@ end
    end
   end
 ```
+@[2-5](Rails has better solution for this)
 
 +++
 
 #### Migrations
 
-https://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/create_join_table
+@size[0.8em](https://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/create_join_table)
 
 ```ruby
   def change
