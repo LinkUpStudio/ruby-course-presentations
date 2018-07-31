@@ -73,6 +73,7 @@ class Dashboard < ApplicationRecord
   validates :title, length: { in: 5..30 }
 end
 ```
+@[5-7]
 
 ---
 
@@ -96,7 +97,7 @@ class User < ApplicationRecord
   validates :username, uniqueness: { case_sensitive: true }, length: { in: 5..50, too_long: "%{count} characters is the maximum allowed" }
 end
 ```
-@[2]
+@[2,4]
 
 +++
 
