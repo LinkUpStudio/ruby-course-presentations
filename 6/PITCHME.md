@@ -39,12 +39,8 @@ technique that connects the **rich objects** of an application to **tables** in 
 #### Schema Conventions
 
 @ul[custom-list]
-- **Foreign keys** -
-  should be named following the pattern **singularized_table_name_id**
-  (e.g., item_id, order_id)
-- **Primary keys** -
-  by default, Active Record will use an integer column named **id** as the
-  table's primary key
+- **Foreign keys** - should be named following the pattern **singularized_table_name_id** (e.g., item_id, order_id)
+- **Primary keys** - by default, Active Record will use an integer column named **id** as the table's primary key
 @ulend
 
 ---
