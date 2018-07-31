@@ -236,6 +236,7 @@ class AssignedUser < ApplicationRecord
   validates :card, presence: true
 end
 ```
+@[1](Bad name. Better: `UserCardAssignment`)
 
 +++
 
