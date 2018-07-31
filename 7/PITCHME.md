@@ -1,10 +1,6 @@
 ## Ruby on Rails
 ### @css[no-text-transform](Pt. 3 - A bit more about models)
 
-<!--
-sti
-seeds -->
-
 ---
 
 #### Scopes
@@ -198,3 +194,31 @@ end
 @[9-11]()
 @[13-15]()
 @[17-19]()
+
+---
+
+#### Single Table Inheritance (STI)
+
+ActiveRecord allows inheritance by storing the name of the class in a column
+that by default is named `type`.
+
+```ruby
+class Company < ActiveRecord::Base; end
+class Firm < Company; end
+class Client < Company; end
+class PriorityClient < Client; end
+
+Firm.create(name: '37signals')
+Company.find_by(name: '37signals')
+# => #<Firm id: 1, type: "Firm", name: "37signals">
+```
+
++++
+
+More detailed here: <br>
+https://api.rubyonrails.org/v5.2/classes/ActiveRecord/Inheritance.html
+
+Useful articles: <br>
+http://eewang.github.io/blog/2013/03/12/how-and-when-to-use-single-table-inheritance-in-rails/
+
+---
