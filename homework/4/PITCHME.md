@@ -104,7 +104,6 @@ end
 #### User
 
 ```ruby
-
 class User < ApplicationRecord
   has_many :owned_dashboards, class_name: 'Dashboard', 
                               foreign_key: :owner_id, 
