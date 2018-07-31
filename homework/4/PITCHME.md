@@ -338,7 +338,8 @@ end
     end
   end
 ```
-@[4](names with "is_" - bad. It's good to have default value here)
+@[4](You should avoid names that start with "is_". https://github.com/rubocop-hq/ruby-style-guide#bool-methods-prefix) 
+@[4](Also It's good to have default value here)
 
 +++
 
