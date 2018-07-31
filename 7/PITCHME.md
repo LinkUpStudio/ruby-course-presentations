@@ -222,3 +222,20 @@ Useful articles: <br>
 http://eewang.github.io/blog/2013/03/12/how-and-when-to-use-single-table-inheritance-in-rails/
 
 ---
+
+#### Seeds
+
+When you need to have some initial data in your DB, you can write a script to
+add it in file under path `db/seeds.rb`.
+
+```ruby
+%w[Adventure Detective Drama Fantasy Thriller].each do |name|
+  Genre.create!(name: name)
+end
+```
+
+and then run it via `rails db:seed`
+
+---
+
+end for today :)
