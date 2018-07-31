@@ -14,9 +14,11 @@ https://guides.rubyonrails.org/active_record_querying.html#scopes
 
 +++
 
+#### Scopes
+
 @ul[custom-list]
-- Scoping allows you to specify **commonly-used queries** which can be referenced as **method calls on the association objects or models**.
-- You can use every method previously covered such as `where`, `joins`, `includes`, etc.
+- Allow you to specify **commonly-used queries** which can be referenced as **method calls on the association objects or models**.
+- You can use every method previously covered such as `where`, `joins`, `includes` etc.
 - **All** scope methods will return an `ActiveRecord::Relation` object which will allow for **further methods** (such as other scopes) to be called on it.
 @ulend
 
@@ -77,7 +79,8 @@ Scopes with arguments
 
 ```ruby
 class Article < ApplicationRecord
-  scope :created_before, ->(time) { where('created_at < ?', time) }
+  scope :created_before,
+        ->(time) { where('created_at < ?', time) }
 end
 
 category.articles.created_before(Time.current)
@@ -102,7 +105,7 @@ class Article < ApplicationRecord
 end
 ```
 
-The method **IS NOT** same!
+The method @css[ruby-red](**IS NOT**) same!
 
 ```ruby
 def self.created_before(time)
