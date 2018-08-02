@@ -794,7 +794,7 @@ Client.where("orders_count = #{params[:orders]}")
 #### JOINS
 
 ```ruby
-Author.joins(:articles).where(articles: { author: author })
+Author.joins(:articles).where(articles: { created_at: 2.days.ago })
 ```
 
 +++
