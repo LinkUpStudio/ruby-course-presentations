@@ -136,7 +136,7 @@ The **card** model has many **comments**.
 
 In a view we can have something like this:
 
-```erb
+```
 <% cards.each do |card| %>
   <h4> <%= card.title %> </h4>
   <%= "#{card.comments.count} comments" %>
@@ -179,7 +179,7 @@ end
 
 #### Counter Cache
 
-```erb
+```
 <% cards.each do |card| %>
   <h4> <%= card.title %> </h4>
   <%= "#{card.comments_count} comments" %>
