@@ -3,7 +3,8 @@
 
 ---
 
-There should be the callback that remove extra spaces in titles of cards, lists and dashboards.
+There should be a callback that removes extra spaces in titles of cards, lists
+and dashboards.
 
 +++
 
@@ -13,9 +14,9 @@ module TitleValidations
 
   included do
     validates :title, presence: true, length: { maximum: 100 }
-    
+
     before_validation :remove_extra_spaces
-    
+
     def remove_extra_spaces
       self.title = title.squish if title.present?
     end
@@ -26,22 +27,25 @@ class Card < ApplicationRecord
   include TitleValidations
 end
 ```
+@[1-13]()
+@[15-17]()
 
 ---
 
 Returns cards that have labels with the following ids
 
 ```ruby
-  scope :by_labels, ->(label_ids) { 
-    joins(:labels).where(labels: { id: label_ids }) 
-  }
+scope :by_labels, ->(label_ids) {
+  joins(:labels).where(labels: { id: label_ids })
+}
 ```
 
 +++
 
 Questions
 
-@size[0.5em](scope :by_labels, ->(label_ids) { joins(:labels).where(labels: { id: label_ids }) })
+scope :by_labels, <br>
+->(label_ids) { joins(:labels).where(labels: { id: label_ids }) }
 
 ```ruby
 Card.by_labels([1,2,3])
@@ -66,30 +70,30 @@ Card.by_labels(labels)
 Return cards with titles that contain the string
 
 ```ruby
-  scope :by_title, ->(str) { 
-    where(arel_table[:title].matches("%#{str}%")) 
-  }
+scope :by_title, ->(str) {
+  where(arel_table[:title].matches("%#{str}%"))
+}
 ```
 
 ---
 
-Return cards that should be completed until some time (datetime) 
+Return cards that should be completed until some time (datetime)
 but not completed yet (should be added additional column to track this)
 
 +++
 
 ```ruby
-  scope :should_be_done_until, ->(datetime) { 
-    where(arel_table[:due_date].lt(datetime)
-         .and(arel_table[:completed].eq(false)))
-  }
+scope :should_be_done_until, ->(datetime) {
+  where(arel_table[:due_date].lt(datetime)
+       .and(arel_table[:completed].eq(false)))
+}
 ```
 
 ```ruby
-  scope :should_be_done_until, ->(datetime) { 
-    where(arel_table[:due_date].lt(datetime)
-         .and(arel_table[:completed_at].eq(nil)))
-  }
+scope :should_be_done_until, ->(datetime) {
+  where(arel_table[:due_date].lt(datetime)
+       .and(arel_table[:completed_at].eq(nil)))
+}
 ```
 
 ---
@@ -97,7 +101,7 @@ but not completed yet (should be added additional column to track this)
 Return cards that should be completed until current time but not completed yet
 
 ```ruby
-  scope :overdue, -> { should_be_done_until(Time.now) }
+scope :overdue, -> { should_be_done_until(Time.now) }
 ```
 
 ---
@@ -105,7 +109,7 @@ Return cards that should be completed until current time but not completed yet
 Return cards that don’t have due_date
 
 ```ruby
-  scope :without_due_date, -> { where(due_date: nil) }
+scope :without_due_date, -> { where(due_date: nil) }
 ```
 
 ---
@@ -113,7 +117,7 @@ Return cards that don’t have due_date
 Return dashboards list ordered by title (from A to Z)
 
 ```ruby
-  scope :ordered_by_title, -> { order(:title) }
+scope :ordered_by_title, -> { order(:title) }
 ```
 
 ---
@@ -132,17 +136,18 @@ The **card** model has many **comments**.
 
 In a view we can have something like this:
 
-```haml
-- cards.each do |card|
-  %h4= card.title
-  = "#{card.comments.count} comments"
+```erb
+<% cards.each do |card| %>
+  <h4> <%= card.title %> </h4>
+  <%= "#{card.comments.count} comments" %>
+<% end %>
 ```
 
 +++
 
 #### Counter Cache
 
-```
+```sql
 SELECT "cards".* FROM "cards"
  (0.2ms)  SELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = ?  [["card_id", 1]]
  (0.1ms)  SELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = ?  [["card_id", 2]]
@@ -174,19 +179,20 @@ end
 
 #### Counter Cache
 
-```haml
-- cards.each do |card|
-  %h4= card.title
-  = "#{card.comments_count} comments"
+```erb
+<% cards.each do |card| %>
+  <h4> <%= card.title %> </h4>
+  <%= "#{card.comments_count} comments" %>
+<% end %>
 ```
 
-```
+```sql
 SELECT "cards".* FROM "cards"
 ```
 
 ---
 
-Provide scope to order dashboards by most recently updated. It means for example if someone just created new card in some board, that board was updated. 
+Provide scope to order dashboards by most recently updated. It means for example if someone just created new card in some board, that board was updated.
 
 +++
 
@@ -214,24 +220,3 @@ https://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html
 Any questions?
 
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
