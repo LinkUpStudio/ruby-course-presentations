@@ -30,3 +30,8 @@ ul.custom-list > li {
   border: 0;
   box-shadow: none;
 }
+
+/* it is needed for P9 */
+table {
+  font-size: 0.7em;
+}
