@@ -1,2 +1,4 @@
 theme: white
 theme-override: assets/css/PITCHME.css
+
+highlight : atom-one-dark
