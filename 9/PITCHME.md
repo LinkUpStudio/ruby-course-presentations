@@ -35,8 +35,12 @@ You can also **generate paths and URLs**. If the route above is modified to be:
 get '/patients/:id', to: 'patients#show', as: 'patient'
 ```
 
-On the view you can use: <br>
-`<%= link_to 'Patient Record', patient_path(patient) %>` <br>
+On the view you can use:
+
+```
+<%= link_to 'Patient Record', patient_path(patient) %>
+```
+
 then the router will generate the path `/patients/17`
 (if `id` of your `patient` was `17`)
 
@@ -70,12 +74,12 @@ DELETE     | /photos/:id | photos#destroy | delete a specific photo
 
 also creates the following Path and URL Helpers:
 
-- `photos_path` returns `"/photos"`
-- `new_photo_path` returns `"/photos/new"`
-- `edit_photo_path(:id)` returns `"/photos/:id/edit"` (for instance,
-  `edit_photo_path(10)` returns `"/photos/10/edit"`)
-- `photo_path(:id)` returns `"/photos/:id"` (for instance, `photo_path(10)`
-  returns `"/photos/10"`)
+@ul[custom-list]
+  - `photos_path` returns `"/photos"`
+  - `new_photo_path` returns `"/photos/new"`
+  - `edit_photo_path(:id)` returns `"/photos/:id/edit"` (for instance, `edit_photo_path(10)` returns `"/photos/10/edit"`)
+  - `photo_path(:id)` returns `"/photos/:id"` (for instance, `photo_path(10)` returns `"/photos/10"`)
+@ulend
 
 +++
 
@@ -121,9 +125,11 @@ creates both singular and plural routes that map to the same controller
 
 A singular resourceful route generates these helpers:
 
-- `new_geocoder_path` returns `"/geocoder/new"`
-- `edit_geocoder_path` returns `"/geocoder/edit"`
-- `geocoder_path` returns `"/geocoder"`
+@ul[custom-list]
+  - `new_geocoder_path` returns `"/geocoder/new"`
+  - `edit_geocoder_path` returns `"/geocoder/edit"`
+  - `geocoder_path` returns `"/geocoder"`
+@ulend
 
 +++
 
