@@ -144,8 +144,6 @@ new_user GET    /users/new(.:format)      users#new
 edit_user GET    /users/:id/edit(.:format) users#edit
 ```
 
-
-
 +++
 
 Read at home:
@@ -159,3 +157,74 @@ Read at home:
 well, basically everything :D
 
 ---
+
+#### A bit about Views
+
++++
+
+**By default** for each **action** Rails will try to `render` _corresponding_
+view (template).
+
+For example, for action `BooksController#new`, Rails will try to render template
+file under path `app/views/books/new.html.erb`.
+
++++
+
+quick view example
+
+```
+<h1>Listing Books</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.content %></td>
+        <td><%= link_to "Show", book %></td>
+        <td><%= link_to "Edit", edit_book_path(book) %></td>
+        <td><%= link_to "Destroy", book, method: :delete, data: { confirm: "Are you sure?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "New book", new_book_path %>
+```
+@[12]()
+@[13]()
+@[14-20]()
+@[21]()
+@[22]()
+
++++
+
+quick form example
+
+```
+<%= form_for @article, html: {class: "nifty_form"} do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :body, size: "60x12" %>
+  <%= f.submit "Create" %>
+<% end %>
+```
+
++++
+
+Read at home:
+
+https://guides.rubyonrails.org/action_view_overview.html
+
+https://guides.rubyonrails.org/layouts_and_rendering.html
+
+https://guides.rubyonrails.org/form_helpers.html
