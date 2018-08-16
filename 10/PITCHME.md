@@ -3,7 +3,7 @@
 
 ---
 
-#### Devise
+#### @css[no-text-transform](Devise)
 
 https://github.com/plataformatec/devise
 
@@ -14,17 +14,19 @@ in that case you could use [knock](https://github.com/nsarno/knock) instead.
 
 ---
 
-#### Pundit
+#### @css[no-text-transform](Pundit)
 
 https://github.com/varvet/pundit
 
-must have one.
+must have one. Helps you to manage permissions logic, e.g. **authorization**
+(not _authentication_).
+
 [cancancan](https://github.com/CanCanCommunity/cancancan) is an alternative,
 but it's a bit too "_magical"_.
 
 ---
 
-#### Bullet
+#### @css[no-text-transform](Bullet)
 
 https://github.com/flyerhzm/bullet
 
@@ -32,7 +34,7 @@ helps you to spot N+1 Query Problems AND unused eager loading.
 
 ---
 
-#### Enumerize
+#### @css[no-text-transform](Enumerize)
 
 https://github.com/brainspec/enumerize
 
@@ -41,7 +43,7 @@ and it has support for "multiple" enums, e.g. like an array of enum values.
 
 ---
 
-#### Kaminari
+#### @css[no-text-transform](Kaminari)
 
 https://github.com/kaminari/kaminari
 
@@ -49,7 +51,7 @@ Paginator for Ruby webapps
 
 ---
 
-#### RailsAdmin
+#### @css[no-text-transform](RailsAdmin)
 
 https://github.com/sferik/rails_admin
 
@@ -64,7 +66,7 @@ actually **a lot** of work).
 
 ---
 
-#### CarrierWave
+#### @css[no-text-transform](CarrierWave)
 
 https://github.com/carrierwaveuploader/carrierwave
 
@@ -73,7 +75,7 @@ should use [shrine](https://github.com/shrinerb/shrine)
 
 ---
 
-#### Sidekiq
+#### @css[no-text-transform](Sidekiq)
 
 https://github.com/mperham/sidekiq
 
@@ -81,7 +83,7 @@ Background processing with job queues stored in [redis](https://redis.io/).
 
 ---
 
-#### dry-transaction
+#### @css[no-text-transform](dry-transaction)
 
 http://dry-rb.org/gems/dry-transaction/
 
