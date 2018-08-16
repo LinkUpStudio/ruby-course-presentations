@@ -87,7 +87,23 @@ Background processing with job queues stored in [redis](https://redis.io/).
 
 http://dry-rb.org/gems/dry-transaction/
 
-A great place for your business logic :)
+A great place for your business logic :) <br>
 But it could seem a bit hard to grasp for beginners, so you could try
 [mutations](https://github.com/cypriss/mutations) instead, they are pretty cool
 too, but dry-transaction is more advanced.
+
+---
+
+#### BONUS
+
++++
+
+#### @css[no-text-transform](Airbrake + Errbit)
+
+https://github.com/airbrake/airbrake <br>
+https://github.com/errbit/errbit
+
+Airbrake is actually a _paid_ error catcher, but Errbit is the
+open source self-hosted alternative, that's **Airbrake API compliant**. <br>
+So you can host your Errbit server, and use Airbrake gem to connect your app
+with it!
